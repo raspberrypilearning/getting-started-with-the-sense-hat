@@ -29,3 +29,57 @@ You have probably already discovered that you you can easily change the message 
     | :---: | :---: |
     | **scroll_speed** | The *scroll_speed* parameter affects how quickly the text moves on the screen the default value is 0.1. The bigger the number the **slower** the speed |
     | **text_colour** | The *text_colour* parameter alters the colour of the text and is specified as 3 values for Red,Green,Blue. Each value can be between 0 - 255, so [255,0,255] would be Red + Blue = Purple |
+    | **back_colour** | The *back_colour* parameter alters the colour of the background and is specified as 3 values for Red,Green,Blue. Each value can be between 0 - 255, so [255,0,255] would be Red + Blue = Purple |
+
+    So this program would display the text `Astro Pi is awesome!!` more slowly with the text in yellow **[255,255,0]** and the background in blue **[0,0,255]**.
+
+    ```python
+    from astro_pi import AstroPi
+    ap = AstroPi()
+    ap.show_message("Astro Pi is awesome!!",scroll_speed=0.05,text_colour=[255,255,0],back_colour=[0,0,255])
+    ```
+    You could also make the message repeat using a while loop like this:
+
+    ```python
+    from astro_pi import AstroPi
+    ap = AstroPi()
+    while True:
+        ap.show_message("Astro Pi is awesome!!",scroll_speed=0.05,text_colour=[255,255,0],back_colour=[0,0,255])
+    ```
+2. The LED matrix can also display a single character rather than an entire message using the `ap.show_letter` function which also has some optional **parameters**.
+
+    | Parameter | Effect |
+    | :---: | :---: |
+    | **scroll_speed** | The *scroll_speed* parameter affects how quickly the text moves on the screen the default value is 0.1. The bigger the number the **slower** the speed |
+    | **text_colour** | The *text_colour* parameter alters the colour of the text and is specified as 3 values for Red,Green,Blue. Each value can be between 0 - 255, so [255,0,255] would be Red + Blue = Purple |
+    | **back_colour** | The *back_colour* parameter alters the colour of the background and is specified as 3 values for Red,Green,Blue. Each value can be between 0 - 255, so [255,0,255] would be Red + Blue = Purple |
+
+    So this program would display a single Red "J":
+
+    ```python
+    from astro_pi import AstroPi
+    ap = AstroPi()
+    ap.show_letter("J",text_colour=[255,0,0])
+    ```
+
+    Whilst this program would add the **sleep library** to display letters seperated by a brief pause.
+
+    ```python
+    from astro_pi import AstroPi
+    import time
+
+    ap = AstroPi()
+    ap.show_letter("O",text_colour=[255,0,0])
+    time.sleep(1)
+    ap.show_letter("M",text_colour=[0,0,255])
+    time.sleep(1)
+    ap.show_letter("G",text_colour=[0,255,0])
+    time.sleep(1)
+    ap.show_letter("!",text_colour=[0,0,0],back_colour=[255,255,255])
+    time.sleep(1)
+    ap.clear()
+    ```
+
+### Ideas
+ - Could you use the ideas used so far to tell a joke via the LED screen?
+ - If your Astro Pi is connected to the internet you could use a twitter library to make it display incoming tweets!

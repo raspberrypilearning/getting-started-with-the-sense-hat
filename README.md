@@ -1,22 +1,19 @@
-# Getting Started with Programming the Minecraft World
+# Getting Started with Programming Astro Pi
 
 ![](cover.png)
 
-Minecraft is a popular sandbox open world-building game. A free version of Minecraft is available for the Raspberry Pi; it also comes with a programming interface. This means you can write commands and scripts in Python code to build things in the game automatically. It's a great way to learn Python!
-
-![Minecraft Pi banner](images/minecraft-pi-banner.png)
+The Astro Pi HAT is an add on board for the Raspberry Pi which allows you to sense a range of inputs and do creative things with them, including displaying information using the LED matrix. This activity will help you a get started using the sensors and LEDs in your projects
 
 ## Requirements
+Before following this resource it is a good idea to review the Astro Pi [guide](https://github.com/raspberrypilearning/guides/tree/master/astro-pi), which will help you get your Astro Pi setup and configured.
 
 ### Hardware
 
-This resource requires no additional hardware besides a Raspberry Pi with a Raspbian SD card.
+In order to follow this resource you will need an Astro Pi HAT, which can be obtained by entering the [Astro Pi Competition](www.astropi.org)
 
 ### Software
 
-Minecraft has been installed by default in Raspbian since September 2014.
-
-If you do not have it installed, or you need to test it works, see the [software installation](software.md) page.
+In order to communicate with the Astro Pi board you will need to install the Python Software libraries, which
 
 ## The worksheet
 
