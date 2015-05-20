@@ -83,3 +83,13 @@ You have probably already discovered that you you can easily change the message 
 ### Ideas
  - Could you use the ideas used so far to tell a joke via the LED screen?
  - If your Astro Pi is connected to the internet you could use a twitter library to make it display incoming tweets!
+
+
+## Displaying images
+Plotting points and using arrays
+
+## Setting orientation
+Using for loop and rand to create virtual dice
+
+## Detecting movement
+accelorometer to trigger dice
