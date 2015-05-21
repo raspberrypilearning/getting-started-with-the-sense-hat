@@ -11,8 +11,8 @@ Once you are set up and have run your first program using the guide you can begi
 When following the guide you will have written a sample program which scrolls text across the LED matrix, the program contains two crucial lines, which import the Astro Pi software an create an `ap` object which represents the Astro Pi board.
 
     ```python
-        from astro_pi import AstroPi
-        ap = AstroPi()
+    from astro_pi import AstroPi
+    ap = AstroPi()
     ```
 
 The third line is the one that starts to make the Astro Pi do something:
