@@ -28,8 +28,8 @@ You have probably already discovered that you you can easily change the message 
     | Parameter | Effect |
     | :---: | :--- |
     | **scroll_speed** | The *scroll_speed* parameter affects how quickly the text moves on the screen the default value is 0.1. The bigger the number the **slower** the speed |
-    | **text_colour** | The *text_colour* parameter alters the colour of the text and is specified as 3 values for Red,Green,Blue. Each value can be between 0 - 255, so [255,0,255] would be Red + Blue = Purple |
-    | **back_colour** | The *back_colour* parameter alters the colour of the background and is specified as 3 values for Red,Green,Blue. Each value can be between 0 - 255, so [255,0,255] would be Red + Blue = Purple |
+    | **text_colour** | The *text_colour* parameter alters the colour of the text and is specified using 3 values for Red,Green,Blue. Each value can be between 0 - 255, so [255,0,255] would be Red + Blue = Purple |
+    | **back_colour** | The *back_colour* parameter alters the colour of the background and works in the same way as the *text_colour* |
 
     So this program would display the text `Astro Pi is awesome!!` more slowly with the text in yellow **[255,255,0]** and the background in blue **[0,0,255]**.
 
