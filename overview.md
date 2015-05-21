@@ -1,3 +1,3 @@
-In this resource you will explore the virtual world of Minecraft Pi, the special edition of Minecraft made for Raspberry Pi.
+In this resource you will explore the Astro Pi Hardware and Python Library.
 
-You will learn how to control the player, manually build with blocks and use the Python interface to manipulate the world around you.
+You will learn how to control LED matrix, conllect sensor data from the world around you and combine these ideas in a number of small projects.
