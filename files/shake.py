@@ -13,4 +13,4 @@ while True:
       ap.show_letter("!",text_colour=[255,0,0])
   else:
       ap.clear()
-  time.sleep(0.1)
+  time.sleep(0.1
