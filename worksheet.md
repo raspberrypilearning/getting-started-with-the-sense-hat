@@ -35,20 +35,20 @@ You have probably already discovered that you can easily change the message to y
 
 So this program would display the text `Astro Pi is awesome!!` more slowly, with the text in yellow **[255,255,0]** and the background in blue **[0,0,255]**:
 
- ```python
-    from astro_pi import AstroPi
-    ap = AstroPi()
-    ap.show_message("Astro Pi is awesome!!",scroll_speed=0.05,text_colour=[255,255,0],back_colour=[0,0,255])
-    ```
+```python
+from astro_pi import AstroPi
+ap = AstroPi()
+ap.show_message("Astro Pi is awesome!!",scroll_speed=0.05,text_colour=[255,255,0],back_colour=[0,0,255])
+```
 
 You could also make the message repeat using a while loop like this:
 
-    ```python
-    from astro_pi import AstroPi
-    ap = AstroPi()
-    while True:
-        ap.show_message("Astro Pi is awesome!!",scroll_speed=0.05,text_colour=[255,255,0],back_colour=[0,0,255])
-    ```
+```python
+from astro_pi import AstroPi
+ap = AstroPi()
+while True:
+    ap.show_message("Astro Pi is awesome!!",scroll_speed=0.05,text_colour=[255,255,0],back_colour=[0,0,255])
+```
 
 2. The LED matrix can also display a single character, rather than an entire message, using the `ap.show_letter` function which also has some optional **parameters**.
 
@@ -60,56 +60,56 @@ You could also make the message repeat using a while loop like this:
 
 So this program would display a single Red "J":
 
-    ```python
-    from astro_pi import AstroPi
-    ap = AstroPi()
-    ap.show_letter("J",text_colour=[255,0,0])
-    ```
+```python
+from astro_pi import AstroPi
+ap = AstroPi()
+ap.show_letter("J",text_colour=[255,0,0])
+```
 
 And this program would add the **sleep library** to display letters separated by a brief pause:
 
-    ```python
-    from astro_pi import AstroPi
-    import time
-    
-    ap = AstroPi()
+```python
+from astro_pi import AstroPi
+import time
 
-    ap.show_letter("O",text_colour=[255,0,0])
-    time.sleep(1)
-    ap.show_letter("M",text_colour=[0,0,255])
-    time.sleep(1)
-    ap.show_letter("G",text_colour=[0,255,0])
-    time.sleep(1)
-    ap.show_letter("!",text_colour=[0,0,0],back_colour=[255,255,255])
-    time.sleep(1)
-    ap.clear()
-    ```
-    
+ap = AstroPi()
+
+ap.show_letter("O",text_colour=[255,0,0])
+time.sleep(1)
+ap.show_letter("M",text_colour=[0,0,255])
+time.sleep(1)
+ap.show_letter("G",text_colour=[0,255,0])
+time.sleep(1)
+ap.show_letter("!",text_colour=[0,0,0],back_colour=[255,255,255])
+time.sleep(1)
+ap.clear()
+```
+
 For added interest you could use a random number generator to choose a number between 0 and 255 for the colours:
 
-    ```python
-    from astro_pi import AstroPi
-    import time
-    import random
+```python
+from astro_pi import AstroPi
+import time
+import random
 
-    ap = AstroPi()
+ap = AstroPi()
 
-    r = random.randint(0,255)
-    ap.show_letter("O",text_colour=[r,0,0])
-    time.sleep(1)
+r = random.randint(0,255)
+ap.show_letter("O",text_colour=[r,0,0])
+time.sleep(1)
 
-    r = random.randint(0,255)
-    ap.show_letter("M",text_colour=[0,0,r])
-    time.sleep(1)
+r = random.randint(0,255)
+ap.show_letter("M",text_colour=[0,0,r])
+time.sleep(1)
 
-    r = random.randint(0,255)
-    ap.show_letter("G",text_colour=[0,r,0])
-    time.sleep(1)
+r = random.randint(0,255)
+ap.show_letter("G",text_colour=[0,r,0])
+time.sleep(1)
 
-    ap.show_letter("!",text_colour=[0,0,0],back_colour=[255,255,255])
-    time.sleep(1)
-    ap.clear()
-    ```
+ap.show_letter("!",text_colour=[0,0,0],back_colour=[255,255,255])
+time.sleep(1)
+ap.clear()
+```
 
 In both these programs the `ap.clear()` method has been used at the end to clear the matrix.
 
@@ -137,14 +137,14 @@ The Astro Pi board uses a coordinate system like the one shown below; crucially 
 
     To replicate the above diagram you would enter a program like this:
 
-    ```python
+```python
 from astro_pi import AstroPi
 ```
 
     Can you guess what the following code creates?
 
 
-    ```python
+```python
 from astro_pi import AstroPi
 
 ap = AstroPi()
@@ -162,8 +162,8 @@ ap.set_pixel(5,5,[255,0,0])
 1. Setting pixels individually can work brilliantly, but it gets rather complex when you want to set more pixels. There is another method which can set all the pixels in one go called `ap.set_pixels`. Its use is quite straightforward; we just give a list of colour values for each pixel in the matrix.
 
     We could enter something like...
-    
-    ```python
+
+```python
 ap.set_pixels([[255,0,0],[255,0,0],[255,0,0],[255,0,0],......])
 ```
 
@@ -171,7 +171,7 @@ ap.set_pixels([[255,0,0],[255,0,0],[255,0,0],[255,0,0],......])
 
 Instead, you can use some variables to define your colour palette (in this example we're using the 7 colours of the rainbow):
 
-    ```python
+```python
 r = [255,0,0]
 o = [255,127,0]
 y = [255,255,0]
@@ -184,7 +184,7 @@ e = [0,0,0] #e stands for empty/black
 
 We can then describe our matrix by creating a 2D list of colour names:
 
-    ```python
+```python
 image = [
 e,e,e,e,e,e,e,e,
 e,e,e,r,r,e,e,e,
@@ -195,12 +195,11 @@ y,g,g,b,b,g,g,y,
 b,b,b,i,i,b,b,b,
 b,i,i,v,v,i,i,b
 ]
-
 ```
 
 We then give the `image` list to the `ap.set_pixels` method and draw the image. The finished program would look like this:
 
-    ```python
+```python
 from astro_pi import AstroPi
 
 
@@ -248,55 +247,55 @@ ap.set_rotation(180)
 
 1. When used in the rainbow program it would look like this:
 
-    ```python
-    from astro_pi import AstroPi
+```python
+from astro_pi import AstroPi
 
-    ap = AstroPi()
+ap = AstroPi()
 
-    r = [255,0,0]
-    o = [255,127,0]
-    y = [255,255,0]
-    g = [0,255,0]
-    b = [0,0,255]
-    i = [75,0,130]
-    v = [159,0,255]
-    e = [0,0,0]
+r = [255,0,0]
+o = [255,127,0]
+y = [255,255,0]
+g = [0,255,0]
+b = [0,0,255]
+i = [75,0,130]
+v = [159,0,255]
+e = [0,0,0]
 
-    image = [
-    e,e,e,e,e,e,e,e,
-    e,e,e,r,r,e,e,e,
-    e,r,r,o,o,r,r,e,
-    r,o,o,y,y,o,o,r,
-    o,y,y,g,g,y,y,o,
-    y,g,g,b,b,g,g,y,
-    b,b,b,i,i,b,b,b,
-    b,i,i,v,v,i,i,b
-    ]
+image = [
+e,e,e,e,e,e,e,e,
+e,e,e,r,r,e,e,e,
+e,r,r,o,o,r,r,e,
+r,o,o,y,y,o,o,r,
+o,y,y,g,g,y,y,o,
+y,g,g,b,b,g,g,y,
+b,b,b,i,i,b,b,b,
+b,i,i,v,v,i,i,b
+]
 
-    ap.set_pixels(image)
-    ap.set_rotation(180)
-    ```
+ap.set_pixels(image)
+ap.set_rotation(180)
+```
 
 2. You could also create spinning text using a for loop:
 
-    ```python
-    from astro_pi import AstroPi
-    import time
+```python
+from astro_pi import AstroPi
+import time
 
-    ap = AstroPi()
+ap = AstroPi()
 
-    ap.show_letter("J")
+ap.show_letter("J")
 
-    for r in (0,90,180,270,0,90,180,270):
-        ap.set_rotation(r)
-        time.sleep(0.5)
-    ```
+for r in (0,90,180,270,0,90,180,270):
+    ap.set_rotation(r)
+    time.sleep(0.5)
+```
 
 This program displays the letter "J" and then sets the rotation to each value in the brackets (0,90,180...) with a 0.5 second pause.
 
 3. You can also flip the image on the screen, either horizontally or vertically, using these lines:
 
-    ```python
+```python
 ap.flip_h()
 ```
 or
@@ -306,32 +305,32 @@ ap.flip_v()
 
 With this example you could create a simple animation by flipping the image repeatedly:
 
-    ```python
-    from astro_pi import AstroPi
-    import time
-    ap = AstroPi()
+```python
+from astro_pi import AstroPi
+import time
+ap = AstroPi()
 
-    w = [150,150,150]
-    b = [0,0,255]
-    e = [0,0,0]
+w = [150,150,150]
+b = [0,0,255]
+e = [0,0,0]
 
-    image = [
-    e,e,e,e,e,e,e,e,
-    e,e,e,e,e,e,e,e,
-    w,w,w,e,e,w,w,w,
-    w,w,b,e,e,w,w,b,
-    w,w,w,e,e,w,w,w,
-    e,e,e,e,e,e,e,e,
-    e,e,e,e,e,e,e,e,
-    e,e,e,e,e,e,e,e
-    ]
+image = [
+e,e,e,e,e,e,e,e,
+e,e,e,e,e,e,e,e,
+w,w,w,e,e,w,w,w,
+w,w,b,e,e,w,w,b,
+w,w,w,e,e,w,w,w,
+e,e,e,e,e,e,e,e,
+e,e,e,e,e,e,e,e,
+e,e,e,e,e,e,e,e
+]
 
-    ap.set_pixels(image)
+ap.set_pixels(image)
 
-    while True:
-        time.sleep(1)
-        ap.flip_h()
-    ```
+while True:
+    time.sleep(1)
+    ap.flip_h()
+```
 
 ### Ideas
 
@@ -364,7 +363,7 @@ We can collect these readings using three simple methods:
 
 1. Using these, we could create a simple scrolling text display, which could keep people informed about current conditions.
 
-    ```python
+```python
 from astro_pi import AstroPi
 ap = AstroPi()
 
@@ -385,14 +384,14 @@ while True:
 2. You could now use some colour to let the astronauts know whether conditions are within sensible ranges.
 
     According to some [online documentation](http://wsn.spaceflight.esa.int/docs/Factsheets/30%20ECLSS%20LR.pdf) the International Space Station maintains these conditions at the following levels:
-    
+
     - Temperature (18.3 - 26.7 Celsius)
     - Pressure (979 - 1027 millibars)
     - Humidity (around 60%)
 
 You could use an `if` statement in your code to check these conditions, and set a background colour for the scroll:
 
-    ```python
+```python
 if t > 18.3 and t< 26.7:
     bg = [0,100,0] #green
 else:
@@ -401,7 +400,7 @@ else:
 
 Your complete program would look like this:
 
-    ```python
+```python
 from astro_pi import AstroPi
 ap = AstroPi()
 
@@ -459,7 +458,7 @@ This would get the three orientation values (measured in degrees) and store them
 
 1. You can explore these values with a simple program:
 
-    ```python
+```python
 from astro_pi import AstroPi
 ap = AstroPi()
 import time
@@ -474,7 +473,7 @@ while True:
 
 In this example, the amount of gravitational acceleration for each axis (x, y, and z) is extracted and is then rounded to the nearest whole number:
 
-    ```python
+```python
 from astro_pi import AstroPi
 ap = AstroPi()
 import time
@@ -495,7 +494,7 @@ As you turn the screen you should see the values for x and y change between -1 a
 
 1. If we know which way round the Astro Pi is, then we can use that information to set the orientation of the LED matrix. First you would display something on the matrix, and then continually check which way round the board is, and use that to update the orientation of the display.
 
-    ```python
+```python
 from astro_pi import AstroPi
 ap = AstroPi()
 import time
@@ -524,7 +523,7 @@ In this program you are using an `if, elif, else` structure to check which way r
 
 1. If the board is only rotated, it will only experience 1g of acceleration in any direction; if we were to shake it, the sensor would experience more than 1g. We could then detect that rapid motion and respond. For this program we will introduce the `abs()` function which is not specific to Astro Pi and is part of standard Python. `abs()` gives us the size of a value and ignores whether the value is positive or negative. This is helpful as we don't care which direction the sensor is being shaken, just that it is shaken.
 
-    ```python
+```python
 from astro_pi import AstroPi
 ap = AstroPi()
 import time
@@ -541,7 +540,7 @@ while True:
   else:
       ap.clear()
   time.sleep(0.1)
-  ```
+```
 
 You might find this is quite sensitive, but you could change the value from 1 to a higher number.
 
@@ -587,8 +586,8 @@ As this is more complicated than previous programs it's worth planning out the s
 
 If you turned this into Python it could look like this:
 
-  ```python
-  from astro_pi import AstroPi
+```python
+from astro_pi import AstroPi
 import time
 import random
 ap = AstroPi()
