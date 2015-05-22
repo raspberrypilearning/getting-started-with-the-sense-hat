@@ -73,7 +73,7 @@ You have probably already discovered that you can easily change the message to y
     ap.show_letter("J",text_colour=[255, 0, 0])
     ```
 
-    And this program would add the **sleep library** to display letters separated by a brief pause:
+    And this program would add the **sleep function** to display letters separated by a brief pause:
 
     ```python
     from astro_pi import AstroPi
