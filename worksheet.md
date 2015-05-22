@@ -87,7 +87,7 @@ time.sleep(1)
 ap.clear()
 ```
 
-    Click **File** -- **Save As**, give you program a name eg `omg.py`. Then press **F5** to run.
+    Click **File** -- **Save As**, give you program a name eg [`omg.py`](files/omg.py). Then press **F5** to run.
 
     For added interest you could use a random number generator to choose a number between 0 and 255 for the colours:
 
@@ -115,7 +115,8 @@ time.sleep(1)
 ap.clear()
 ```
 
-    Click **File** -- **Save As**, give you program a name eg `random_omg.py`. Then press **F5** to run.
+    Click **File** -- **Save As**, give you program a name eg [`random_omg.py`](files/random_omg.py). Then press **F5** to run.
+
     In both these programs the `ap.clear()` method has been used at the end to clear the matrix.
 
 
@@ -169,7 +170,7 @@ ap.set_pixel(4,6,[255,0,0])
 ap.set_pixel(5,5,[255,0,0])
 ```
 
-    Click **File** -- **Save As**, give you program a name eg `simple_image.py`. Then press **F5** to run.
+    Click **File** -- **Save As**, give you program a name eg [`simple_image.py`](files/simple_image.py). Then press **F5** to run.
 
 1. Setting pixels individually can work brilliantly, but it gets rather complex when you want to set more pixels. There is another method which can set all the pixels in one go called `ap.set_pixels`. Its use is quite straightforward; we just give a list of colour values for each pixel in the matrix.
 
@@ -239,7 +240,7 @@ b,i,i,v,v,i,i,b
 
 ap.set_pixels(image)
 ```
-    Click **File** -- **Save As**, give you program a name eg `rainbow.py`. Then press **F5** to run.
+    Click **File** -- **Save As**, give you program a name eg [`rainbow.py`](files/rainbow.py). Then press **F5** to run.
 
     You should have a beautiful rainbow displayed on your LED matrix.
 
@@ -289,7 +290,7 @@ ap.set_pixels(image)
 ap.set_rotation(180)
 ```
 
-    Click **File** -- **Save As**, give you program a name eg `rainbow_flip.py`. Then press **F5** to run.
+    Click **File** -- **Save As**, give you program a name eg [`rainbow_flip.py`](files/rainbow_flip.py). Then press **F5** to run.
 
 2. You could also create spinning text using a **for** loop:
 
@@ -308,7 +309,7 @@ for r in (0,90,180,270,0,90,180,270):
 
     This program displays the letter "J" and then sets the rotation to each value in the brackets (0,90,180...) with a 0.5 second pause.
 
-    Click **File** -- **Save As**, give you program a name eg `spinning_j.py`. Then press **F5** to run.
+    Click **File** -- **Save As**, give you program a name eg [`spinning_j.py`](files/spinning_j.py). Then press **F5** to run.
 
 3. You can also flip the image on the screen, either horizontally or vertically, using these lines:
 
@@ -349,7 +350,7 @@ while True:
     ap.flip_h()
 ```
 
-    Click **File** -- **Save As**, give you program a name eg `eyes.py`. Then press **F5** to run.
+    Click **File** -- **Save As**, give you program a name eg [`eyes.py`](files/eyes.py). Then press **F5** to run.
 
 ### Ideas
 
@@ -400,7 +401,7 @@ while True:
     ap.show_message(msg,scroll_speed=0.05)
 ```
 
-    Click **File** -- **Save As**, give you program a name eg `env.py`. Then press **F5** to run.
+    Click **File** -- **Save As**, give you program a name eg [`env.py`](files/env.py). Then press **F5** to run.
 
 2. You could now use some colour to let the astronauts know whether conditions are within sensible ranges.
 
@@ -444,7 +445,7 @@ while True:
     ap.show_message(msg,scroll_speed=0.05,backcolour=bg)
 ```
 
-    Click **File** -- **Save As**, give you program a name eg `scrolling_env.py`. Then press **F5** to run.
+    Click **File** -- **Save As**, give you program a name eg [`scrolling_env.py`](files/scrolling_env.py). Then press **F5** to run.
 
 ### Ideas
 
@@ -491,7 +492,7 @@ while True:
     time.sleep(0.5)
 ```
 
-    Click **File** -- **Save As**, give you program a name eg `orientation.py`. Then press **F5** to run.
+    Click **File** -- **Save As**, give you program a name eg [`orientation.py`](files/orientation.py). Then press **F5** to run.
 
 2. Another way to detect orientation is to use the `ap.get_accelerometer_raw()` method which tells you the amount of g-force acting on each axis. If any axis has ±1g then you know that axis is pointing downwards.
 
@@ -513,7 +514,7 @@ while True:
   time.sleep(0.1)
 ```
 
-    Click **File** -- **Save As**, give you program a name eg `acceleration.py`. Then press **F5** to run.
+    Click **File** -- **Save As**, give you program a name eg [`acceleration.py`](files/acceleration.py). Then press **F5** to run.
 
     As you turn the screen you should see the values for x and y change between -1 and 1. If you place the Pi flat or turn it upside down, the z axis will be 1 and then -1.
 
@@ -545,7 +546,7 @@ while True:
   time.sleep(0.1)
 ```
 
-    Click **File** -- **Save As**, give you program a name eg `rotating_letter.py`. Then press **F5** to run.
+    Click **File** -- **Save As**, give you program a name eg [`rotating_letter.py`](files/rotating_letter.py). Then press **F5** to run.
 
     In this program you are using an `if, elif, else` structure to check which way round the Astro Pi is. The `if` and `elif` test three of the orientations, and if the orientation doesn't match any of these then the program assumes it is the "right" way round. By using the `else` statement we also catch all those other situations, like when the board is at 45 degrees or sitting level.
 
@@ -569,7 +570,7 @@ while True:
       ap.clear()
   time.sleep(0.1)
 ```
-    Click **File** -- **Save As**, give you program a name eg `shake.py`. Then press **F5** to run.
+    Click **File** -- **Save As**, give you program a name eg [`shake.py`](shake.py). Then press **F5** to run.
 
     You might find this is quite sensitive, but you could change the value from 1 to a higher number.
 
@@ -707,7 +708,7 @@ msg = "Your score was %s" % (score)
 ap.show_message(msg,scroll_speed=0.05,text_colour=[100,100,100])
 ```
 
-    Click **File** -- **Save As**, give you program a name eg `reaction_game.py`. Then press **F5** to run.
+    Click **File** -- **Save As**, give you program a name eg [`reaction_game.py`](files/reaction_game.py). Then press **F5** to run.
 
 Here's a video showing it being demonstrated:
 
