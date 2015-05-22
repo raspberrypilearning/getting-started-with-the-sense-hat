@@ -12,6 +12,7 @@ When following the [guide](https://github.com/raspberrypilearning/guides/blob/ma
 
 ```python
 from astro_pi import AstroPi
+
 ap = AstroPi()
 ```
 
@@ -25,37 +26,36 @@ You have probably already discovered that you can easily change the message to y
 
 1. We can expand the `ap.show_message` command to include some extra **parameters** which will change the behaviour of the message.
 
-
-
     | Parameter | Effect |
     | --- | --- |
     | **scroll_speed** | The *scroll_speed* parameter affects how quickly the text moves on the screen. The default value is 0.1. The bigger the number, the **slower** the speed |
     | **text_colour** | The *text_colour* parameter alters the colour of the text and is specified using 3 values for Red, Green, Blue. Each value can be between 0 - 255, so [255,0,255] would be Red + Blue = Purple |
     | **back_colour** | The *back_colour* parameter alters the colour of the background and works in the same way as the *text_colour* |
     
-
-    
     So this program would display the text `Astro Pi is awesome!!` more slowly, with the text in yellow **[255,255,0]** and the background in blue **[0,0,255]**:
 
     ```python
     from astro_pi import AstroPi
+    
     ap = AstroPi()
-    ap.show_message("Astro Pi is awesome!!",scroll_speed=0.05,text_colour=[255,255,0],back_colour=[0,0,255])
+    
+    ap.show_message("Astro Pi is awesome!!", scroll_speed=0.05, text_colour=[255,255,0], back_colour=[0,0,255])
     ```
 
     You could also make the message repeat using a while loop like this:
 
     ```python
     from astro_pi import AstroPi
+    
     ap = AstroPi()
+    
     while True:
-        ap.show_message("Astro Pi is awesome!!",scroll_speed=0.05,text_colour=[255,255,0],back_colour=[0,0,255])
+        ap.show_message("Astro Pi is awesome!!", scroll_speed=0.05, text_colour=[255,255,0], back_colour=[0,0,255])
     ```
 
 1. Click **File** -- **Save As**, give you program a name eg [`loop_text.py`](files/loop_text.py). Then press **F5** to run.
 
 1. The LED matrix can also display a single character, rather than an entire message, using the `ap.show_letter` function which also has some optional **parameters**.
-
 
     | Parameter | Effect |
     | --- | --- |
@@ -63,13 +63,13 @@ You have probably already discovered that you can easily change the message to y
     | **text_colour** | The *text_colour* parameter alters the colour of the text and is specified as 3 values for Red, Green, Blue. Each value can be between 0 - 255, so [255,0,255] would be Red + Blue = Purple |
     | **back_colour** | The *back_colour* parameter alters the colour of the background and is specified as 3 values for Red, Green, Blue. Each value can be between 0 - 255, so [255,0,255] would be Red + Blue = Purple |
 
-
-
     So this program would display a single Red "J":
 
     ```python
     from astro_pi import AstroPi
+    
     ap = AstroPi()
+    
     ap.show_letter("J",text_colour=[255,0,0])
     ```
 
@@ -124,14 +124,12 @@ You have probably already discovered that you can easily change the message to y
 
     In both these programs the `ap.clear()` method has been used at the end to clear the matrix.
 
-
 ### Ideas
 
  - Could you use the ideas used so far to tell a joke via the LED screen?
  - All the examples so far could be made shorter, while still achieving the same thing. Can you find ways to make these shorter and more efficient?
  - How would you choose a totally random colour, rather than just a random shade of a colour?
  - If your Astro Pi is connected to the internet you could use a Twitter library to make it display incoming tweets!
-
 
 ## Displaying images
 
@@ -153,26 +151,25 @@ The LED matrix can display more that just text! We can control each LED individu
 
     ap = AstroPi()
 
-    ap.set_pixel(0,2,[0,0,255])
-    ap.set_pixel(4,2,[255,0,0])
+    ap.set_pixel(0, 2, [0,0,255])
+    ap.set_pixel(4, 2, [255,0,0])
     ```
 
     Can you guess what the following code creates?
-
 
     ```python
     from astro_pi import AstroPi
 
     ap = AstroPi()
 
-    ap.set_pixel(2,2,[0,0,255])
-    ap.set_pixel(4,2,[0,0,255])
-    ap.set_pixel(3,4,[100,0,0])
-    ap.set_pixel(1,5,[255,0,0])
-    ap.set_pixel(2,6,[255,0,0])
-    ap.set_pixel(3,6,[255,0,0])
-    ap.set_pixel(4,6,[255,0,0])
-    ap.set_pixel(5,5,[255,0,0])
+    ap.set_pixel(2, 2, [0, 0, 255])
+    ap.set_pixel(4, 2, [0, 0, 255])
+    ap.set_pixel(3, 4, [100, 0, 0])
+    ap.set_pixel(1, 5, [255, 0, 0])
+    ap.set_pixel(2, 6, [255, 0, 0])
+    ap.set_pixel(3, 6, [255, 0, 0])
+    ap.set_pixel(4, 6, [255, 0, 0])
+    ap.set_pixel(5, 5, [255, 0, 0])
     ```
 
 1. Click **File** -- **Save As**, give you program a name eg [`simple_image.py`](files/simple_image.py). Then press **F5** to run.
@@ -182,7 +179,7 @@ The LED matrix can display more that just text! We can control each LED individu
     We could enter something like...
 
     ```python
-    ap.set_pixels([[255,0,0],[255,0,0],[255,0,0],[255,0,0],......])
+    ap.set_pixels([[255, 0, 0], [255, 0, 0], [255, 0, 0], [255, 0, 0],......])
     ```
 
     ...but this would take ages and be really complex.
@@ -190,14 +187,14 @@ The LED matrix can display more that just text! We can control each LED individu
     Instead, you can use some variables to define your colour palette (in this example we're using the 7 colours of the rainbow):
 
     ```python
-    r = [255,0,0]
-    o = [255,127,0]
-    y = [255,255,0]
-    g = [0,255,0]
-    b = [0,0,255]
-    i = [75,0,130]
-    v = [159,0,255]
-    e = [0,0,0] #e stands for empty/black
+    r = [255, 0, 0]
+    o = [255, 127, 0]
+    y = [255, 255, 0]
+    g = [0, 255, 0]
+    b = [0, 0, 255]
+    i = [75, 0, 130]
+    v = [159, 0, 255]
+    e = [0, 0, 0]  # e stands for empty/black
     ```
 
     We can then describe our matrix by creating a 2D list of colour names:
@@ -219,7 +216,6 @@ The LED matrix can display more that just text! We can control each LED individu
 
     ```python
     from astro_pi import AstroPi
-
 
     ap = AstroPi()
 
@@ -271,14 +267,14 @@ ap.set_rotation(180)
 
     ap = AstroPi()
 
-    r = [255,0,0]
-    o = [255,127,0]
-    y = [255,255,0]
-    g = [0,255,0]
-    b = [0,0,255]
-    i = [75,0,130]
-    v = [159,0,255]
-    e = [0,0,0]
+    r = [255, 0, 0]
+    o = [255, 127, 0]
+    y = [255, 255, 0]
+    g = [0, 255, 0]
+    b = [0, 0, 255]
+    i = [75, 0, 130]
+    v = [159, 0, 255]
+    e = [0, 0, 0]
 
     image = [
     e,e,e,e,e,e,e,e,
@@ -307,12 +303,13 @@ ap.set_rotation(180)
 
     ap.show_letter("J")
 
-    for r in (0,90,180,270,0,90,180,270):
+    angles = [0, 90, 180, 270, 0, 90, 180, 270]
+    for r in angles:
         ap.set_rotation(r)
         time.sleep(0.5)
     ```
 
-    This program displays the letter "J" and then sets the rotation to each value in the brackets (0,90,180...) with a 0.5 second pause.
+    This program displays the letter "J" and then sets the rotation to each value in the angles list with a 0.5 second pause.
 
 1. Click **File** -- **Save As**, give you program a name eg [`spinning_j.py`](files/spinning_j.py). Then press **F5** to run.
 
@@ -333,11 +330,12 @@ ap.set_rotation(180)
     ```python
     from astro_pi import AstroPi
     import time
+    
     ap = AstroPi()
 
-    w = [150,150,150]
-    b = [0,0,255]
-    e = [0,0,0]
+    w = [150, 150, 150]
+    b = [0, 0, 255]
+    e = [0, 0, 0]
 
     image = [
     e,e,e,e,e,e,e,e,
@@ -399,13 +397,13 @@ We can collect these readings using three simple methods:
         p = ap.get_pressure()
         h = ap.get_humidity()
 
-        t = round(t,1)
-        p = round(p,1)
-        h = round(h,1)
+        t = round(t, 1)
+        p = round(p, 1)
+        h = round(h, 1)
 
         msg = "Temperature = %s, Pressure=%s, Humidity=%s" % (t,p,h)
 
-        ap.show_message(msg,scroll_speed=0.05)
+        ap.show_message(msg, scroll_speed=0.05)
     ```
 
 1. Click **File** -- **Save As**, give you program a name eg [`env.py`](files/env.py). Then press **F5** to run.
@@ -421,10 +419,10 @@ We can collect these readings using three simple methods:
     You could use an `if` statement in your code to check these conditions, and set a background colour for the scroll:
 
     ```python
-    if t > 18.3 and t< 26.7:
-        bg = [0,100,0] #green
+    if t > 18.3 and t < 26.7:
+        bg = [0, 100, 0] # green
     else:
-        bg = [100,0,0] #red
+        bg = [100, 0, 0] # red
     ```
 
     Your complete program would look like this:
@@ -438,18 +436,18 @@ We can collect these readings using three simple methods:
         p = ap.get_pressure()
         h = ap.get_humidity()
 
-        t = round(t,1)
-        p = round(p,1)
-        h = round(h,1)
+        t = round(t, 1)
+        p = round(p, 1)
+        h = round(h, 1)
 
-        if t > 18.3 and t< 26.7:
-            bg = [0,100,0] #green
+        if t > 18.3 and t < 26.7:
+            bg = [0, 100, 0]  # green
         else:
-            bg = [100,0,0] #red
+            bg = [100, 0, 0]  # red
 
-        msg = "Temperature = %s, Pressure=%s, Humidity=%s" % (t,p,h)
+        msg = "Temperature = %s, Pressure=%s, Humidity=%s" % (t, p, h)
 
-        ap.show_message(msg,scroll_speed=0.05,backcolour=bg)
+        ap.show_message(msg, scroll_speed=0.05, backcolour=bg)
     ```
 
 1. Click **File** -- **Save As**, give you program a name eg [`scrolling_env.py`](files/scrolling_env.py). Then press **F5** to run.
@@ -481,7 +479,7 @@ The three axes uses to describe motion are:
 You can find out the orientation of the Astro Pi board using the `ap.get_orientation()` method:
 
 ```python
-pitch,roll,yaw = ap.get_orientation().values()
+pitch, roll, yaw = ap.get_orientation().values()
 ```
 
 This would get the three orientation values (measured in degrees) and store them as the three variables `pitch`, `roll` and `yaw`. The `.values()` obtains the three values so that they can be stored separately.
@@ -490,12 +488,13 @@ This would get the three orientation values (measured in degrees) and store them
 
     ```python
     from astro_pi import AstroPi
-    ap = AstroPi()
     import time
+    
+    ap = AstroPi()
 
     while True:
-        pitch,roll,yaw = ap.get_orientation().values()
-        print("pitch=%s,roll=%s.yaw=%s" % (pitch,yaw,roll))
+        pitch, roll, yaw = ap.get_orientation().values()
+        print("pitch=%s, roll=%s, yaw=%s" % (pitch,yaw,roll))
         time.sleep(0.5)
     ```
 
@@ -507,17 +506,18 @@ This would get the three orientation values (measured in degrees) and store them
 
     ```python
     from astro_pi import AstroPi
-    ap = AstroPi()
     import time
+    
+    ap = AstroPi()
 
     while True:
-        x,y,z = ap.get_accelerometer_raw().values()
+        x, y, z = ap.get_accelerometer_raw().values()
 
-        x=round(x,0)
-        y=round(y,0)
-        z=round(z,0)
+        x=round(x, 0)
+        y=round(y, 0)
+        z=round(z, 0)
 
-        print("x=%s,y=%s.z=%s" % (x,y,z))
+        print("x=%s, y=%s, z=%s" % (x, y, z))
         time.sleep(0.1)
     ```
 
@@ -525,21 +525,21 @@ This would get the three orientation values (measured in degrees) and store them
 
     As you turn the screen you should see the values for x and y change between -1 and 1. If you place the Pi flat or turn it upside down, the z axis will be 1 and then -1.
 
-
 1. If we know which way round the Astro Pi is, then we can use that information to set the orientation of the LED matrix. First you would display something on the matrix, and then continually check which way round the board is, and use that to update the orientation of the display.
 
     ```python
     from astro_pi import AstroPi
-    ap = AstroPi()
     import time
+    
+    ap = AstroPi()
 
     ap.show_letter("J")
 
     while True:
-        x,y,z = ap.get_accelerometer_raw().values()
+        x, y, z = ap.get_accelerometer_raw().values()
 
-        x=round(x,0)
-        y=round(y,0)
+        x = round(x, 0)
+        y = round(y, 0)
 
         if x == -1:
             ap.set_rotation(180)
@@ -561,20 +561,22 @@ This would get the three orientation values (measured in degrees) and store them
 
     ```python
     from astro_pi import AstroPi
-    ap = AstroPi()
     import time
+    
+    ap = AstroPi()
 
     while True:
-        x,y,z = ap.get_accelerometer_raw().values()
+        x, y, z = ap.get_accelerometer_raw().values()
 
-        x=abs(x)
-        y=abs(y)
-        z=abs(z)
+        x = abs(x)
+        y = abs(y)
+        z = abs(z)
 
-        if x > 1 or y > 1 or z>1:
-            ap.show_letter("!",text_colour=[255,0,0])
+        if x > 1 or y > 1 or z > 1:
+            ap.show_letter("!", text_colour=[255, 0, 0])
         else:
             ap.clear()
+            
         time.sleep(0.1)
     ```
     
@@ -628,14 +630,15 @@ If you turned this into Python it could look like this:
 from astro_pi import AstroPi
 import time
 import random
+
 ap = AstroPi()
 
 # set up the colours (white, green, red, empty)
 
-w = [150,150,150]
-g = [0,255,0]
-r = [255,0,0]
-e = [0,0,0]
+w = [150, 150, 150]
+g = [0, 255, 0]
+r = [255, 0, 0]
+e = [0, 0, 0]
 
 # create images for three different coloured arrows
 
@@ -649,6 +652,7 @@ e,e,e,w,w,e,e,e,
 e,e,e,w,w,e,e,e,
 e,e,e,w,w,e,e,e
 ]
+
 arrow_red = [
 e,e,e,r,r,e,e,e,
 e,e,r,r,r,r,e,e,
@@ -659,6 +663,7 @@ e,e,e,r,r,e,e,e,
 e,e,e,r,r,e,e,e,
 e,e,e,r,r,e,e,e
 ]
+
 arrow_green = [
 e,e,e,g,g,e,e,e,
 e,e,g,g,g,g,e,e,
@@ -675,36 +680,36 @@ score = 0
 angle = 0
 play = True
 
-ap.show_message("Keep the arrow pointing up",scroll_speed=0.05,text_colour=[100,100,100])
+ap.show_message("Keep the arrow pointing up", scroll_speed=0.05, text_colour=[100,100,100])
 
-while play == True:
+while play:
     last_angle = angle
     while angle == last_angle:
-      angle = random.choice([0,90,180,270])
+        angle = random.choice([0, 90, 180, 270])
     ap.set_rotation(angle)
     ap.set_pixels(arrow)
     time.sleep(pause)
 
-    x,y,z = ap.get_accelerometer_raw().values()
-    x=round(x,0)
-    y=round(y,0)
+    x, y, z = ap.get_accelerometer_raw().values()
+    x = round(x, 0)
+    y = round(y, 0)
 
-    print (angle)
-    print (x)
-    print (y)
+    print(angle)
+    print(x)
+    print(y)
 
     if x == -1 and angle == 180:
-      ap.set_pixels(arrow_green)
-      score = score + 1
+        ap.set_pixels(arrow_green)
+        score += 1
     elif x == 1 and angle == 0:
       ap.set_pixels(arrow_green)
-      score = score + 1
+      score += 1
     elif y == -1 and angle == 90:
       ap.set_pixels(arrow_green)
-      score = score + 1
+      score += 1
     elif y == 1 and angle == 270:
       ap.set_pixels(arrow_green)
-      score = score + 1
+      score += 1
     else:
       ap.set_pixels(arrow_red)
       play = False
@@ -712,8 +717,8 @@ while play == True:
     pause = pause * 0.95
     time.sleep(0.5)
 
-msg = "Your score was %s" % (score)
-ap.show_message(msg,scroll_speed=0.05,text_colour=[100,100,100])
+msg = "Your score was %s" % score
+ap.show_message(msg, scroll_speed=0.05, text_colour=[100, 100, 100])
 ```
 
 1. Click **File** -- **Save As**, give you program a name eg [`reaction_game.py`](files/reaction_game.py). Then press **F5** to run.
@@ -728,9 +733,7 @@ There are lots of potential developments for this game:
 - Make use of the humidity sensor to detect breath, the player could be prompted to breath of the board as an action.
 - Include more than 4 directions, players have to hold at 45 degrees
 
-
-
-## What's next?
+## What next?
 
 - Now that you have explored the basics of the Astro Pi HAT, you might investigate the Python library itself to see some other functions it offers.
 - Try out the 3D Soyuz Demo which allows you to use the Astro Pi to move a virtual 3D model. Why not try creating your own models with [Sketchup](http://www.sketchup.com/) or [Blender](https://www.blender.org/)?
