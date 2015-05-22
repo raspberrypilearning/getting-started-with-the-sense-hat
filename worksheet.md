@@ -246,7 +246,7 @@ So far, all our text and images have appeared the same way up, assuming that the
 
 To rotate your screen by 180 degrees you'd use this line:
 
-    ```python
+```python
 ap.set_rotation(180)
 ```
 
@@ -281,7 +281,7 @@ ap.set_pixels(image)
 ap.set_rotation(180)
 ```
 
-2. You could also create spinning text using a for loop:
+2. You could also create spinning text using a **for** loop:
 
     ```python
 from astro_pi import AstroPi
@@ -303,8 +303,8 @@ for r in (0,90,180,270,0,90,180,270):
     ```python
 ap.flip_h()
 ```
-or
-```python
+    or
+    ```python
 ap.flip_v()
 ```
 
