@@ -539,11 +539,13 @@ As this is more complicated than previous programs it's worth planning out the s
 
   > import the required libraries (Astro Pi, time, random)  
   > create an Astro Pi object  
+  >
   > Setup the colours needed  
   > Create 3 different arrows (white,green,red)  
   > Set a variable **pause** to 3 (the initial time between turns)  
   > Set variables **score** and **angle** to 0  
   > Create a variable called **play** set to `True` (this will be used to stop the game later)  
+  >  
   > Begin a loop which continues whilst `play == True`  
   > Set a new random angle (use **random.choice()** method)  
   > Show white arrow and sleep for current pause length  
@@ -649,3 +651,5 @@ ap.show_message(msg,scroll_speed=0.05,text_colour=[100,100,100])
 ```
 
 Here's a video showing it being demostrated:
+
+[![Astro Pi Dice](http://img.youtube.com/vi/4jT7GyyudP4/0.jpg)](https://www.youtube.com/watch?edit=vd&v=4jT7GyyudP4)
