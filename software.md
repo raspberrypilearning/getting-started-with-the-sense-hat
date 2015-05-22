@@ -1,8 +1,6 @@
-# Astro Pi: software setup
+# Software installation
 
-This guide assumes you have an SD card loaded with NOOBS/Raspbian. If not, see [the Downloads section](http://www.raspberrypi.org/downloads/) to download NOOBS/Raspbian and use the [NOOBS setup guide](http://www.raspberrypi.org/help/noobs-setup/) for help with installation.
-
-[Connect](assemble.md) your Astro Pi HAT and boot it up.
+Connect your Astro Pi HAT and boot up the Pi.
 
 ## Astro Pi driver installation
 
@@ -13,6 +11,7 @@ wget -O - http://www.raspberrypi.org/files/astro-pi/astro-pi-install.sh --no-che
 ```
 
 This will take about 5 minutes on a Pi 2 and about 15 to 20 minutes on a Pi 1.
+
 When it's finished you'll see the following message:
 
 ```
@@ -29,7 +28,3 @@ sudo reboot
 ```
 
 The rainbow pattern on the LED matrix should now turn off during boot up.
-
-## What's Next?
-
-Now you are ready to write your first [program](program.md) for the Astro Pi board.
