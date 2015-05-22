@@ -33,17 +33,17 @@ You have probably already discovered that you can easily change the message to y
     | **text_colour** | The *text_colour* parameter alters the colour of the text and is specified using 3 values for Red, Green, Blue. Each value can be between 0 - 255, so [255,0,255] would be Red + Blue = Purple |
     | **back_colour** | The *back_colour* parameter alters the colour of the background and works in the same way as the *text_colour* |
 
-So this program would display the text `Astro Pi is awesome!!` more slowly, with the text in yellow **[255,255,0]** and the background in blue **[0,0,255]**:
+    So this program would display the text `Astro Pi is awesome!!` more slowly, with the text in yellow **[255,255,0]** and the background in blue **[0,0,255]**:
 
-```python
+    ```python
 from astro_pi import AstroPi
 ap = AstroPi()
 ap.show_message("Astro Pi is awesome!!",scroll_speed=0.05,text_colour=[255,255,0],back_colour=[0,0,255])
 ```
 
-You could also make the message repeat using a while loop like this:
+    You could also make the message repeat using a while loop like this:
 
-```python
+    ```python
 from astro_pi import AstroPi
 ap = AstroPi()
 while True:
