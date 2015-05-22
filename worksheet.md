@@ -50,6 +50,8 @@ while True:
     ap.show_message("Astro Pi is awesome!!",scroll_speed=0.05,text_colour=[255,255,0],back_colour=[0,0,255])
 ```
 
+    Click **File** -- **Save As**, give you program a name eg [`loop_text.py`](files/loop_text.py). Then press **F5** to run.
+
 2. The LED matrix can also display a single character, rather than an entire message, using the `ap.show_letter` function which also has some optional **parameters**.
 
     | Parameter | Effect |
@@ -85,6 +87,8 @@ time.sleep(1)
 ap.clear()
 ```
 
+    Click **File** -- **Save As**, give you program a name eg `omg.py`. Then press **F5** to run.
+
     For added interest you could use a random number generator to choose a number between 0 and 255 for the colours:
 
     ```python
@@ -111,6 +115,7 @@ time.sleep(1)
 ap.clear()
 ```
 
+    Click **File** -- **Save As**, give you program a name eg `random_omg.py`. Then press **F5** to run.
     In both these programs the `ap.clear()` method has been used at the end to clear the matrix.
 
 
@@ -163,6 +168,8 @@ ap.set_pixel(3,6,[255,0,0])
 ap.set_pixel(4,6,[255,0,0])
 ap.set_pixel(5,5,[255,0,0])
 ```
+
+    Click **File** -- **Save As**, give you program a name eg `simple_image.py`. Then press **F5** to run.
 
 1. Setting pixels individually can work brilliantly, but it gets rather complex when you want to set more pixels. There is another method which can set all the pixels in one go called `ap.set_pixels`. Its use is quite straightforward; we just give a list of colour values for each pixel in the matrix.
 
@@ -232,6 +239,7 @@ b,i,i,v,v,i,i,b
 
 ap.set_pixels(image)
 ```
+    Click **File** -- **Save As**, give you program a name eg `rainbow.py`. Then press **F5** to run.
 
     You should have a beautiful rainbow displayed on your LED matrix.
 
@@ -281,6 +289,8 @@ ap.set_pixels(image)
 ap.set_rotation(180)
 ```
 
+    Click **File** -- **Save As**, give you program a name eg `rainbow_flip.py`. Then press **F5** to run.
+
 2. You could also create spinning text using a **for** loop:
 
     ```python
@@ -297,6 +307,8 @@ for r in (0,90,180,270,0,90,180,270):
 ```
 
     This program displays the letter "J" and then sets the rotation to each value in the brackets (0,90,180...) with a 0.5 second pause.
+
+    Click **File** -- **Save As**, give you program a name eg `spinning_j.py`. Then press **F5** to run.
 
 3. You can also flip the image on the screen, either horizontally or vertically, using these lines:
 
@@ -336,6 +348,8 @@ while True:
     time.sleep(1)
     ap.flip_h()
 ```
+
+    Click **File** -- **Save As**, give you program a name eg `eyes.py`. Then press **F5** to run.
 
 ### Ideas
 
@@ -386,6 +400,8 @@ while True:
     ap.show_message(msg,scroll_speed=0.05)
 ```
 
+    Click **File** -- **Save As**, give you program a name eg `env.py`. Then press **F5** to run.
+
 2. You could now use some colour to let the astronauts know whether conditions are within sensible ranges.
 
     According to some [online documentation](http://wsn.spaceflight.esa.int/docs/Factsheets/30%20ECLSS%20LR.pdf) the International Space Station maintains these conditions at the following levels:
@@ -427,6 +443,8 @@ while True:
 
     ap.show_message(msg,scroll_speed=0.05,backcolour=bg)
 ```
+
+    Click **File** -- **Save As**, give you program a name eg `scrolling_env.py`. Then press **F5** to run.
 
 ### Ideas
 
@@ -473,6 +491,8 @@ while True:
     time.sleep(0.5)
 ```
 
+    Click **File** -- **Save As**, give you program a name eg `orientation.py`. Then press **F5** to run.
+
 2. Another way to detect orientation is to use the `ap.get_accelerometer_raw()` method which tells you the amount of g-force acting on each axis. If any axis has ±1g then you know that axis is pointing downwards.
 
     In this example, the amount of gravitational acceleration for each axis (x, y, and z) is extracted and is then rounded to the nearest whole number:
@@ -492,6 +512,8 @@ while True:
   print("x=%s,y=%s.z=%s" % (x,y,z))
   time.sleep(0.1)
 ```
+
+    Click **File** -- **Save As**, give you program a name eg `acceleration.py`. Then press **F5** to run.
 
     As you turn the screen you should see the values for x and y change between -1 and 1. If you place the Pi flat or turn it upside down, the z axis will be 1 and then -1.
 
@@ -523,6 +545,8 @@ while True:
   time.sleep(0.1)
 ```
 
+    Click **File** -- **Save As**, give you program a name eg `rotating_letter.py`. Then press **F5** to run.
+
     In this program you are using an `if, elif, else` structure to check which way round the Astro Pi is. The `if` and `elif` test three of the orientations, and if the orientation doesn't match any of these then the program assumes it is the "right" way round. By using the `else` statement we also catch all those other situations, like when the board is at 45 degrees or sitting level.
 
 1. If the board is only rotated, it will only experience 1g of acceleration in any direction; if we were to shake it, the sensor would experience more than 1g. We could then detect that rapid motion and respond. For this program we will introduce the `abs()` function which is not specific to Astro Pi and is part of standard Python. `abs()` gives us the size of a value and ignores whether the value is positive or negative. This is helpful as we don't care which direction the sensor is being shaken, just that it is shaken.
@@ -545,6 +569,7 @@ while True:
       ap.clear()
   time.sleep(0.1)
 ```
+    Click **File** -- **Save As**, give you program a name eg `shake.py`. Then press **F5** to run.
 
     You might find this is quite sensitive, but you could change the value from 1 to a higher number.
 
@@ -682,9 +707,18 @@ msg = "Your score was %s" % (score)
 ap.show_message(msg,scroll_speed=0.05,text_colour=[100,100,100])
 ```
 
+    Click **File** -- **Save As**, give you program a name eg `reaction_game.py`. Then press **F5** to run.
+
 Here's a video showing it being demonstrated:
 
 [![Astro Pi Dice](http://img.youtube.com/vi/k1ZB8jORb74/0.jpg)](https://www.youtube.com/watch?v=k1ZB8jORb74)
+
+### Ideas
+There are lots of potential developments for this game:
+- Include shake actions as well as orientation
+- Make use of the humidity sensor to detect breath, the player could be prompted to breath of the board as an action.
+- Include more than 4 directions, players have to hold at 45 degrees
+
 
 
 ## What next?
