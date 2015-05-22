@@ -2,9 +2,7 @@
 
 Connect your Astro Pi HAT and boot up the Pi.
 
-## Astro Pi driver installation
-
-Ensure your Pi is connected to the internet, then run the following command (from the command prompt or a Terminal window) to download and start the Astro Pi installation script:
+Ensure your Pi is connected to the internet, then run the following command (from the command prompt or a Terminal window) to download and run the Astro Pi installation script:
 
 ```bash
 wget -O - http://www.raspberrypi.org/files/astro-pi/astro-pi-install.sh --no-check-certificate | bash
