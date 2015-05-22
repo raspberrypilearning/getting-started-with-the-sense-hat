@@ -570,7 +570,7 @@ while True:
       ap.clear()
   time.sleep(0.1)
 ```
-    Click **File** -- **Save As**, give you program a name eg [`shake.py`](shake.py). Then press **F5** to run.
+    Click **File** -- **Save As**, give you program a name eg [`shake.py`](files/shake.py). Then press **F5** to run.
 
     You might find this is quite sensitive, but you could change the value from 1 to a higher number.
 
@@ -616,7 +616,7 @@ As this is more complicated than previous programs it's worth planning out the s
 
 If you turned this into Python it could look like this:
 
-```python
+    ```python
 from astro_pi import AstroPi
 import time
 import random
