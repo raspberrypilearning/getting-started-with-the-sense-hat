@@ -70,7 +70,7 @@ You have probably already discovered that you can easily change the message to y
     
     ap = AstroPi()
     
-    ap.show_letter("J",text_colour=[255,0,0])
+    ap.show_letter("J",text_colour=[255, 0, 0])
     ```
 
     And this program would add the **sleep library** to display letters separated by a brief pause:
@@ -81,13 +81,13 @@ You have probably already discovered that you can easily change the message to y
 
     ap = AstroPi()
 
-    ap.show_letter("O",text_colour=[255,0,0])
+    ap.show_letter("O",text_colour=[255, 0, 0])
     time.sleep(1)
-    ap.show_letter("M",text_colour=[0,0,255])
+    ap.show_letter("M",text_colour=[0, 0, 255])
     time.sleep(1)
-    ap.show_letter("G",text_colour=[0,255,0])
+    ap.show_letter("G",text_colour=[0, 255, 0])
     time.sleep(1)
-    ap.show_letter("!",text_colour=[0,0,0],back_colour=[255,255,255])
+    ap.show_letter("!",text_colour=[0, 0, 0], back_colour=[255, 255, 255])
     time.sleep(1)
     ap.clear()
     ```
@@ -104,18 +104,18 @@ You have probably already discovered that you can easily change the message to y
     ap = AstroPi()
 
     r = random.randint(0,255)
-    ap.show_letter("O",text_colour=[r,0,0])
+    ap.show_letter("O",text_colour=[r, 0, 0])
     time.sleep(1)
 
     r = random.randint(0,255)
-    ap.show_letter("M",text_colour=[0,0,r])
+    ap.show_letter("M",text_colour=[0, 0, r])
     time.sleep(1)
 
     r = random.randint(0,255)
-    ap.show_letter("G",text_colour=[0,r,0])
+    ap.show_letter("G",text_colour=[0, r, 0])
     time.sleep(1)
 
-    ap.show_letter("!",text_colour=[0,0,0],back_colour=[255,255,255])
+    ap.show_letter("!", text_colour=[0, 0, 0], back_colour=[255, 255, 255])
     time.sleep(1)
     ap.clear()
     ```
@@ -141,8 +141,8 @@ The LED matrix can display more that just text! We can control each LED individu
 
     ![Coordinates](images/coordinates.png)
 
-    - the blue pixel is at coordinates (0,2)
-    - the red pixel is at coordinates (7,4)
+    - the blue pixel is at coordinates (0, 2)
+    - the red pixel is at coordinates (7, 4)
 
     To replicate the above diagram you would enter a program like this:
 
@@ -151,8 +151,8 @@ The LED matrix can display more that just text! We can control each LED individu
 
     ap = AstroPi()
 
-    ap.set_pixel(0, 2, [0,0,255])
-    ap.set_pixel(4, 2, [255,0,0])
+    ap.set_pixel(0, 2, [0, 0, 255])
+    ap.set_pixel(4, 2, [255, 0, 0])
     ```
 
     Can you guess what the following code creates?
