@@ -4,7 +4,7 @@ Astro Pi is a add-on board for the Raspberry Pi, which adds the ability to sense
 
 Once you are set up and have run your first program using the guide, you can begin to experiment further using this worksheet. In order to write your programs you will need to boot your Raspberry Pi to the desktop and start IDLE3, like you did in the guide.
 
-`sudo idle3&`
+`sudo idle3 &`
 
 ## Displaying text
 
