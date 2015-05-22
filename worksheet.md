@@ -120,7 +120,7 @@ You have probably already discovered that you can easily change the message to y
     ap.clear()
     ```
 
-1. Click **File** -- **Save As**, give you program a name eg [`random_omg.py`](files/random_omg.py). Then press **F5** to run.
+1. Click **File** -- **Save As**, give you program a name eg [`random_omg.py`](code/random_omg.py). Then press **F5** to run.
 
     In both these programs the `ap.clear()` method has been used at the end to clear the matrix.
 
