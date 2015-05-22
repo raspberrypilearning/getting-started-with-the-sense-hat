@@ -46,8 +46,8 @@ You have probably already discovered that you can easily change the message to y
     ```python
     from astro_pi import AstroPi
     ap = AstroPi()
-        while True:
-            ap.show_message("Astro Pi is awesome!!",scroll_speed=0.05,text_colour=[255,255,0],back_colour=[0,0,255])
+    while True:
+        ap.show_message("Astro Pi is awesome!!",scroll_speed=0.05,text_colour=[255,255,0],back_colour=[0,0,255])
     ```
 
     Click **File** -- **Save As**, give you program a name eg [`loop_text.py`](files/loop_text.py). Then press **F5** to run.
@@ -510,12 +510,12 @@ This would get the three orientation values (measured in degrees) and store them
     while True:
         x,y,z = ap.get_accelerometer_raw().values()
 
-    x=round(x,0)
-    y=round(y,0)
-    z=round(z,0)
+        x=round(x,0)
+        y=round(y,0)
+        z=round(z,0)
 
-    print("x=%s,y=%s.z=%s" % (x,y,z))
-    time.sleep(0.1)
+        print("x=%s,y=%s.z=%s" % (x,y,z))
+        time.sleep(0.1)
     ```
 
 1. Click **File** -- **Save As**, give you program a name eg [`acceleration.py`](files/acceleration.py). Then press **F5** to run.
@@ -535,19 +535,19 @@ This would get the three orientation values (measured in degrees) and store them
     while True:
         x,y,z = ap.get_accelerometer_raw().values()
 
-    x=round(x,0)
-    y=round(y,0)
+        x=round(x,0)
+        y=round(y,0)
 
-    if x == -1:
-        ap.set_rotation(180)
-    elif y == 1:
-        ap.set_rotation(90)
-    elif y == -1:
-        ap.set_rotation(270)
-    else:
-        ap.set_rotation(0)
+        if x == -1:
+            ap.set_rotation(180)
+        elif y == 1:
+            ap.set_rotation(90)
+        elif y == -1:
+            ap.set_rotation(270)
+        else:
+            ap.set_rotation(0)
 
-    time.sleep(0.1)
+        time.sleep(0.1)
     ```
 
 1. Click **File** -- **Save As**, give you program a name eg [`rotating_letter.py`](files/rotating_letter.py). Then press **F5** to run.
@@ -564,15 +564,15 @@ This would get the three orientation values (measured in degrees) and store them
     while True:
         x,y,z = ap.get_accelerometer_raw().values()
 
-    x=abs(x)
-    y=abs(y)
-    z=abs(z)
+        x=abs(x)
+        y=abs(y)
+        z=abs(z)
 
-    if x > 1 or y > 1 or z>1:
-        ap.show_letter("!",text_colour=[255,0,0])
-    else:
-        ap.clear()
-    time.sleep(0.1)
+        if x > 1 or y > 1 or z>1:
+            ap.show_letter("!",text_colour=[255,0,0])
+        else:
+            ap.clear()
+        time.sleep(0.1)
     ```
     
 1. Click **File** -- **Save As**, give you program a name eg [`shake.py`](files/shake.py). Then press **F5** to run.
