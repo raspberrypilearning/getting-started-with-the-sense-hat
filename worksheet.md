@@ -139,6 +139,11 @@ The LED matrix can display more that just text! We can control each LED individu
 
     ```python
 from astro_pi import AstroPi
+
+ap = AstroPi()
+
+ap.set_pixel(0,2,[0,0,255])
+ap.set_pixel(4,2,[255,0,0])
 ```
 
     Can you guess what the following code creates?
@@ -241,7 +246,7 @@ So far, all our text and images have appeared the same way up, assuming that the
 
 To rotate your screen by 180 degrees you'd use this line:
 
-```python
+    ```python
 ap.set_rotation(180)
 ```
 
@@ -278,7 +283,7 @@ ap.set_rotation(180)
 
 2. You could also create spinning text using a for loop:
 
-```python
+    ```python
 from astro_pi import AstroPi
 import time
 
@@ -291,11 +296,11 @@ for r in (0,90,180,270,0,90,180,270):
     time.sleep(0.5)
 ```
 
-This program displays the letter "J" and then sets the rotation to each value in the brackets (0,90,180...) with a 0.5 second pause.
+    This program displays the letter "J" and then sets the rotation to each value in the brackets (0,90,180...) with a 0.5 second pause.
 
 3. You can also flip the image on the screen, either horizontally or vertically, using these lines:
 
-```python
+    ```python
 ap.flip_h()
 ```
 or
@@ -303,9 +308,9 @@ or
 ap.flip_v()
 ```
 
-With this example you could create a simple animation by flipping the image repeatedly:
+    With this example you could create a simple animation by flipping the image repeatedly:
 
-```python
+    ```python
 from astro_pi import AstroPi
 import time
 ap = AstroPi()
@@ -363,7 +368,7 @@ We can collect these readings using three simple methods:
 
 1. Using these, we could create a simple scrolling text display, which could keep people informed about current conditions.
 
-```python
+    ```python
 from astro_pi import AstroPi
 ap = AstroPi()
 
@@ -389,18 +394,18 @@ while True:
     - Pressure (979 - 1027 millibars)
     - Humidity (around 60%)
 
-You could use an `if` statement in your code to check these conditions, and set a background colour for the scroll:
+    You could use an `if` statement in your code to check these conditions, and set a background colour for the scroll:
 
-```python
+    ```python
 if t > 18.3 and t< 26.7:
     bg = [0,100,0] #green
 else:
     bg = [100,0,0] #red
 ```
 
-Your complete program would look like this:
+    Your complete program would look like this:
 
-```python
+    ```python
 from astro_pi import AstroPi
 ap = AstroPi()
 
@@ -447,7 +452,6 @@ The three axes uses to describe motion are:
 
 ![Astro Pi Orientation](images/orientation.png)
 
-
 You can find out the orientation of the Astro Pi board using the `ap.get_orientation()` method:
 
 ```python
@@ -458,7 +462,7 @@ This would get the three orientation values (measured in degrees) and store them
 
 1. You can explore these values with a simple program:
 
-```python
+    ```python
 from astro_pi import AstroPi
 ap = AstroPi()
 import time
@@ -471,9 +475,9 @@ while True:
 
 2. Another way to detect orientation is to use the `ap.get_accelerometer_raw()` method which tells you the amount of g-force acting on each axis. If any axis has ±1g then you know that axis is pointing downwards.
 
-In this example, the amount of gravitational acceleration for each axis (x, y, and z) is extracted and is then rounded to the nearest whole number:
+    In this example, the amount of gravitational acceleration for each axis (x, y, and z) is extracted and is then rounded to the nearest whole number:
 
-```python
+    ```python
 from astro_pi import AstroPi
 ap = AstroPi()
 import time
@@ -489,12 +493,12 @@ while True:
   time.sleep(0.1)
 ```
 
-As you turn the screen you should see the values for x and y change between -1 and 1. If you place the Pi flat or turn it upside down, the z axis will be 1 and then -1.
+    As you turn the screen you should see the values for x and y change between -1 and 1. If you place the Pi flat or turn it upside down, the z axis will be 1 and then -1.
 
 
 1. If we know which way round the Astro Pi is, then we can use that information to set the orientation of the LED matrix. First you would display something on the matrix, and then continually check which way round the board is, and use that to update the orientation of the display.
 
-```python
+    ```python
 from astro_pi import AstroPi
 ap = AstroPi()
 import time
@@ -519,11 +523,11 @@ while True:
   time.sleep(0.1)
 ```
 
-In this program you are using an `if, elif, else` structure to check which way round the Astro Pi is. The `if` and `elif` test three of the orientations, and if the orientation doesn't match any of these then the program assumes it is the "right" way round. By using the `else` statement we also catch all those other situations, like when the board is at 45 degrees or sitting level.
+    In this program you are using an `if, elif, else` structure to check which way round the Astro Pi is. The `if` and `elif` test three of the orientations, and if the orientation doesn't match any of these then the program assumes it is the "right" way round. By using the `else` statement we also catch all those other situations, like when the board is at 45 degrees or sitting level.
 
 1. If the board is only rotated, it will only experience 1g of acceleration in any direction; if we were to shake it, the sensor would experience more than 1g. We could then detect that rapid motion and respond. For this program we will introduce the `abs()` function which is not specific to Astro Pi and is part of standard Python. `abs()` gives us the size of a value and ignores whether the value is positive or negative. This is helpful as we don't care which direction the sensor is being shaken, just that it is shaken.
 
-```python
+    ```python
 from astro_pi import AstroPi
 ap = AstroPi()
 import time
@@ -542,7 +546,7 @@ while True:
   time.sleep(0.1)
 ```
 
-You might find this is quite sensitive, but you could change the value from 1 to a higher number.
+    You might find this is quite sensitive, but you could change the value from 1 to a higher number.
 
 ### Ideas
 
