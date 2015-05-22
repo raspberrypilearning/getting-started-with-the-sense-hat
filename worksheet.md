@@ -7,6 +7,8 @@ You can find out more about Astro Pi by following the [Astro Pi Guide](https://g
 
 Once you are set up and have run your first program using the guide you can begin to experiment further using this worksheet. In order to write your programs you will need to boot your Raspberry Pi up to the desktop and start a new program in IDLE3. (Like you did in the guide)
 
+`sudo idle3&`
+
 ## Displaying Text
 When following the [guide](https://github.com/raspberrypilearning/guides/blob/master/astro-pi/README.md) you will have written a sample program which scrolls text across the LED matrix, the program contains two crucial lines, which import the Astro Pi software an create an **ap** object which represents the Astro Pi board.
 
@@ -121,23 +123,23 @@ The LED matrix can display more that just text! we can control each LED individu
 
 1. The first approach is to set pixels (LEDs) individually we can do this using the `ap.set_pixel()` method. but first we need to be clear about how we describe each pixel.
 
-The Astro Pi board using a coordinate system like the one shown below, crucially the numbering begins at **0** not 1. Also the origin is in the **top left** rather than the bottom left as you may be use to.
+    The Astro Pi board using a coordinate system like the one shown below, crucially the numbering begins at **0** not 1. Also the origin is in the **top left** rather than the bottom left as you may be use to.
 
-![Coordinates](images/coordinates.png)
+    ![Coordinates](images/coordinates.png)
 
-- the blue pixel is at coordinates (0,2)
-- the red pixel is at coordinates (7,4)
+    - the blue pixel is at coordinates (0,2)
+    - the red pixel is at coordinates (7,4)
 
-To replicate the above diagram you would enter a program like:
+    To replicate the above diagram you would enter a program like:
 
-```python
+    ```python
 from astro_pi import AstroPi
 ```
 
-Can you guess what this code creates:
+    Can you guess what this code creates:
 
 
-```python
+    ```python
 from astro_pi import AstroPi
 
 ap = AstroPi()
@@ -154,13 +156,15 @@ ap.set_pixel(5,5,[255,0,0])
 
 1. Setting pixels individually can work brilliantly, however it gets rather complex the more pixels you want to set. There is another method which can set all the pixels in one go called `ap.set_pixels`. It's use is quite straight forward, we just give a list of colour values for each pixel in the matrix.
 
-We could enter something like:
-```python
-ap.set_pixels([[255,0,0],[255,0,0],[255,0,0],[255,0,0],......]) but this would take ages and be really complex.
+    We could enter something like...
+    ```python
+ap.set_pixels([[255,0,0],[255,0,0],[255,0,0],[255,0,0],......])
+```
+    ...but this would take ages and be really complex.
 
-Instead you can use some variables to define your colour palette (in this example we're using the colours of the rainbow):
+    Instead you can use some variables to define your colour palette (in this example we're using the 7 colours of the rainbow):
 
-```python
+    ```python
 r = [255,0,0]
 o = [255,127,0]
 y = [255,255,0]
@@ -171,9 +175,9 @@ v = [159,0,255]
 e = [0,0,0] #e stands for empty/black
 ```
 
-We can then describe our matrix by creating a 2D list of colour names:
+    We can then describe our matrix by creating a 2D list of colour names:
 
-```python
+    ```python
 image = [
 e,e,e,e,e,e,e,e,
 e,e,e,r,r,e,e,e,
@@ -187,9 +191,9 @@ b,i,i,v,v,i,i,b
 
 ```
 
-We can then give the `image` list to the `ap.set_pixels` methods and draw the image, the finished program would look like this:
+    We can then give the `image` list to the `ap.set_pixels` methods and draw the image, the finished program would look like this:
 
-```python
+    ```python
 from astro_pi import AstroPi
 
 
@@ -218,7 +222,7 @@ b,i,i,v,v,i,i,b
 ap.set_pixels(image)
 ```
 
-You should have a beautiful rainbow displayed on you LED matrix.
+    You should have a beautiful rainbow displayed on you LED matrix.
 
 ### Ideas
 - Now you can create images on your LED matirx in 2 different ways, try creating you own images, or sprites.
@@ -283,7 +287,7 @@ ap.set_rotation(180)
 
 3. You can also flip the image on the screen either horizontally or vertically using these lines:
 
-```python
+    ```python
 ap.flip_h()
 ```
 or
@@ -291,7 +295,7 @@ or
 ap.flip_v()
 ```
 
-With this example you could create a simple animation by flipping the image repeatedly.
+    With this example you could create a simple animation by flipping the image repeatedly.
 
     ```python
     from astro_pi import AstroPi
@@ -324,14 +328,14 @@ With this example you could create a simple animation by flipping the image repe
 - Create a spinning image, use one of the drawing techniques shown already and then use the `ap.set_rotation` method to make it spin.
 - Using what you've done so far you should be able to make an electronic dice like the one shown here.
 
-    [![Astro Pi Dice](http://img.youtube.com/vi/4jT7GyyudP4/0.jpg)](https://www.youtube.com/watch?edit=vd&v=4jT7GyyudP4)
+[![Astro Pi Dice](http://img.youtube.com/vi/4jT7GyyudP4/0.jpg)](https://www.youtube.com/watch?edit=vd&v=4jT7GyyudP4)
 
-    This uses:
-    - Displaying text
-    - Timing
-    - Setting Rotation
-    - Random Numbers
-    - Variables
+This dice makes use of:
+- Displaying text
+- Timing
+- Setting Rotation
+- Random Numbers
+- Variables
 
 ## Sensing the enviroment
 The Astro PI has a set of enviromental sensors for detecting the conditions around it. It can detect:
@@ -367,22 +371,23 @@ while True:
 
 2. You could now use some colour to let the astronauts know whether conditions were within sensible ranges.
 
-According to some [online documentation](http://wsn.spaceflight.esa.int/docs/Factsheets/30%20ECLSS%20LR.pdf) the International Space Station maintains these conditions at the following levels:
-- Temperature (18.3 - 26.7 celsius)
-- Pressure (979 - 1027 millibars)
-- Humidity (around 60%)
+    According to some [online documentation](http://wsn.spaceflight.esa.int/docs/Factsheets/30%20ECLSS%20LR.pdf) the International Space Station maintains these conditions at the following levels:
+    - Temperature (18.3 - 26.7 celsius)
+    - Pressure (979 - 1027 millibars)
+    - Humidity (around 60%)
 
-You could use a if statement in your code to check these conditions and set a background colour for the scroll.
-```python
+    You could use a if statement in your code to check these conditions and set a background colour for the scroll.
+
+    ```python
 if t > 18.3 and t< 26.7:
     bg = [0,100,0] #green
 else:
     bg = [100,0,0] #red
 ```
 
-and you cmplete program would look like this:
+    and you cmplete program would look like this:
 
-```python
+    ```python
 from astro_pi import AstroPi
 ap = AstroPi()
 
@@ -419,11 +424,11 @@ The Astro Pi board has a set of sensors that can detect movement, it has an IMU 
 Before you start experimenting with motion sensing it's important to understand three key terms covered in the [guide](https://github.com/raspberrypilearning/astro-pi-guide/blob/master/sensors/movement.md) and in this [video](https://www.youtube.com/watch?v=pQ24NtnaLl8).
 
 The three axes uses to describe motion are:
-    - Pitch (like a plane taking off)
-    - Roll (the plane doing a victory roll)
-    - Yaw (imagine steering the plane like a car)
+- Pitch (like a plane taking off)
+- Roll (the plane doing a victory roll)
+- Yaw (imagine steering the plane like a car)
 
-    ![Astro Pi Orientation](images/orientation.png)
+![Astro Pi Orientation](images/orientation.png)
 
 
 You can find out the orientation of the Astro Pi board using the `ap.get_orientation()` method eg:
@@ -499,7 +504,7 @@ while True:
 
 1. If the board is only rotated it will only experience 1g of acceleration in any direction, if we were to shake it, the sensor would experience more the 1g. We could then detect that rapid motion and respond. For this program we will introduce the `abs()` function which is not specific to Astro Pi and is part of standard Python. Abs() gives us the size of a value and ignores whether the value is positive of negative. This is helpful as we don't care which direction the sensor is being shaken, just that it is shaken.
 
-```python
+    ```python
 from astro_pi import AstroPi
 ap = AstroPi()
 import time
@@ -518,7 +523,7 @@ while True:
   time.sleep(0.1)
   ```
 
-  You might find this is quite sensitive and but could change the value of 1 to a higher number.
+    You might find this is quite sensitive and but could change the value of 1 to a higher number.
 
 ### Ideas
   - You could right a program that displays an arrow (or other symbol) on screen, this symbol could be used to point to which way is down. This way the astronauts (in low gravity) always know which way the Earth is.
