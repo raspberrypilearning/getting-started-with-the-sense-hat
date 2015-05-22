@@ -520,40 +520,40 @@ while True:
 
   You might find this is quite sensitive and but could change the value of 1 to a higher number.
 
-  ###Ideas
+### Ideas
   - You could right a program that displays an arrow (or other symbol) on screen, this symbol could be used to point to which way is down. This way the astronauts (in low gravity) always know which way the Earth is.
   - You could improve the dice program for earlier in this activity so that shaking the Astro Pi triggers the dice roll.
   - You could use the accelerometer to sense small movements this could form part of a game, alarm system or even an earthquake sensor.
 
-  ## Putting it all together
-  Now that you've explored most of the features of the Astro HAT you could combine them to create a project. Here's an example which is a reaction testing game, which could be used by the astronauts to test their reflexes.
+## Putting it all together
+Now that you've explored most of the features of the Astro HAT you could combine them to create a project. Here's an example which is a reaction testing game, which could be used by the astronauts to test their reflexes.
 
-  The game will display a arrow on the LED matrix and select a random orientation for it. The player must rotate the board to match the arrow. If they match it in time the arrow turns green and their score increases, if not their arrow turns red and the game ends telling them their score. The game keeps showing arrows in new orientations until the player loses, each turn gets faster.
+The game will display a arrow on the LED matrix and select a random orientation for it. The player must rotate the board to match the arrow. If they match it in time the arrow turns green and their score increases, if not their arrow turns red and the game ends telling them their score. The game keeps showing arrows in new orientations until the player loses, each turn gets faster.
 
-  This idea combines:
+This idea combines:
   - Showing messages and images on the LED matrix
   - Setting and detecting the orientation
   - Use of variables, randomisation, iteration and selection
 
-  As this is more complicated than previous programs it's worth planning out the steps involved in **pseudocode**.
+As this is more complicated than previous programs it's worth planning out the steps involved in **pseudocode**.
 
-  > import the required libraries (Astro Pi, time, random)
-  > create an Astro Pi object
-  > Setup the colours needed
-  > Create 3 different arrows (white,green,red)
-  > Set a variable **pause** to 3 (the initial time between turns)
-  > Set variables **score** and **angle** to 0
-  > Create a variable called **play** set to `True` (this will be used to stop the game later)
-  > Begin a loop which continues whilst `play == True`
-  > Set a new random angle (use **random.choice()** method)
-  > Show white arrow and sleep for current pause length
-  > Check whether orientation matches the arrow
-  > ---if it does the add a point and turn arrow green
-  > ---otherwise set play to `False` and turn arrow red
-  > Shorten pause duration slightly
-  > Pause before next arrow
-  >
-  > When loop is exited, display message with score
+  > import the required libraries (Astro Pi, time, random) 
+  > create an Astro Pi object 
+  > Setup the colours needed 
+  > Create 3 different arrows (white,green,red) 
+  > Set a variable **pause** to 3 (the initial time between turns) 
+  > Set variables **score** and **angle** to 0 
+  > Create a variable called **play** set to `True` (this will be used to stop the game later) 
+  > Begin a loop which continues whilst `play == True` 
+  > Set a new random angle (use **random.choice()** method) 
+  > Show white arrow and sleep for current pause length 
+  > Check whether orientation matches the arrow 
+  > ---if it does the add a point and turn arrow green 
+  > ---otherwise set play to `False` and turn arrow red 
+  > Shorten pause duration slightly 
+  > Pause before next arrow 
+  > 
+  > When loop is exited, display message with score 
 
   If you turned this into python it could look like this:
 
@@ -646,5 +646,6 @@ while play == True:
 
 msg = "Your score was %s" % (score)
 ap.show_message(msg,scroll_speed=0.05,text_colour=[100,100,100])
+```
 
 Here's a video showing it being demostrated:
