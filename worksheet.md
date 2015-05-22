@@ -1,6 +1,6 @@
 # Getting Started with Astro Pi
 
-Astro Pi is a add-on board for the Raspberry Pi, which adds the ability to sense all kinds of things and output information using a built-in 8x8 LED matrix. You can find out more about Astro Pi by following the [Astro Pi Guide](https://github.com/raspberrypilearning/guides/blob/master/astro-pi/README.md), which will show you how to connect and test your Astro Pi board. It also has some helpful explanations and examples of what the different inputs and outputs can do.
+Astro Pi is a add-on board for the Raspberry Pi, which adds the ability to sense all kinds of things and output information using a built-in 8x8 LED matrix. You can find out more about Astro Pi by following the [Astro Pi Guide](https://www.raspberrypi.org/learning/astro-pi-guide/), which will show you how to connect and test your Astro Pi board. It also has some helpful explanations and examples of what the different inputs and outputs can do.
 
 Once you are set up and have run your first program using the guide, you can begin to experiment further using this worksheet. In order to write your programs you will need to boot your Raspberry Pi to the desktop and start IDLE3, like you did in the guide.
 
@@ -8,7 +8,7 @@ Once you are set up and have run your first program using the guide, you can beg
 
 ## Displaying text
 
-When following the [guide](https://github.com/raspberrypilearning/guides/blob/master/astro-pi/README.md) you will have written a sample program which scrolls text across the LED matrix. The program contains two crucial lines, which import the Astro Pi software and create an `ap` object which represents the Astro Pi board.
+When following the [guide](https://www.raspberrypi.org/learning/astro-pi-guide/) you will have written a sample program which scrolls text across the LED matrix. The program contains two crucial lines, which import the Astro Pi software and create an `ap` object which represents the Astro Pi board.
 
 ```python
 from astro_pi import AstroPi
