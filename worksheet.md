@@ -449,9 +449,9 @@ while True:
 
 2. Another way to detect orientation is to use the `ap.get_accelerometer_raw()` method which tells you they amount of g-force acting on each axis. If any axis has &plusmn;1g then you know that axis is pointing downwards.
 
-In this example the amount of gravitational acceleration for each axis (x, y and z) is extracted and is then rounded to the nearest whole number.
+    In this example the amount of gravitational acceleration for each axis (x, y and z) is extracted and is then rounded to the nearest whole number.
 
-```python
+    ```python
 from astro_pi import AstroPi
 ap = AstroPi()
 import time
@@ -466,12 +466,12 @@ while True:
   print("x=%s,y=%s.z=%s" % (x,y,z))
   time.sleep(0.1)
 ```
-As you turn the screen you should see the values for x and y change between -1 and 1. If you place the Pi flat or turn it upside down the z axis will be 1 and then -1.
+    As you turn the screen you should see the values for x and y change between -1 and 1. If you place the Pi flat or turn it upside down the z axis will be 1 and then -1.
 
 
 1. If we know which way round the Astro Pi is then we can use that information to set the orientation of the LED Matrix. First you would display something on the matrix, and then continually check which way round the board is and use that to update the orientation of the display.
 
-```python
+    ```python
 from astro_pi import AstroPi
 ap = AstroPi()
 import time
@@ -495,7 +495,7 @@ while True:
 
   time.sleep(0.1)
 ```
-In this program you are using an **if,elif,else** structure to check which way round the Astro Pi is. The **if** and **elif** test 3 of the orientations, then if the orientation doesn't match any of these then the program assume it is the "right" way round. By using the **else** statement we also catch all those other situations like when the board is at 45 degrees or sitting level.
+    In this program you are using an **if,elif,else** structure to check which way round the Astro Pi is. The **if** and **elif** test 3 of the orientations, then if the orientation doesn't match any of these then the program assume it is the "right" way round. By using the **else** statement we also catch all those other situations like when the board is at 45 degrees or sitting level.
 
 1. If the board is only rotated it will only experience 1g of acceleration in any direction, if we were to shake it, the sensor would experience more the 1g. We could then detect that rapid motion and respond. For this program we will introduce the `abs()` function which is not specific to Astro Pi and is part of standard Python. Abs() gives us the size of a value and ignores whether the value is positive of negative. This is helpful as we don't care which direction the sensor is being shaken, just that it is shaken.
 
@@ -537,23 +537,23 @@ This idea combines:
 
 As this is more complicated than previous programs it's worth planning out the steps involved in **pseudocode**.
 
-  > import the required libraries (Astro Pi, time, random) 
-  > create an Astro Pi object 
-  > Setup the colours needed 
-  > Create 3 different arrows (white,green,red) 
-  > Set a variable **pause** to 3 (the initial time between turns) 
-  > Set variables **score** and **angle** to 0 
-  > Create a variable called **play** set to `True` (this will be used to stop the game later) 
-  > Begin a loop which continues whilst `play == True` 
-  > Set a new random angle (use **random.choice()** method) 
-  > Show white arrow and sleep for current pause length 
-  > Check whether orientation matches the arrow 
-  > ---if it does the add a point and turn arrow green 
-  > ---otherwise set play to `False` and turn arrow red 
-  > Shorten pause duration slightly 
-  > Pause before next arrow 
-  > 
-  > When loop is exited, display message with score 
+  > import the required libraries (Astro Pi, time, random)
+  > create an Astro Pi object
+  > Setup the colours needed
+  > Create 3 different arrows (white,green,red)
+  > Set a variable **pause** to 3 (the initial time between turns)
+  > Set variables **score** and **angle** to 0
+  > Create a variable called **play** set to `True` (this will be used to stop the game later)
+  > Begin a loop which continues whilst `play == True`
+  > Set a new random angle (use **random.choice()** method)
+  > Show white arrow and sleep for current pause length
+  > Check whether orientation matches the arrow
+  > ---if it does the add a point and turn arrow green
+  > ---otherwise set play to `False` and turn arrow red
+  > Shorten pause duration slightly
+  > Pause before next arrow
+  >
+  > When loop is exited, display message with score
 
   If you turned this into python it could look like this:
 
