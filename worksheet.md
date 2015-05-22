@@ -537,23 +537,23 @@ This idea combines:
 
 As this is more complicated than previous programs it's worth planning out the steps involved in **pseudocode**.
 
-  > import the required libraries (Astro Pi, time, random)
-  > create an Astro Pi object
-  > Setup the colours needed
-  > Create 3 different arrows (white,green,red)
-  > Set a variable **pause** to 3 (the initial time between turns)
-  > Set variables **score** and **angle** to 0
-  > Create a variable called **play** set to `True` (this will be used to stop the game later)
-  > Begin a loop which continues whilst `play == True`
-  > Set a new random angle (use **random.choice()** method)
-  > Show white arrow and sleep for current pause length
-  > Check whether orientation matches the arrow
-  > ---if it does the add a point and turn arrow green
-  > ---otherwise set play to `False` and turn arrow red
-  > Shorten pause duration slightly
-  > Pause before next arrow
-  >
-  > When loop is exited, display message with score
+  > import the required libraries (Astro Pi, time, random)  
+  > create an Astro Pi object  
+  > Setup the colours needed  
+  > Create 3 different arrows (white,green,red)  
+  > Set a variable **pause** to 3 (the initial time between turns)  
+  > Set variables **score** and **angle** to 0  
+  > Create a variable called **play** set to `True` (this will be used to stop the game later)  
+  > Begin a loop which continues whilst `play == True`  
+  > Set a new random angle (use **random.choice()** method)  
+  > Show white arrow and sleep for current pause length  
+  > Check whether orientation matches the arrow  
+  > ---if it does the add a point and turn arrow green  
+  > ---otherwise set play to `False` and turn arrow red  
+  > Shorten pause duration slightly  
+  > Pause before next arrow  
+  >  
+  > When loop is exited, display message with score  
 
   If you turned this into python it could look like this:
 
