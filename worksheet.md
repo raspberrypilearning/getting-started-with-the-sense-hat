@@ -132,11 +132,6 @@ To replicate the above diagram you would enter a program like:
 
 ```python
 from astro_pi import AstroPi
-
-ap = AstroPi()
-
-ap.set_pixel(0,2,[0,0,255])
-ap.set_pixel(7,4,[255,0,0])
 ```
 
 Can you guess what this code creates:
@@ -420,3 +415,236 @@ The Astro Pi board has a set of sensors that can detect movement, it has an IMU 
 - A gyroscope (for detecting which way up the board is)
 - An accelorometer (for detecting movement)
 - A magnetometer (for detecting magnetic fields)
+
+Before you start experimenting with motion sensing it's important to understand three key terms covered in the [guide](https://github.com/raspberrypilearning/astro-pi-guide/blob/master/sensors/movement.md) and in this [video](https://www.youtube.com/watch?v=pQ24NtnaLl8).
+
+The three axes uses to describe motion are:
+    - Pitch (like a plane taking off)
+    - Roll (the plane doing a victory roll)
+    - Yaw (imagine steering the plane like a car)
+
+    ![Astro Pi Orientation](images/orientation.png)
+
+
+You can find out the orientation of the Astro Pi board using the `ap.get_orientation()` method eg:
+
+```python
+pitch,roll,yaw = ap.get_orientation().values()
+```
+
+This would get the three orientation values(measured in degrees) and store them as the three variables pitch, roll and yaw. The `.values()` bit separates the three values out so that they can be stored seperately.
+
+1. You can explore these values with a simple program:
+
+```python
+from astro_pi import AstroPi
+ap = AstroPi()
+import time
+
+while True:
+    pitch,roll,yaw = ap.get_orientation().values()
+    print("pitch=%s,roll=%s.yaw=%s" % (pitch,yaw,roll))
+    time.sleep(0.5)
+```
+
+2. Another way to detect orientation is to use the `ap.get_accelerometer_raw()` method which tells you they amount of g-force acting on each axis. If any axis has &plusmn;1g then you know that axis is pointing downwards.
+
+In this example the amount of gravitational acceleration for each axis (x, y and z) is extracted and is then rounded to the nearest whole number.
+
+```python
+from astro_pi import AstroPi
+ap = AstroPi()
+import time
+
+while True:
+  x,y,z = ap.get_accelerometer_raw().values()
+
+  x=round(x,0)
+  y=round(y,0)
+  z=round(z,0)
+
+  print("x=%s,y=%s.z=%s" % (x,y,z))
+  time.sleep(0.1)
+```
+As you turn the screen you should see the values for x and y change between -1 and 1. If you place the Pi flat or turn it upside down the z axis will be 1 and then -1.
+
+
+1. If we know which way round the Astro Pi is then we can use that information to set the orientation of the LED Matrix. First you would display something on the matrix, and then continually check which way round the board is and use that to update the orientation of the display.
+
+```python
+from astro_pi import AstroPi
+ap = AstroPi()
+import time
+
+ap.show_letter("J")
+
+while True:
+  x,y,z = ap.get_accelerometer_raw().values()
+
+  x=round(x,0)
+  y=round(y,0)
+
+  if x == -1:
+      ap.set_rotation(180)
+  elif y == 1:
+      ap.set_rotation(90)
+  elif y == -1:
+      ap.set_rotation(270)
+  else:
+      ap.set_rotation(0)
+
+  time.sleep(0.1)
+```
+In this program you are using an **if,elif,else** structure to check which way round the Astro Pi is. The **if** and **elif** test 3 of the orientations, then if the orientation doesn't match any of these then the program assume it is the "right" way round. By using the **else** statement we also catch all those other situations like when the board is at 45 degrees or sitting level.
+
+1. If the board is only rotated it will only experience 1g of acceleration in any direction, if we were to shake it, the sensor would experience more the 1g. We could then detect that rapid motion and respond. For this program we will introduce the `abs()` function which is not specific to Astro Pi and is part of standard Python. Abs() gives us the size of a value and ignores whether the value is positive of negative. This is helpful as we don't care which direction the sensor is being shaken, just that it is shaken.
+
+```python
+from astro_pi import AstroPi
+ap = AstroPi()
+import time
+
+while True:
+  x,y,z = ap.get_accelerometer_raw().values()
+
+  x=abs(x)
+  y=abs(y)
+  z=abs(z)
+
+  if x > 1 or y > 1 or z>1:
+      ap.show_letter("!",text_colour=[255,0,0])
+  else:
+      ap.clear()
+  time.sleep(0.1)
+  ```
+
+  You might find this is quite sensitive and but could change the value of 1 to a higher number.
+
+  ###Ideas
+  - You could right a program that displays an arrow (or other symbol) on screen, this symbol could be used to point to which way is down. This way the astronauts (in low gravity) always know which way the Earth is.
+  - You could improve the dice program for earlier in this activity so that shaking the Astro Pi triggers the dice roll.
+  - You could use the accelerometer to sense small movements this could form part of a game, alarm system or even an earthquake sensor.
+
+  ## Putting it all together
+  Now that you've explored most of the features of the Astro HAT you could combine them to create a project. Here's an example which is a reaction testing game, which could be used by the astronauts to test their reflexes.
+
+  The game will display a arrow on the LED matrix and select a random orientation for it. The player must rotate the board to match the arrow. If they match it in time the arrow turns green and their score increases, if not their arrow turns red and the game ends telling them their score. The game keeps showing arrows in new orientations until the player loses, each turn gets faster.
+
+  This idea combines:
+  - Showing messages and images on the LED matrix
+  - Setting and detecting the orientation
+  - Use of variables, randomisation, iteration and selection
+
+  As this is more complicated than previous programs it's worth planning out the steps involved in **pseudocode**.
+
+  > import the required libraries (Astro Pi, time, random)
+  > create an Astro Pi object
+  > Setup the colours needed
+  > Create 3 different arrows (white,green,red)
+  > Set a variable **pause** to 3 (the initial time between turns)
+  > Set variables **score** and **angle** to 0
+  > Create a variable called **play** set to `True` (this will be used to stop the game later)
+  > Begin a loop which continues whilst `play == True`
+  > Set a new random angle (use **random.choice()** method)
+  > Show white arrow and sleep for current pause length
+  > Check whether orientation matches the arrow
+  > ---if it does the add a point and turn arrow green
+  > ---otherwise set play to `False` and turn arrow red
+  > Shorten pause duration slightly
+  > Pause before next arrow
+  >
+  > When loop is exited, display message with score
+
+  If you turned this into python it could look like this:
+
+  ```python
+  from astro_pi import AstroPi
+import time
+import random
+ap = AstroPi()
+
+#set up the colours (white,green,red,empty)
+
+w = [150,150,150]
+g = [0,255,0]
+r = [255,0,0]
+e = [0,0,0]
+
+#create images for three different coloured arrows
+arrow = [
+e,e,e,w,w,e,e,e,
+e,e,w,w,w,w,e,e,
+e,w,e,w,w,e,w,e,
+w,e,e,w,w,e,e,w,
+e,e,e,w,w,e,e,e,
+e,e,e,w,w,e,e,e,
+e,e,e,w,w,e,e,e,
+e,e,e,w,w,e,e,e
+]
+arrow_red = [
+e,e,e,r,r,e,e,e,
+e,e,r,r,r,r,e,e,
+e,r,e,r,r,e,r,e,
+r,e,e,r,r,e,e,r,
+e,e,e,r,r,e,e,e,
+e,e,e,r,r,e,e,e,
+e,e,e,r,r,e,e,e,
+e,e,e,r,r,e,e,e
+]
+arrow_green = [
+e,e,e,g,g,e,e,e,
+e,e,g,g,g,g,e,e,
+e,g,e,g,g,e,g,e,
+g,e,e,g,g,e,e,g,
+e,e,e,g,g,e,e,e,
+e,e,e,g,g,e,e,e,
+e,e,e,g,g,e,e,e,
+e,e,e,g,g,e,e,e
+]
+
+pause = 3
+score = 0
+angle = 0
+play = True
+
+ap.show_message("Keep the arrow pointing up",scroll_speed=0.05,text_colour=[100,100,100])
+
+while play == True:
+    last_angle = angle
+    while angle == last_angle:
+      angle = random.choice([0,90,180,270])
+    ap.set_rotation(angle)
+    ap.set_pixels(arrow)
+    time.sleep(pause)
+
+    x,y,z = ap.get_accelerometer_raw().values()
+    x=round(x,0)
+    y=round(y,0)
+
+    print (angle)
+    print (x)
+    print (y)
+
+    if x == -1 and angle == 180:
+      ap.set_pixels(arrow_green)
+      score = score + 1
+    elif x == 1 and angle == 0:
+      ap.set_pixels(arrow_green)
+      score = score + 1
+    elif y == -1 and angle == 90:
+      ap.set_pixels(arrow_green)
+      score = score + 1
+    elif y == 1 and angle == 270:
+      ap.set_pixels(arrow_green)
+      score = score + 1
+    else:
+      ap.set_pixels(arrow_red)
+      play = False
+
+    pause = pause * 0.95
+    time.sleep(0.5)
+
+msg = "Your score was %s" % (score)
+ap.show_message(msg,scroll_speed=0.05,text_colour=[100,100,100])
+
+Here's a video showing it being demostrated:
