@@ -26,12 +26,14 @@ You have probably already discovered that you can easily change the message to y
 1. We can expand the `ap.show_message` command to include some extra **parameters** which will change the behaviour of the message.
 
 
+
     | Parameter | Effect |
     | :---: | :--- |
     | **scroll_speed** | The *scroll_speed* parameter affects how quickly the text moves on the screen. The default value is 0.1. The bigger the number, the **slower** the speed |
     | **text_colour** | The *text_colour* parameter alters the colour of the text and is specified using 3 values for Red, Green, Blue. Each value can be between 0 - 255, so [255,0,255] would be Red + Blue = Purple |
     | **back_colour** | The *back_colour* parameter alters the colour of the background and works in the same way as the *text_colour* |
     
+
     
     So this program would display the text `Astro Pi is awesome!!` more slowly, with the text in yellow **[255,255,0]** and the background in blue **[0,0,255]**:
 
@@ -50,16 +52,17 @@ You have probably already discovered that you can easily change the message to y
         ap.show_message("Astro Pi is awesome!!",scroll_speed=0.05,text_colour=[255,255,0],back_colour=[0,0,255])
     ```
 
-    Click **File** -- **Save As**, give you program a name eg [`loop_text.py`](files/loop_text.py). Then press **F5** to run.
+1. Click **File** -- **Save As**, give you program a name eg [`loop_text.py`](files/loop_text.py). Then press **F5** to run.
 
-2. The LED matrix can also display a single character, rather than an entire message, using the `ap.show_letter` function which also has some optional **parameters**.
+1. The LED matrix can also display a single character, rather than an entire message, using the `ap.show_letter` function which also has some optional **parameters**.
 
 
     | Parameter | Effect |
-    | :---: | :---: |
+    | :---: | :--- |
     | **scroll_speed** | The *scroll_speed* parameter affects how quickly the text moves on the screen. The default value is 0.1. The bigger the number, the **slower** the speed |
     | **text_colour** | The *text_colour* parameter alters the colour of the text and is specified as 3 values for Red, Green, Blue. Each value can be between 0 - 255, so [255,0,255] would be Red + Blue = Purple |
     | **back_colour** | The *back_colour* parameter alters the colour of the background and is specified as 3 values for Red, Green, Blue. Each value can be between 0 - 255, so [255,0,255] would be Red + Blue = Purple |
+
 
 
     So this program would display a single Red "J":
