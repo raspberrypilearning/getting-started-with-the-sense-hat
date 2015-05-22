@@ -347,7 +347,7 @@ We can collect these readings using three simple methods:
 
 1. Using these we could create a simple scrolling text display, which could keep people informed about current conditions.
 
-```python
+    ```python
 from astro_pi import AstroPi
 ap = AstroPi()
 
@@ -436,7 +436,7 @@ This would get the three orientation values(measured in degrees) and store them 
 
 1. You can explore these values with a simple program:
 
-```python
+    ```python
 from astro_pi import AstroPi
 ap = AstroPi()
 import time
