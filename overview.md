@@ -1,3 +1,3 @@
-In this resource you will explore the Astro Pi Hardware and Python Library.
+In this resource you will explore the Astro Pi hardware and the Python library.
 
-You will learn how to control LED matrix, conllect sensor data from the world around you and combine these ideas in a number of small projects.
+You will learn how to control the LED matrix, collect sensor data from the world around you, and combine these ideas in a number of small projects.
