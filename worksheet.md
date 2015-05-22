@@ -252,7 +252,7 @@ ap.set_rotation(180)
 
 1. When used in the rainbow program it would look like this:
 
-```python
+    ```python
 from astro_pi import AstroPi
 
 ap = AstroPi()
@@ -362,9 +362,9 @@ The Astro Pi has a set of environmental sensors for detecting the conditions aro
 
 We can collect these readings using three simple methods:
 
-`ap.get_temperature()` - This will return the temperature in Celsius.
-`ap.get_pressure()` - This will return the pressure in millibars.
-`ap.get_humidity()` - This returns the humidity as a percentage.
+- `ap.get_temperature()` - This will return the temperature in Celsius.
+- `ap.get_pressure()` - This will return the pressure in millibars.
+- `ap.get_humidity()` - This returns the humidity as a percentage.
 
 1. Using these, we could create a simple scrolling text display, which could keep people informed about current conditions.
 
