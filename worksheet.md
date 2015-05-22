@@ -328,7 +328,7 @@ ap.flip_v()
 - Create a spinning image, use one of the drawing techniques shown already and then use the `ap.set_rotation` method to make it spin.
 - Using what you've done so far you should be able to make an electronic dice like the one shown here.
 
-[![Astro Pi Dice](http://img.youtube.com/vi/4jT7GyyudP4/0.jpg)](https://www.youtube.com/watch?edit=vd&v=4jT7GyyudP4)
+[![Astro Pi Dice](http://img.youtube.com/vi/4jT7GyyudP4/0.jpg)](https://www.youtube.com/watch?v=4jT7GyyudP4)
 
 This dice makes use of:
 - Displaying text
@@ -657,4 +657,12 @@ ap.show_message(msg,scroll_speed=0.05,text_colour=[100,100,100])
 
 Here's a video showing it being demostrated:
 
-[![Astro Pi Dice](http://img.youtube.com/vi/4jT7GyyudP4/0.jpg)](https://www.youtube.com/watch?edit=vd&v=4jT7GyyudP4)
+[![Astro Pi Dice](http://img.youtube.com/vi/k1ZB8jORb74/0.jpg)](https://www.youtube.com/watch?v=k1ZB8jORb74)
+
+
+
+
+## Where Next?
+- Now that you have explored the basics of the Astro Pi HAT you might investigate the python library itself to see some other functions it offers.
+- Try out the 3D Soyuz Demo which allows you to use the Astro Pi to move a virtual 3D model. Why not try creating your our models with [Sketchup](http://www.sketchup.com/) or [Blender](https://www.blender.org/)
+- Link the the Astro Pi sensor data with [minecraft-pi](https://www.raspberrypi.org/learning/getting-started-with-minecraft-pi/)
