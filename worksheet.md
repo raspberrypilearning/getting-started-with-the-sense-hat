@@ -8,7 +8,7 @@ Once you are set up and have run your first program using the guide, you can beg
 
 ## Displaying text
 
-When following the [guide](https://github.com/raspberrypilearning/guides/blob/master/astro-pi/README.md) you will have written a sample program which scrolls text across the LED matrix. The program contains two crucial lines, which import the Astro Pi software and create an **ap** object which represents the Astro Pi board.
+When following the [guide](https://github.com/raspberrypilearning/guides/blob/master/astro-pi/README.md) you will have written a sample program which scrolls text across the LED matrix. The program contains two crucial lines, which import the Astro Pi software and create an `ap` object which represents the Astro Pi board.
 
 ```python
 from astro_pi import AstroPi
