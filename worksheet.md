@@ -616,7 +616,7 @@ As this is more complicated than previous programs it's worth planning out the s
 
 If you turned this into Python it could look like this:
 
-    ```python
+```python
 from astro_pi import AstroPi
 import time
 import random
@@ -708,7 +708,7 @@ msg = "Your score was %s" % (score)
 ap.show_message(msg,scroll_speed=0.05,text_colour=[100,100,100])
 ```
 
-    Click **File** -- **Save As**, give you program a name eg [`reaction_game.py`](files/reaction_game.py). Then press **F5** to run.
+Click **File** -- **Save As**, give you program a name eg [`reaction_game.py`](files/reaction_game.py). Then press **F5** to run.
 
 Here's a video showing it being demonstrated:
 
