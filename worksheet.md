@@ -12,7 +12,8 @@ Once you are set up and have run your first program using the guide, you can beg
 
 When following the [guide](https://github.com/raspberrypilearning/guides/blob/master/astro-pi/README.md) you will have written a sample program which scrolls text across the LED matrix. The program contains two crucial lines, which import the Astro Pi software and create an **ap** object which represents the Astro Pi board.
 
-    ```python
+    ```
+    python
     from astro_pi import AstroPi
     ap = AstroPi()
     ```
@@ -35,7 +36,8 @@ You have probably already discovered that you can easily change the message to y
 
 So this program would display the text `Astro Pi is awesome!!` more slowly, with the text in yellow **[255,255,0]** and the background in blue **[0,0,255]**:
 
-    ```python
+    ```
+    python
     from astro_pi import AstroPi
     ap = AstroPi()
     ap.show_message("Astro Pi is awesome!!",scroll_speed=0.05,text_colour=[255,255,0],back_colour=[0,0,255])
@@ -43,7 +45,8 @@ So this program would display the text `Astro Pi is awesome!!` more slowly, with
 
 You could also make the message repeat using a while loop like this:
 
-    ```python
+    ```
+    python
     from astro_pi import AstroPi
     ap = AstroPi()
     while True:
