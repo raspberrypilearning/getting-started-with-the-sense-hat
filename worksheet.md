@@ -128,7 +128,7 @@ The LED matrix can display more that just text! We can control each LED individu
 
 1. The first approach is to set pixels (LEDs) individually; we can do this using the `ap.set_pixel()` method. First, we need to be clear about how we describe each pixel.
 
-The Astro Pi board uses a coordinate system like the one shown below; crucially the numbering begins at **0**, not 1. Also the origin is in the **top left** rather than the bottom left as you may be used to.
+    The Astro Pi board uses a coordinate system like the one shown below; crucially the numbering begins at **0**, not 1. Also the origin is in the **top left** rather than the bottom left as you may be used to.
 
     ![Coordinates](images/coordinates.png)
 
@@ -137,14 +137,14 @@ The Astro Pi board uses a coordinate system like the one shown below; crucially 
 
     To replicate the above diagram you would enter a program like this:
 
-```python
+    ```python
 from astro_pi import AstroPi
 ```
 
     Can you guess what the following code creates?
 
 
-```python
+    ```python
 from astro_pi import AstroPi
 
 ap = AstroPi()
@@ -163,15 +163,15 @@ ap.set_pixel(5,5,[255,0,0])
 
     We could enter something like...
 
-```python
+    ```python
 ap.set_pixels([[255,0,0],[255,0,0],[255,0,0],[255,0,0],......])
 ```
 
     ...but this would take ages and be really complex.
 
-Instead, you can use some variables to define your colour palette (in this example we're using the 7 colours of the rainbow):
+    Instead, you can use some variables to define your colour palette (in this example we're using the 7 colours of the rainbow):
 
-```python
+    ```python
 r = [255,0,0]
 o = [255,127,0]
 y = [255,255,0]
@@ -182,9 +182,9 @@ v = [159,0,255]
 e = [0,0,0] #e stands for empty/black
 ```
 
-We can then describe our matrix by creating a 2D list of colour names:
+    We can then describe our matrix by creating a 2D list of colour names:
 
-```python
+    ```python
 image = [
 e,e,e,e,e,e,e,e,
 e,e,e,r,r,e,e,e,
@@ -197,9 +197,9 @@ b,i,i,v,v,i,i,b
 ]
 ```
 
-We then give the `image` list to the `ap.set_pixels` method and draw the image. The finished program would look like this:
+    We then give the `image` list to the `ap.set_pixels` method and draw the image. The finished program would look like this:
 
-```python
+    ```python
 from astro_pi import AstroPi
 
 
@@ -228,7 +228,7 @@ b,i,i,v,v,i,i,b
 ap.set_pixels(image)
 ```
 
-You should have a beautiful rainbow displayed on your LED matrix.
+    You should have a beautiful rainbow displayed on your LED matrix.
 
 ### Ideas
 
