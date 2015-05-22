@@ -58,17 +58,17 @@ while True:
     | **text_colour** | The *text_colour* parameter alters the colour of the text and is specified as 3 values for Red, Green, Blue. Each value can be between 0 - 255, so [255,0,255] would be Red + Blue = Purple |
     | **back_colour** | The *back_colour* parameter alters the colour of the background and is specified as 3 values for Red, Green, Blue. Each value can be between 0 - 255, so [255,0,255] would be Red + Blue = Purple |
 
-So this program would display a single Red "J":
+    So this program would display a single Red "J":
 
-```python
+    ```python
 from astro_pi import AstroPi
 ap = AstroPi()
 ap.show_letter("J",text_colour=[255,0,0])
 ```
 
-And this program would add the **sleep library** to display letters separated by a brief pause:
+    And this program would add the **sleep library** to display letters separated by a brief pause:
 
-```python
+    ```python
 from astro_pi import AstroPi
 import time
 
@@ -85,9 +85,9 @@ time.sleep(1)
 ap.clear()
 ```
 
-For added interest you could use a random number generator to choose a number between 0 and 255 for the colours:
+    For added interest you could use a random number generator to choose a number between 0 and 255 for the colours:
 
-```python
+    ```python
 from astro_pi import AstroPi
 import time
 import random
@@ -111,7 +111,7 @@ time.sleep(1)
 ap.clear()
 ```
 
-In both these programs the `ap.clear()` method has been used at the end to clear the matrix.
+    In both these programs the `ap.clear()` method has been used at the end to clear the matrix.
 
 
 ### Ideas
