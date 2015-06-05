@@ -1,6 +1,6 @@
 # Getting Started with Astro Pi
 
-Astro Pi is a add-on board for the Raspberry Pi, which adds the ability to sense all kinds of things and output information using a built-in 8x8 LED matrix. You can find out more about Astro Pi by following the [Astro Pi Guide](https://www.raspberrypi.org/learning/astro-pi-guide/), which will show you how to connect and test your Astro Pi board. It also has some helpful explanations and examples of what the different inputs and outputs can do.
+Astro Pi is an add-on board for the Raspberry Pi, which adds the ability to sense all kinds of things and output information using a built-in 8x8 LED matrix. You can find out more about Astro Pi by following the [Astro Pi Guide](https://www.raspberrypi.org/learning/astro-pi-guide/), which will show you how to connect and test your Astro Pi board. It also has some helpful explanations and examples of what the different inputs and outputs can do.
 
 Once you are set up and have run your first program using the guide, you can begin to experiment further using this worksheet. In order to write your programs you will need to boot your Raspberry Pi to the desktop and start IDLE3, like you did in the guide.
 
@@ -53,7 +53,7 @@ You have probably already discovered that you can easily change the message to y
         ap.show_message("Astro Pi is awesome!!", scroll_speed=0.05, text_colour=[255,255,0], back_colour=[0,0,255])
     ```
 
-1. Click **File** -- **Save As**, give your program a name eg [`loop_text.py`](code/loop_text.py). Then press **F5** to run.
+1. Click **File** -- **Save As**, give your program a name e.g. [`loop_text.py`](code/loop_text.py), then press **F5** to run.
 
 1. The LED matrix can also display a single character, rather than an entire message, using the `ap.show_letter` function which also has some optional **parameters**.
 
@@ -92,7 +92,7 @@ You have probably already discovered that you can easily change the message to y
     ap.clear()
     ```
 
-    Click **File** -- **Save As**, give your program a name eg [`omg.py`](code/omg.py). Then press **F5** to run.
+    Click **File** -- **Save As**, give your program a name eg [`omg.py`](code/omg.py), then press **F5** to run.
 
     For added interest you could use a random number generator to choose a number between 0 and 255 for the colours:
 
@@ -120,7 +120,7 @@ You have probably already discovered that you can easily change the message to y
     ap.clear()
     ```
 
-1. Click **File** -- **Save As**, give your program a name eg [`random_omg.py`](code/random_omg.py). Then press **F5** to run.
+1. Click **File** -- **Save As**, give your program a name eg [`random_omg.py`](code/random_omg.py), then press **F5** to run.
 
     In both these programs the `ap.clear()` method has been used at the end to clear the matrix.
 
@@ -133,11 +133,11 @@ You have probably already discovered that you can easily change the message to y
 
 ## Displaying images
 
-The LED matrix can display more that just text! We can control each LED individually to create an image. We can accomplish this in a couple of ways.
+The LED matrix can display more than just text! We can control each LED individually to create an image. We can accomplish this in a couple of ways.
 
 1. The first approach is to set pixels (LEDs) individually; we can do this using the `ap.set_pixel()` method. First, we need to be clear about how we describe each pixel.
 
-    The Astro Pi board uses a coordinate system like the one shown below; crucially the numbering begins at **0**, not 1. Also the origin is in the **top left** rather than the bottom left as you may be used to.
+    The Astro Pi board uses a coordinate system like the one shown below; crucially the numbering begins at **0**, not 1. Also, the origin is in the **top left** rather than the bottom left as you may be used to.
 
     ![Coordinates](images/coordinates.png)
 
@@ -172,7 +172,7 @@ The LED matrix can display more that just text! We can control each LED individu
     ap.set_pixel(5, 5, [255, 0, 0])
     ```
 
-1. Click **File** -- **Save As**, give your program a name eg [`simple_image.py`](code)/simple_image.py). Then press **F5** to run.
+1. Click **File** -- **Save As**, give your program a name e.g. [`simple_image.py`](code)/simple_image.py), then press **F5** to run.
 
 1. Setting pixels individually can work brilliantly, but it gets rather complex when you want to set more pixels. There is another method which can set all the pixels in one go called `ap.set_pixels`. Its use is quite straightforward; we just give a list of colour values for each pixel in the matrix.
 
@@ -241,7 +241,7 @@ The LED matrix can display more that just text! We can control each LED individu
 
     ap.set_pixels(image)
     ```
-1. Click **File** -- **Save As**, give your program a name eg [`rainbow.py`](code/rainbow.py). Then press **F5** to run.
+1. Click **File** -- **Save As**, give your program a name e.g. [`rainbow.py`](code/rainbow.py), then press **F5** to run.
 
     You should have a beautiful rainbow displayed on your LED matrix.
 
@@ -291,7 +291,7 @@ ap.set_rotation(180)
     ap.set_rotation(180)
     ```
 
-1. Click **File** -- **Save As**, give your program a name eg [`rainbow_flip.py`](code/rainbow_flip.py). Then press **F5** to run.
+1. Click **File** -- **Save As**, give your program a name e.g. [`rainbow_flip.py`](code/rainbow_flip.py), then press **F5** to run.
 
 2. You could also create spinning text using a **for** loop:
 
@@ -311,7 +311,7 @@ ap.set_rotation(180)
 
     This program displays the letter "J" and then sets the rotation to each value in the angles list with a 0.5 second pause.
 
-1. Click **File** -- **Save As**, give your program a name eg [`spinning_j.py`](code/spinning_j.py). Then press **F5** to run.
+1. Click **File** -- **Save As**, give your program a name e.g. [`spinning_j.py`](code/spinning_j.py), then press **F5** to run.
 
 1. You can also flip the image on the screen, either horizontally or vertically, using these lines:
 
@@ -355,7 +355,7 @@ ap.set_rotation(180)
         ap.flip_h()
     ```
 
-1. Click **File** -- **Save As**, give your program a name eg [`eyes.py`](code/eyes.py). Then press **F5** to run.
+1. Click **File** -- **Save As**, give your program a name e.g. [`eyes.py`](code/eyes.py), then press **F5** to run.
 
 ### Ideas
 
@@ -384,9 +384,9 @@ We can collect these readings using three simple methods:
 
 - `ap.get_temperature()` - This will return the temperature in Celsius.
 - `ap.get_pressure()` - This will return the pressure in millibars.
-- `ap.get_humidity()` - This returns the humidity as a percentage.
+- `ap.get_humidity()` - This will return the humidity as a percentage.
 
-1. Using these, we could create a simple scrolling text display, which could keep people informed about current conditions.
+1. Using these, we could create a simple scrolling text display which could keep people informed about current conditions.
 
     ```python
     from astro_pi import AstroPi
@@ -406,11 +406,11 @@ We can collect these readings using three simple methods:
         ap.show_message(msg, scroll_speed=0.05)
     ```
 
-1. Click **File** -- **Save As**, give your program a name eg [`env.py`](code/env.py). Then press **F5** to run.
+1. Click **File** -- **Save As**, give your program a name e.g. [`env.py`](code/env.py), then press **F5** to run.
 
 1. You could now use some colour to let the astronauts know whether conditions are within sensible ranges.
 
-    According to some [online documentation](http://wsn.spaceflight.esa.int/docs/Factsheets/30%20ECLSS%20LR.pdf) the International Space Station maintains these conditions at the following levels:
+    According to some [online documentation](http://wsn.spaceflight.esa.int/docs/Factsheets/30%20ECLSS%20LR.pdf), the International Space Station maintains these conditions at the following levels:
 
     - Temperature (18.3 - 26.7 Celsius)
     - Pressure (979 - 1027 millibars)
@@ -450,12 +450,12 @@ We can collect these readings using three simple methods:
         ap.show_message(msg, scroll_speed=0.05, backcolour=bg)
     ```
 
-1. Click **File** -- **Save As**, give your program a name eg [`scrolling_env.py`](code/scrolling_env.py). Then press **F5** to run.
+1. Click **File** -- **Save As**, give your program a name e.g. [`scrolling_env.py`](code/scrolling_env.py), then press **F5** to run.
 
 ### Ideas
 
-- Currently the scrolling program only warns about abnormal temperature. Can you add the same behaviour for pressure and humidity?
-- You could create a simple graphical thermometer, which outputs different colours / patterns depending on the temperature.
+- Currently, the scrolling program only warns about abnormal temperature. Can you add the same behaviour for pressure and humidity?
+- You could create a simple graphical thermometer which outputs different colours / patterns depending on the temperature.
 - If you haven't done so already, experiment with a bottle and the [pressure sensor](https://www.raspberrypi.org/learning/astro-pi-guide/sensors/pressure.md).
 
 ## Detecting movement
@@ -498,7 +498,7 @@ This would get the three orientation values (measured in degrees) and store them
         time.sleep(0.5)
     ```
 
-1. Click **File** -- **Save As**, give your program a name eg [`orientation.py`](code/orientation.py). Then press **F5** to run.
+1. Click **File** -- **Save As**, give your program a name e.g. [`orientation.py`](code/orientation.py), then press **F5** to run.
 
 1. Another way to detect orientation is to use the `ap.get_accelerometer_raw()` method which tells you the amount of g-force acting on each axis. If any axis has ±1g then you know that axis is pointing downwards.
 
@@ -521,11 +521,11 @@ This would get the three orientation values (measured in degrees) and store them
         time.sleep(0.1)
     ```
 
-1. Click **File** -- **Save As**, give your program a name eg [`acceleration.py`](code/acceleration.py). Then press **F5** to run.
+1. Click **File** -- **Save As**, give your program a name e.g. [`acceleration.py`](code/acceleration.py), then press **F5** to run.
 
     As you turn the screen you should see the values for x and y change between -1 and 1. If you place the Pi flat or turn it upside down, the z axis will be 1 and then -1.
 
-1. If we know which way round the Astro Pi is, then we can use that information to set the orientation of the LED matrix. First you would display something on the matrix, and then continually check which way round the board is, and use that to update the orientation of the display.
+1. If we know which way round the Astro Pi is, then we can use that information to set the orientation of the LED matrix. First you would display something on the matrix, then continually check which way round the board is, and use that to update the orientation of the display.
 
     ```python
     from astro_pi import AstroPi
@@ -553,7 +553,7 @@ This would get the three orientation values (measured in degrees) and store them
         time.sleep(0.1)
     ```
 
-1. Click **File** -- **Save As**, give your program a name eg [`rotating_letter.py`](code/rotating_letter.py). Then press **F5** to run.
+1. Click **File** -- **Save As**, give your program a name e.g. [`rotating_letter.py`](code/rotating_letter.py), then press **F5** to run.
 
     In this program you are using an `if, elif, else` structure to check which way round the Astro Pi is. The `if` and `elif` test three of the orientations, and if the orientation doesn't match any of these then the program assumes it is the "right" way round. By using the `else` statement we also catch all those other situations, like when the board is at 45 degrees or sitting level.
 
@@ -580,7 +580,7 @@ This would get the three orientation values (measured in degrees) and store them
         time.sleep(0.1)
     ```
 
-1. Click **File** -- **Save As**, give your program a name eg [`shake.py`](code/shake.py). Then press **F5** to run.
+1. Click **File** -- **Save As**, give your program a name e.g. [`shake.py`](code/shake.py), then press **F5** to run.
 
     You might find this is quite sensitive, but you could change the value from 1 to a higher number.
 
@@ -721,17 +721,18 @@ msg = "Your score was %s" % score
 ap.show_message(msg, scroll_speed=0.05, text_colour=[100, 100, 100])
 ```
 
-1. Click **File** -- **Save As**, give your program a name eg [`reaction_game.py`](code/reaction_game.py). Then press **F5** to run.
+1. Click **File** -- **Save As**, give your program a name e.g. [`reaction_game.py`](code/reaction_game.py), then press **F5** to run.
 
 Here's a video showing it being demonstrated:
 
 [![Astro Pi Dice](http://img.youtube.com/vi/k1ZB8jORb74/0.jpg)](https://www.youtube.com/watch?v=k1ZB8jORb74)
 
 ### Ideas
+
 There are lots of potential developments for this game:
-- Include shake actions as well as orientation
-- Make use of the humidity sensor to detect breath, the player could be prompted to breath of the board as an action.
-- Include more than 4 directions, players have to hold at 45 degrees
+- Include shake actions as well as orientation.
+- Make use of the humidity sensor to detect breath; the player could be prompted to breathe on the board as an action.
+- Include more than 4 directions; players have to hold at 45 degrees.
 
 ## What next?
 
