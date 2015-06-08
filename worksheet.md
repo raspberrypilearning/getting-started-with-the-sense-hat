@@ -152,7 +152,7 @@ The LED matrix can display more than just text! We can control each LED individu
     ap = AstroPi()
 
     ap.set_pixel(0, 2, [0, 0, 255])
-    ap.set_pixel(4, 2, [255, 0, 0])
+    ap.set_pixel(7, 4, [255, 0, 0])
     ```
 
     Can you guess what the following code creates?
