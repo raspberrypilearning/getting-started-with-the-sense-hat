@@ -172,7 +172,7 @@ The LED matrix can display more than just text! We can control each LED individu
     ap.set_pixel(5, 5, [255, 0, 0])
     ```
 
-1. Click **File** -- **Save As**, give your program a name e.g. [`simple_image.py`](code)/simple_image.py), then press **F5** to run.
+1. Click **File** -- **Save As**, give your program a name e.g. [`simple_image.py`](code/simple_image.py), then press **F5** to run.
 
 1. Setting pixels individually can work brilliantly, but it gets rather complex when you want to set more pixels. There is another method which can set all the pixels in one go called `ap.set_pixels`. Its use is quite straightforward; we just give a list of colour values for each pixel in the matrix.
 
@@ -447,7 +447,7 @@ We can collect these readings using three simple methods:
 
         msg = "Temperature = %s, Pressure=%s, Humidity=%s" % (t, p, h)
 
-        ap.show_message(msg, scroll_speed=0.05, backcolour=bg)
+        ap.show_message(msg, scroll_speed=0.05, back_colour=bg)
     ```
 
 1. Click **File** -- **Save As**, give your program a name e.g. [`scrolling_env.py`](code/scrolling_env.py), then press **F5** to run.
