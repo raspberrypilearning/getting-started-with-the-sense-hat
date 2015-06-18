@@ -488,7 +488,6 @@ This would get the three orientation values (measured in degrees) and store them
 
     ```python
     from astro_pi import AstroPi
-    import time
 
     ap = AstroPi()
 
@@ -507,7 +506,6 @@ This would get the three orientation values (measured in degrees) and store them
 
     ```python
     from astro_pi import AstroPi
-    import time
 
     ap = AstroPi()
 
@@ -519,7 +517,6 @@ This would get the three orientation values (measured in degrees) and store them
         z=round(z, 0)
 
         print("x=%s, y=%s, z=%s" % (x, y, z))
-        time.sleep(0.1)
     ```
 
 1. Click **File** -- **Save As**, give your program a name e.g. [`acceleration.py`](code/acceleration.py), then press **F5** to run.
@@ -530,7 +527,6 @@ This would get the three orientation values (measured in degrees) and store them
 
     ```python
     from astro_pi import AstroPi
-    import time
 
     ap = AstroPi()
 
@@ -550,8 +546,6 @@ This would get the three orientation values (measured in degrees) and store them
             ap.set_rotation(270)
         else:
             ap.set_rotation(0)
-
-        time.sleep(0.1)
     ```
 
 1. Click **File** -- **Save As**, give your program a name e.g. [`rotating_letter.py`](code/rotating_letter.py), then press **F5** to run.
@@ -562,7 +556,6 @@ This would get the three orientation values (measured in degrees) and store them
 
     ```python
     from astro_pi import AstroPi
-    import time
 
     ap = AstroPi()
 
@@ -577,8 +570,6 @@ This would get the three orientation values (measured in degrees) and store them
             ap.show_letter("!", text_colour=[255, 0, 0])
         else:
             ap.clear()
-
-        time.sleep(0.1)
     ```
 
 1. Click **File** -- **Save As**, give your program a name e.g. [`shake.py`](code/shake.py), then press **F5** to run.
