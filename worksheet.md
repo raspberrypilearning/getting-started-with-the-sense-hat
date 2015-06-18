@@ -499,7 +499,7 @@ This would get the three orientation values (measured in degrees) and store them
 
 1. Click **File** -- **Save As**, give your program a name e.g. [`orientation.py`](code/orientation.py), then press **F5** to run.
 
-    **Note: When using the movement sensors it is important to poll it often in a tight loop. If you poll it too slowly, for example with time.sleep(0.5) in your loop, you will see strange results. This is because the code behind needs lots of measurements in order to successfully combine the data coming from the gyroscope, accelerometer and magnetometer.**
+    **Note: When using the movement sensors it is important to poll them often in a tight loop. If you poll them too slowly, for example with `time.sleep(0.5)` in your loop, you will see strange results. This is because the code behind needs lots of measurements in order to successfully combine the data coming from the gyroscope, accelerometer and magnetometer.**
 
 1. Another way to detect orientation is to use the `ap.get_accelerometer_raw()` method which tells you the amount of g-force acting on each axis. If any axis has ±1g then you know that axis is pointing downwards.
 
