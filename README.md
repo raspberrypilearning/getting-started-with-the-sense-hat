@@ -2,19 +2,19 @@
 
 ![](cover.png)
 
-The Astro Pi HAT is an addon board for the Raspberry Pi which allows you to sense a range of inputs and do creative things with them, including displaying information using the LED matrix. This activity will help you start using the sensors and LEDs in your projects.
+The Sense HAT is an addon board for the Raspberry Pi which allows you to sense a range of inputs and do creative things with them, including displaying information using the LED matrix. This activity will help you start using the sensors and LEDs in your projects.
 
 ## Requirements
 
-Before following this resource it is a good idea to review the Astro Pi [guide](https://github.com/raspberrypilearning/guides/tree/master/astro-pi), which will help you get your Astro Pi set up and configured.
+Before following this resource it is a good idea to review the Astro Pi [guide](https://github.com/raspberrypilearning/guides/tree/master/astro-pi), which will help you get your hardware set up and configured.
 
 ### Hardware
 
-In order to follow this resource you will need an Astro Pi HAT, which can be obtained by entering the [Astro Pi Competition](www.astropi.org).
+In order to follow this resource you will need a Sense HAT, which can be obtained by entering the [Astro Pi Competition](www.astropi.org).
 
 ### Software
 
-In order to communicate with the Astro Pi board you will need to install the Python software libraries, which can be found [here]().
+In order to communicate with the Sense HAT board you will need to install the Python software libraries, which can be found [here](https://github.com/raspberrypilearning/astro-pi-guide/blob/master/software.md).
 
 ## The worksheet
 
