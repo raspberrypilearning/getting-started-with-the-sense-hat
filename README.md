@@ -2,7 +2,7 @@
 
 ![](cover.png)
 
-The Sense HAT is an addon board for the Raspberry Pi which allows you to sense a range of inputs and do creative things with them, including displaying information using the LED matrix. This activity will help you start using the sensors and LEDs in your projects.
+The Sense HAT is an add-on board for the Raspberry Pi which allows you to sense a range of inputs and do creative things with them, including displaying information using the LED matrix. This activity will help you start using the sensors and LEDs in your projects.
 
 ## Requirements
 
