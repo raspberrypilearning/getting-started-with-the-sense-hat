@@ -1,10 +1,11 @@
-from astro_pi import AstroPi
-ap = AstroPi()
+from sense_hat import SenseHat
+
+sense = SenseHat()
 
 while True:
-    t = ap.get_temperature()
-    p = ap.get_pressure()
-    h = ap.get_humidity()
+    t = sense.get_temperature()
+    p = sense.get_pressure()
+    h = sense.get_humidity()
 
     t = round(t,1)
     p = round(p,1)
@@ -12,4 +13,4 @@ while True:
 
     msg = "Temperature = %s, Pressure=%s, Humidity=%s" % (t,p,h)
 
-    ap.show_message(msg,scroll_speed=0.05)
+    sense.show_message(msg,scroll_speed=0.05)

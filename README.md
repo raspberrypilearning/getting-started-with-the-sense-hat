@@ -6,15 +6,15 @@ The Sense HAT is an add-on board for the Raspberry Pi which allows you to sense 
 
 ## Requirements
 
-Before following this resource it is a good idea to review the Astro Pi [guide](https://github.com/raspberrypilearning/guides/tree/master/astro-pi), which will help you get your hardware set up and configured.
+Before following this resource it is a good idea to review the [Astro Pi Guide](https://www.raspberrypi.org/learning/astro-pi-guide/), which will help you get your hardware set up and configured.
 
 ### Hardware
 
-In order to follow this resource you will need a Sense HAT, which can be obtained by entering the [Astro Pi Competition](www.astropi.org).
+- 1 x Sense HAT
 
 ### Software
 
-In order to communicate with the Sense HAT board you will need to install the Python software libraries, which can be found [here](https://github.com/raspberrypilearning/astro-pi-guide/blob/master/software.md).
+- Sense HAT library for Python 3
 
 ## The worksheet
 
@@ -26,6 +26,6 @@ Unless otherwise specified, everything in this repository is covered by the foll
 
 [![Creative Commons License](http://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
 
-***Getting Started With Astro Pi*** by the [Raspberry Pi Foundation](http://www.raspberrypi.org) is licenced under a [Creative Commons Attribution 4.0 International Licence](http://creativecommons.org/licenses/by-sa/4.0/).
+***Getting Started With Astro Pi*** by the [Raspberry Pi Foundation](https://www.raspberrypi.org) is licenced under a [Creative Commons Attribution 4.0 International Licence](http://creativecommons.org/licenses/by-sa/4.0/).
 
 Based on a work at https://github.com/raspberrypilearning/getting-started-with-astro-pi

@@ -1,22 +1,22 @@
-from astro_pi import AstroPi
-ap = AstroPi()
+from sense_hat import SenseHat
+sense = SenseHat()
 import time
 
-ap.show_letter("J")
+sense.show_letter("J")
 
 while True:
-  x,y,z = ap.get_accelerometer_raw().values()
+  x, y, z = sense.get_accelerometer_raw().values()
 
-  x=round(x,0)
-  y=round(y,0)
+  x = round(x, 0)
+  y = round(y, 0)
 
   if x == -1:
-      ap.set_rotation(180)
+      sense.set_rotation(180)
   elif y == 1:
-      ap.set_rotation(90)
+      sense.set_rotation(90)
   elif y == -1:
-      ap.set_rotation(270)
+      sense.set_rotation(270)
   else:
-      ap.set_rotation(0)
+      sense.set_rotation(0)
 
   time.sleep(0.1)

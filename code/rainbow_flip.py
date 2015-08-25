@@ -1,6 +1,6 @@
-from astro_pi import AstroPi
+from sense_hat import SenseHat
 
-ap = AstroPi()
+sense = SenseHat()
 
 r = [255,0,0]
 o = [255,127,0]
@@ -12,15 +12,15 @@ v = [159,0,255]
 e = [0,0,0]
 
 image = [
-e,e,e,e,e,e,e,e,
-e,e,e,r,r,e,e,e,
-e,r,r,o,o,r,r,e,
-r,o,o,y,y,o,o,r,
-o,y,y,g,g,y,y,o,
-y,g,g,b,b,g,g,y,
-b,b,b,i,i,b,b,b,
-b,i,i,v,v,i,i,b
+    e,e,e,e,e,e,e,e,
+    e,e,e,r,r,e,e,e,
+    e,r,r,o,o,r,r,e,
+    r,o,o,y,y,o,o,r,
+    o,y,y,g,g,y,y,o,
+    y,g,g,b,b,g,g,y,
+    b,b,b,i,i,b,b,b,
+    b,i,i,v,v,i,i,b
 ]
 
-ap.set_pixels(image)
-ap.set_rotation(180)
+sense.set_pixels(image)
+sense.set_rotation(180)

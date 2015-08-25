@@ -1,7 +1,8 @@
-from astro_pi import AstroPi
+from sense_hat import SenseHat
 import time
 import random
-ap = AstroPi() 
+
+sense = SenseHat()
 
 try:
     with open("score","r") as scorefile:
@@ -28,10 +29,10 @@ def plot_image(pattern,fg,bg):
             image.append(bg)
         else:
             image.append(fg)
-    ap.set_pixels(image)
+    sense.set_pixels(image)
 
 def shake_check():
-    x,y,z = ap.get_accelerometer_raw().values()
+    x,y,z = sense.get_accelerometer_raw().values()
     x = abs(x)
     y = abs(y)
     z = abs(z)
@@ -42,7 +43,7 @@ def shake_check():
         return False
 
 def get_angle():
-    x,y,z = ap.get_accelerometer_raw().values()
+    x,y,z = sense.get_accelerometer_raw().values()
     x=round(x,0)
     y=round(y,0)
     if x == -1:
@@ -57,9 +58,9 @@ def get_angle():
 
 def orient_message(msg):
     time.sleep(0.5)
-    ap.set_rotation(get_angle())
-    ap.show_message(msg,scroll_speed=0.04,text_colour=w)
-   
+    sense.set_rotation(get_angle())
+    sense.show_message(msg,scroll_speed=0.04,text_colour=w)
+
 
 pause = 3
 arrow = 0
@@ -83,8 +84,8 @@ while True:
         while arrow == last_arrow:
           arrow = random.choice([0,90,180,270])
 
-        ap.set_rotation(arrow)
- 
+        sense.set_rotation(arrow)
+
         num = random.random()
         if num > 0.1:
             plot_image(shake_img,w,bl)
@@ -95,11 +96,11 @@ while True:
             else:
                 plot_image(shake_img,r,bl)
                 lives = lives -1
-        elif num > 0.9 and ap.get_humidity()<60:
-            hum = ap.get_humidity()
+        elif num > 0.9 and sense.get_humidity()<60:
+            hum = sense.get_humidity()
             plot_image(breath_img,w,bl)
             time.sleep(pause)
-            if ap.get_humidity() > hum + 4:
+            if sense.get_humidity() > hum + 4:
                 plot_image(breath_img,g,bl)
                 score = score + 1
             else:
@@ -115,18 +116,17 @@ while True:
                 plot_image(arrow_img,r,bl)
                 lives = lives - 1
         if lives <= 0:
-            play=False    
+            play=False
         if random.random() > 0.2:
             pause = pause * 0.95
         time.sleep(0.5)
-    
+
     msg = "Your Score = %s" % (score)
     orient_message(msg)
     if score>highscore:
         highscore=score
         with open("score","w") as scorefile:
             scorefile.write(str(highscore))
-        
+
     msg = "Highscore = %s" % (highscore)
     orient_message(msg)
-
