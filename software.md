@@ -13,6 +13,7 @@ Then install the Sense HAT software package:
 
 ```bash
 sudo apt-get install sense-hat
+sudo pip-3.2 install pillow
 ```
 
 Finally, reboot the Pi to complete the installation:
