@@ -14,4 +14,4 @@ while True:
       sense.show_letter("!", text_colour=[255,0,0])
   else:
       sense.clear()
-  time.sleep(0.1
+  time.sleep(0.1)
