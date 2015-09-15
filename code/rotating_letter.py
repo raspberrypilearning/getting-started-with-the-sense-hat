@@ -12,9 +12,9 @@ while True:
 
   if x == -1:
       sense.set_rotation(180)
-  elif y == 1:
-      sense.set_rotation(90)
   elif y == -1:
+      sense.set_rotation(90)
+  elif y == 1:
       sense.set_rotation(270)
   else:
       sense.set_rotation(0)
