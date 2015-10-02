@@ -19,6 +19,7 @@ Before following this resource it is a good idea to review the [Sense HAT Guide 
 ## The worksheet
 
 - [The worksheet](worksheet.md)
+- Printable [workshop worksheet](files/printable-worksheet.pdf)
 
 ## Licence
 
