@@ -2,13 +2,11 @@
 
 The Sense HAT is an add-on board for the Raspberry Pi, made especially for the [Astro Pi](http://astro-pi.org/) competition. The board adds the ability to sense all kinds of things and output information using a built-in 8x8 LED matrix. You can find out more about what the Sense HAT can do by following the [Astro Pi Guide](https://www.raspberrypi.org/learning/astro-pi-guide/), which will show you how to connect and test your Sense HAT. It also has some helpful explanations and examples of what the different inputs and outputs can do.
 
-Once you are set up and have run your first program using the guide, you can begin to experiment further using this worksheet. In order to write your programs you will need to boot your Raspberry Pi to the desktop and start IDLE3 - the Python 3 editor, by entering the following command into a Terminal window:
-
-```bash
-sudo idle3 &
-```
+Once you are set up and have run your first program using the guide, you can begin to experiment further using this worksheet.
 
 ## Displaying text
+
+Start by opening Python3 from the main menu.
 
 When following the [guide](https://www.raspberrypi.org/learning/astro-pi-guide/) you will have written a sample program which scrolls text across the LED matrix. The program contains two crucial lines, which import the Sense HAT software and create an `sense` object which represents the Sense HAT.
 
