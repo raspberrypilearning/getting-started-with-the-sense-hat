@@ -1,4 +1,4 @@
-# Getting Started with Astro Pi
+# Getting Started with the Sense Hat
 
 The Sense HAT is an add-on board for the Raspberry Pi, made especially for the [Astro Pi](http://astro-pi.org/) competition. The board adds the ability to sense all kinds of things and output information using a built-in 8x8 LED matrix. You can find out more about what the Sense HAT can do by following the [Astro Pi Guide](https://www.raspberrypi.org/learning/astro-pi-guide/), which will show you how to connect and test your Sense HAT. It also has some helpful explanations and examples of what the different inputs and outputs can do.
 
