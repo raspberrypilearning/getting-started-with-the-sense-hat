@@ -479,10 +479,13 @@ The three axes uses to describe motion are:
 You can find out the orientation of the Sense HAT using the `sense.get_orientation()` method:
 
 ```python
-pitch, roll, yaw = sense.get_orientation().values()
+orientation = sense.get_orientation()
+pitch = orientation['pitch']
+roll = orientation['roll']
+yaw = orientation['yaw']
 ```
 
-This would get the three orientation values (measured in degrees) and store them as the three variables `pitch`, `roll` and `yaw`. The `.values()` obtains the three values so that they can be stored separately.
+This would get the three orientation values (measured in degrees) and store them as the three variables `pitch`, `roll` and `yaw`.
 
 1. You can explore these values with a simple program:
 
@@ -492,7 +495,10 @@ This would get the three orientation values (measured in degrees) and store them
     sense = SenseHat()
 
     while True:
-        pitch, roll, yaw = sense.get_orientation().values()
+	    orientation = sense.get_orientation()
+		pitch = orientation['pitch']
+		roll = orientation['roll']
+		yaw = orientation['yaw']
         print("pitch=%s, roll=%s, yaw=%s" % (pitch,yaw,roll))
     ```
 
@@ -510,9 +516,10 @@ This would get the three orientation values (measured in degrees) and store them
     sense = SenseHat()
 
     while True:
-        x = sense.get_accelerometer_raw().['x']
-		y = sense.get_accelerometer_raw().['y']
-		z = sense.get_accelerometer_raw().['z']
+	    acceleration = sense.get_accelerometer_raw()
+        x = acceleration['x']
+		y = acceleration['y']
+		z = acceleration['z']
 
         x=round(x, 0)
         y=round(y, 0)
@@ -564,10 +571,11 @@ This would get the three orientation values (measured in degrees) and store them
     sense = SenseHat()
 
     while True:
-        x = sense.get_accelerometer_raw().['x']
-		y = sense.get_accelerometer_raw().['y']
-		z = sense.get_accelerometer_raw().['z']	
-
+	    acceleration = sense.get_accelerometer_raw()
+        x = acceleration['x']
+		y = acceleration['y']
+		z = acceleration['z']
+        
         x = abs(x)
         y = abs(y)
         z = abs(z)
@@ -687,10 +695,11 @@ while play:
     sense.set_rotation(angle)
     sense.set_pixels(arrow)
     time.sleep(pause)
-    x = sense.get_accelerometer_raw().['x']
-	y = sense.get_accelerometer_raw().['y']
-	z = sense.get_accelerometer_raw().['z']
-    
+	acceleration = sense.get_accelerometer_raw()
+    x = acceleration['x']
+	y = acceleration['y']
+	z = acceleration['z']
+        
     x = round(x, 0)
     y = round(y, 0)
 
