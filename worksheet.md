@@ -510,7 +510,9 @@ This would get the three orientation values (measured in degrees) and store them
     sense = SenseHat()
 
     while True:
-        x, y, z = sense.get_accelerometer_raw().values()
+        x = sense.get_accelerometer_raw().['x']
+		y = sense.get_accelerometer_raw().['y']
+		z = sense.get_accelerometer_raw().['z']
 
         x=round(x, 0)
         y=round(y, 0)
@@ -533,7 +535,9 @@ This would get the three orientation values (measured in degrees) and store them
     sense.show_letter("J")
 
     while True:
-        x, y, z = sense.get_accelerometer_raw().values()
+        x = sense.get_accelerometer_raw().['x']
+		y = sense.get_accelerometer_raw().['y']
+		z = sense.get_accelerometer_raw().['z']
 
         x = round(x, 0)
         y = round(y, 0)
@@ -560,7 +564,9 @@ This would get the three orientation values (measured in degrees) and store them
     sense = SenseHat()
 
     while True:
-        x, y, z = sense.get_accelerometer_raw().values()
+        x = sense.get_accelerometer_raw().['x']
+		y = sense.get_accelerometer_raw().['y']
+		z = sense.get_accelerometer_raw().['z']	
 
         x = abs(x)
         y = abs(y)
@@ -681,8 +687,10 @@ while play:
     sense.set_rotation(angle)
     sense.set_pixels(arrow)
     time.sleep(pause)
-
-    x, y, z = sense.get_accelerometer_raw().values()
+    x = sense.get_accelerometer_raw().['x']
+	y = sense.get_accelerometer_raw().['y']
+	z = sense.get_accelerometer_raw().['z']
+    
     x = round(x, 0)
     y = round(y, 0)
 
