@@ -504,6 +504,7 @@ The three axes uses to describe motion are:
 
 ![Sense HAT Orientation](images/orientation.png)
 
+The IMU sensor is not yet supported on trinket.io, but will be coming soon!
 You can find out the orientation of the Sense HAT using the `sense.get_orientation()` method:
 
 ```python
