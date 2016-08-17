@@ -44,7 +44,7 @@ You have probably already discovered that you can easily change the message to y
     sense.show_message("Astro Pi is awesome!!", scroll_speed=0.05, text_colour=[255,255,0], back_colour=[0,0,255])
     ```
 
-<iframe src="https://trinket.io/embed/python/d62aa7f30a" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+    <iframe src="https://trinket.io/embed/python/d62aa7f30a" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
     You could also make the message repeat using a while loop like this:
 
@@ -57,7 +57,7 @@ You have probably already discovered that you can easily change the message to y
         sense.show_message("Astro Pi is awesome!!", scroll_speed=0.05, text_colour=[255,255,0], back_colour=[0,0,255])
     ```
 
-<iframe src="https://trinket.io/embed/python/f833a60218" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+    <iframe src="https://trinket.io/embed/python/f833a60218" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 1. Click **File** -- **Save As**, give your program a name e.g. [`loop_text.py`](code/loop_text.py), then press **F5** to run.
 
@@ -101,38 +101,41 @@ You have probably already discovered that you can easily change the message to y
     Click **File** -- **Save As**, give your program a name eg [`omg.py`](code/omg.py), then press **F5** to run.
 
 
-<iframe src="https://trinket.io/embed/python/ccb58a3d9d" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+    <iframe src="https://trinket.io/embed/python/ccb58a3d9d" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 
     For added interest you could use a random number generator to choose a number between 0 and 255 for the colours:
 
     ```python
     from sense_hat import SenseHat
-    import time
-    import random
+    from time import sleep
+    from random import randint
 
     sense = SenseHat()
 
-    r = random.randint(0,255)
-    sense.show_letter("O",text_colour=[r, 0, 0])
-    time.sleep(1)
+    r = randint(0,255)
+    sense.show_letter("O", text_colour=[r, 0, 0])
+    sleep(1)
 
-    r = random.randint(0,255)
-    sense.show_letter("M",text_colour=[0, 0, r])
-    time.sleep(1)
+    r = randint(0,255)
+    sense.show_letter("M", text_colour=[0, 0, r])
+    sleep(1)
 
-    r = random.randint(0,255)
-    sense.show_letter("G",text_colour=[0, r, 0])
-    time.sleep(1)
+    r = randint(0,255)
+    sense.show_letter("G", text_colour=[0, r, 0])
+    sleep(1)
 
     sense.show_letter("!", text_colour=[0, 0, 0], back_colour=[255, 255, 255])
-    time.sleep(1)
+    sleep(1)
     sense.clear()
     ```
 
 1. Click **File** -- **Save As**, give your program a name eg [`random_omg.py`](code/random_omg.py), then press **F5** to run.
 
     In both these programs the `sense.clear()` method has been used at the end to clear the matrix.
+    
+    <iframe src="https://trinket.io/embed/python/45b0f19b65" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
 
 ### Ideas
 
