@@ -8,7 +8,7 @@ Once you are set up and have run your first program using the guide, you can beg
 
 Start by opening Python3 from the main menu.
 
-When following the [guide](https://www.raspberrypi.org/learning/astro-pi-guide/) you will have written a sample program which scrolls text across the LED matrix. The program contains two crucial lines, which import the Sense HAT software and create an `sense` object which represents the Sense HAT.
+When following the [guide](https://www.raspberrypi.org/learning/astro-pi-guide/) you will have written a sample program which scrolls text across the LED matrix. The program contains two crucial lines, which import the Sense HAT software and create a `sense` object which represents the Sense HAT.
 
 ```python
 from sense_hat import SenseHat
@@ -21,6 +21,8 @@ The third line is the one that makes the Sense HAT do something:
 ```python
 sense.show_message("Hello my name is Tim Peake")
 ```
+
+<iframe src="https://trinket.io/embed/python/308a373b5c" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 You have probably already discovered that you can easily change the message to your own text, but there are more things that we can do.
 
