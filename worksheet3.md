@@ -168,7 +168,9 @@ The LED matrix can display more than just text! We can control each LED individu
     sense.set_pixel(7, 4, [255, 0, 0])
     ```
 
-    Can you guess what the following code creates?
+    <iframe src="https://trinket.io/embed/python/9a4266d360" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+    Can you guess what the following code creates? Have a go at editing the code.
 
     ```python
     from sense_hat import SenseHat
@@ -254,9 +256,14 @@ The LED matrix can display more than just text! We can control each LED individu
 
     sense.set_pixels(image)
     ```
+    
 1. Click **File** -- **Save As**, give your program a name e.g. [`rainbow.py`](code/rainbow.py), then press **F5** to run.
 
     You should have a beautiful rainbow displayed on your LED matrix.
+    
+    
+    <iframe src="https://trinket.io/embed/python/8f36929035" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
 
 ### Ideas
 
@@ -308,23 +315,25 @@ sense.set_rotation(180)
 
 2. You could also create spinning text using a **for** loop:
 
-    ```python
-    from sense_hat import SenseHat
-    import time
+```python
+from sense_hat import SenseHat
+from time import sleep
 
-    sense = SenseHat()
+sense = SenseHat()
 
-    sense.show_letter("J")
+sense.show_letter("J")
 
-    angles = [0, 90, 180, 270, 0, 90, 180, 270]
-    for r in angles:
-        sense.set_rotation(r)
-        time.sleep(0.5)
-    ```
+angles = [0, 90, 180, 270, 0, 90, 180, 270]
+for r in angles:
+    sense.set_rotation(r)
+    sleep(0.5)
+```
 
     This program displays the letter "J" and then sets the rotation to each value in the angles list with a 0.5 second pause.
 
 1. Click **File** -- **Save As**, give your program a name e.g. [`spinning_j.py`](code/spinning_j.py), then press **F5** to run.
+
+    <iframe src="https://trinket.io/embed/python/2f48e31b56" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 1. You can also flip the image on the screen, either horizontally or vertically, using these lines:
 
@@ -369,6 +378,8 @@ sense.set_rotation(180)
     ```
 
 1. Click **File** -- **Save As**, give your program a name e.g. [`eyes.py`](code/eyes.py), then press **F5** to run.
+
+<iframe src="https://trinket.io/embed/python/27b25ac047" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 ### Ideas
 
@@ -421,6 +432,8 @@ We can collect these readings using three simple methods:
 
 1. Click **File** -- **Save As**, give your program a name e.g. [`env.py`](code/env.py), then press **F5** to run.
 
+    <iframe src="https://trinket.io/embed/python/a246815131" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
 1. You could now use some colour to let the astronauts know whether conditions are within sensible ranges.
 
     According to some [online documentation](http://wsn.spaceflight.esa.int/docs/Factsheets/30%20ECLSS%20LR.pdf), the International Space Station maintains these conditions at the following levels:
@@ -440,30 +453,32 @@ We can collect these readings using three simple methods:
 
     Your complete program would look like this:
 
-    ```python
-    from sense_hat import SenseHat
-    sense = SenseHat()
+```python
+from sense_hat import SenseHat
+sense = SenseHat()
 
-    while True:
-        t = sense.get_temperature()
-        p = sense.get_pressure()
-        h = sense.get_humidity()
+while True:
+    t = sense.get_temperature()
+    p = sense.get_pressure()
+    h = sense.get_humidity()
 
-        t = round(t, 1)
-        p = round(p, 1)
-        h = round(h, 1)
+    t = round(t, 1)
+    p = round(p, 1)
+    h = round(h, 1)
 
-        if t > 18.3 and t < 26.7:
-            bg = [0, 100, 0]  # green
-        else:
-            bg = [100, 0, 0]  # red
+    if t > 18.3 and t < 26.7:
+        bg = [0, 100, 0]  # green
+    else:
+        bg = [100, 0, 0]  # red
 
-        msg = "Temperature = %s, Pressure=%s, Humidity=%s" % (t, p, h)
+    msg = "Temperature = %s, Pressure=%s, Humidity=%s" % (t, p, h)
 
-        sense.show_message(msg, scroll_speed=0.05, back_colour=bg)
-    ```
+    sense.show_message(msg, scroll_speed=0.05, back_colour=bg)
+```
 
 1. Click **File** -- **Save As**, give your program a name e.g. [`scrolling_env.py`](code/scrolling_env.py), then press **F5** to run.
+
+    <iframe src="https://trinket.io/embed/python/2f03745830" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 ### Ideas
 
@@ -502,18 +517,18 @@ This would get the three orientation values (measured in degrees) and store them
 
 1. You can explore these values with a simple program:
 
-    ```python
-    from sense_hat import SenseHat
+```python
+from sense_hat import SenseHat
 
-    sense = SenseHat()
+sense = SenseHat()
 
-    while True:
-	    orientation = sense.get_orientation()
-		pitch = orientation['pitch']
-		roll = orientation['roll']
-		yaw = orientation['yaw']
-        print("pitch=%s, roll=%s, yaw=%s" % (pitch,yaw,roll))
-    ```
+while True:
+    orientation = sense.get_orientation()
+    pitch = orientation['pitch']
+    roll = orientation['roll']
+    yaw = orientation['yaw']
+    print("pitch={0}, roll={1}, yaw={}".format(pitch,yaw,roll))
+```
 
 1. Click **File** -- **Save As**, give your program a name e.g. [`orientation.py`](code/orientation.py), then press **F5** to run.
 
