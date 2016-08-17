@@ -315,19 +315,19 @@ sense.set_rotation(180)
 
 2. You could also create spinning text using a **for** loop:
 
-```python
-from sense_hat import SenseHat
-from time import sleep
+    ```python
+    from sense_hat import SenseHat
+    from time import sleep
 
-sense = SenseHat()
+    sense = SenseHat()
 
-sense.show_letter("J")
+    sense.show_letter("J")
 
-angles = [0, 90, 180, 270, 0, 90, 180, 270]
-for r in angles:
-    sense.set_rotation(r)
-    sleep(0.5)
-```
+    angles = [0, 90, 180, 270, 0, 90, 180, 270]
+    for r in angles:
+        sense.set_rotation(r)
+        sleep(0.5)
+    ```
 
     This program displays the letter "J" and then sets the rotation to each value in the angles list with a 0.5 second pause.
 
@@ -351,7 +351,7 @@ for r in angles:
 
     ```python
     from sense_hat import SenseHat
-    import time
+    from time import sleep
 
     sense = SenseHat()
 
@@ -373,7 +373,7 @@ for r in angles:
     sense.set_pixels(image)
 
     while True:
-        time.sleep(1)
+        sleep(1)
         sense.flip_h()
     ```
 
@@ -425,7 +425,7 @@ We can collect these readings using three simple methods:
         p = round(p, 1)
         h = round(h, 1)
 
-        msg = "Temperature = %s, Pressure=%s, Humidity=%s" % (t,p,h)
+        msg = "Temperature = {0}, Pressure = {1}, Humidity = {2}".format(t,p,h)
 
         sense.show_message(msg, scroll_speed=0.05)
     ```
@@ -453,28 +453,28 @@ We can collect these readings using three simple methods:
 
     Your complete program would look like this:
 
-```python
-from sense_hat import SenseHat
-sense = SenseHat()
+    ```python
+    from sense_hat import SenseHat
+    sense = SenseHat()
 
-while True:
-    t = sense.get_temperature()
-    p = sense.get_pressure()
-    h = sense.get_humidity()
+    while True:
+        t = sense.get_temperature()
+        p = sense.get_pressure()
+        h = sense.get_humidity()
 
-    t = round(t, 1)
-    p = round(p, 1)
-    h = round(h, 1)
+        t = round(t, 1)
+        p = round(p, 1)
+        h = round(h, 1)
 
-    if t > 18.3 and t < 26.7:
-        bg = [0, 100, 0]  # green
-    else:
-        bg = [100, 0, 0]  # red
+        if t > 18.3 and t < 26.7:
+            bg = [0, 100, 0]  # green
+        else:
+            bg = [100, 0, 0]  # red
 
-    msg = "Temperature = %s, Pressure=%s, Humidity=%s" % (t, p, h)
+        msg = "Temperature = {0}, Pressure = {1}, Humidity - {2}".format(t, p, h)
 
-    sense.show_message(msg, scroll_speed=0.05, back_colour=bg)
-```
+        sense.show_message(msg, scroll_speed=0.05, back_colour=bg)
+    ```
 
 1. Click **File** -- **Save As**, give your program a name e.g. [`scrolling_env.py`](code/scrolling_env.py), then press **F5** to run.
 
@@ -553,7 +553,7 @@ while True:
         y=round(y, 0)
         z=round(z, 0)
 
-        print("x=%s, y=%s, z=%s" % (x, y, z))
+        print("x={0}, y={1}, z={2}".format(x, y, z))
     ```
 
 1. Click **File** -- **Save As**, give your program a name e.g. [`acceleration.py`](code/acceleration.py), then press **F5** to run.
@@ -662,8 +662,8 @@ If you turned this into Python it could look like this:
 
 ```python
 from sense_hat import SenseHat
-import time
-import random
+from time import sleep
+from random import choice
 
 sense = SenseHat()
 
@@ -719,10 +719,10 @@ sense.show_message("Keep the arrow pointing up", scroll_speed=0.05, text_colour=
 while play:
     last_angle = angle
     while angle == last_angle:
-        angle = random.choice([0, 90, 180, 270])
+        angle = choice([0, 90, 180, 270])
     sense.set_rotation(angle)
     sense.set_pixels(arrow)
-    time.sleep(pause)
+    sleep(pause)
 	acceleration = sense.get_accelerometer_raw()
     x = acceleration['x']
 	y = acceleration['y']
@@ -752,13 +752,13 @@ while play:
       play = False
 
     pause = pause * 0.95
-    time.sleep(0.5)
+    sleep(0.5)
 
 msg = "Your score was %s" % score
 sense.show_message(msg, scroll_speed=0.05, text_colour=[100, 100, 100])
 ```
 
-1. Click **File** -- **Save As**, give your program a name e.g. [`reaction_game.py`](code/reaction_game.py), then press **F5** to run.
+Click **File** -- **Save As**, give your program a name e.g. [`reaction_game.py`](code/reaction_game.py), then press **F5** to run.
 
 Here's a video showing it being demonstrated:
 
