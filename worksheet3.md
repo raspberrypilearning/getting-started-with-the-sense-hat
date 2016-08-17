@@ -2,7 +2,7 @@
 
 The Sense HAT is an add-on board for the Raspberry Pi, made especially for the [Astro Pi](http://astro-pi.org/) competition. The board adds the ability to sense all kinds of things and output information using a built-in 8x8 LED matrix. You can find out more about what the Sense HAT can do by following the [Astro Pi Guide](https://www.raspberrypi.org/learning/astro-pi-guide/), which will show you how to connect and test your Sense HAT. It also has some helpful explanations and examples of what the different inputs and outputs can do.
 
-Once you are set up and have run your first program using the guide, you can begin to experiment further using this worksheet.
+Once you are set up and have run your first program using the guide, you can begin to experiment further using this worksheet. If you don't have access to a SenseHAT, then you can use the emulator available on [trinket.io](https://trinket.io/), or the embeded trinkets in this worksheet.
 
 ## Displaying text
 
@@ -44,6 +44,8 @@ You have probably already discovered that you can easily change the message to y
     sense.show_message("Astro Pi is awesome!!", scroll_speed=0.05, text_colour=[255,255,0], back_colour=[0,0,255])
     ```
 
+<iframe src="https://trinket.io/embed/python/d62aa7f30a" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
     You could also make the message repeat using a while loop like this:
 
     ```python
@@ -54,6 +56,8 @@ You have probably already discovered that you can easily change the message to y
     while True:
         sense.show_message("Astro Pi is awesome!!", scroll_speed=0.05, text_colour=[255,255,0], back_colour=[0,0,255])
     ```
+
+<iframe src="https://trinket.io/embed/python/f833a60218" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 1. Click **File** -- **Save As**, give your program a name e.g. [`loop_text.py`](code/loop_text.py), then press **F5** to run.
 
@@ -79,22 +83,26 @@ You have probably already discovered that you can easily change the message to y
 
     ```python
     from sense_hat import SenseHat
-    import time
+    from time import sleep
 
     sense = SenseHat()
 
     sense.show_letter("O",text_colour=[255, 0, 0])
-    time.sleep(1)
+    sleep(1)
     sense.show_letter("M",text_colour=[0, 0, 255])
-    time.sleep(1)
+    sleep(1)
     sense.show_letter("G",text_colour=[0, 255, 0])
-    time.sleep(1)
+    sleep(1)
     sense.show_letter("!",text_colour=[0, 0, 0], back_colour=[255, 255, 255])
-    time.sleep(1)
+    sleep(1)
     sense.clear()
     ```
 
     Click **File** -- **Save As**, give your program a name eg [`omg.py`](code/omg.py), then press **F5** to run.
+
+
+<iframe src="https://trinket.io/embed/python/ccb58a3d9d" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
 
     For added interest you could use a random number generator to choose a number between 0 and 255 for the colours:
 
