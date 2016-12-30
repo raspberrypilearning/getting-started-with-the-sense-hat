@@ -528,7 +528,7 @@ while True:
     pitch = orientation['pitch']
     roll = orientation['roll']
     yaw = orientation['yaw']
-    print("pitch={0}, roll={1}, yaw={}".format(pitch,yaw,roll))
+    print("pitch={0}, roll={1}, yaw={2}".format(pitch,yaw,roll))
 ```
 
 1. Click **File** -- **Save As**, give your program a name e.g. [`orientation.py`](code/orientation.py), then press **F5** to run.
