@@ -6,9 +6,9 @@ Once you are set up and have run your first program using the guide, you can beg
 
 ## Displaying text
 
-Start by opening Python3 from the main menu.
+Start by opening Python 3 from the main menu.
 
-When following the [guide](https://www.raspberrypi.org/learning/astro-pi-guide/) you will have written a sample program which scrolls text across the LED matrix. The program contains two crucial lines, which import the Sense HAT software and create a `sense` object which represents the Sense HAT.
+When following the [guide](https://www.raspberrypi.org/learning/astro-pi-guide/), you will have written a sample program which scrolls text across the LED matrix. The program contains two crucial lines, which import the Sense HAT software and create a `sense` object which represents the Sense HAT.
 
 ```python
 from sense_hat import SenseHat
