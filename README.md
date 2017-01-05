@@ -6,7 +6,7 @@ The Sense HAT is an add-on board for the Raspberry Pi which allows you to sense 
 
 ## Requirements
 
-Before following this resource it is a good idea to review the [Sense HAT Guide for Astro Pi](https://www.raspberrypi.org/learning/astro-pi-guide/), which will help you get your hardware set up and configured.
+Before following this resource, it is a good idea to review the [Sense HAT Guide for Astro Pi](https://www.raspberrypi.org/learning/astro-pi-guide/), which will help you get your hardware set up and configured.
 
 ### Hardware
 
