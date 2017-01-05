@@ -384,11 +384,11 @@ sense.set_rotation(180)
 ### Ideas
 
 - Create a spinning image, using one of the drawing techniques shown already, and then use the `sense.set_rotation` method to make it spin.
-- Using what you've done so far, you should be able to make an electronic dice like the one shown here:
+- Using what you've done so far, you should be able to make an electronic die like the one shown here:
 
-[![Sense HAT Dice](https://img.youtube.com/vi/4jT7GyyudP4/0.jpg)](https://www.youtube.com/watch?v=4jT7GyyudP4)
+[![Sense HAT Die](https://img.youtube.com/vi/v=UfP-R6ArMSk.jpg)](https://www.youtube.com/watch?v=UfP-R6ArMSk)
 
-This dice makes use of:
+This die makes use of:
 
 - Displaying text
 - Timing
