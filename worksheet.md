@@ -31,7 +31,7 @@ You have probably already discovered that you can easily change the message to y
     | Parameter | Effect |
     | --- | --- |
     | **scroll_speed** | The `scroll_speed` parameter affects how quickly the text moves on the screen. The default value is 0.1. The bigger the number, the **slower** the speed |
-    | **text_colour** | The `text_colour` parameter alters the colour of the text and is specified using 3 values for Red, Green, Blue. Each value can be between 0 - 255, so [255,0,255] would be Red + Blue = Purple |
+    | **text_colour** | The `text_colour` parameter alters the colour of the text and is specified using 3 values for Red, Green, Blue. Each value can be between 0 and 255, so [255,0,255] would be Red + Blue = Purple |
     | **back_colour** | The `back_colour` parameter alters the colour of the background and works in the same way as the `text_colour` |
 
     So this program would display the text `Astro Pi is awesome!!` more slowly, with the text in yellow **[255,255,0]** and the background in blue **[0,0,255]**:
@@ -65,9 +65,9 @@ You have probably already discovered that you can easily change the message to y
 
     | Parameter | Effect |
     | --- | --- |
-    | **scroll_speed** | The *scroll_speed* parameter affects how quickly the text moves on the screen. The default value is 0.1. The bigger the number, the **slower** the speed |
-    | **text_colour** | The *text_colour* parameter alters the colour of the text and is specified as 3 values for Red, Green, Blue. Each value can be between 0 - 255, so [255,0,255] would be Red + Blue = Purple |
-    | **back_colour** | The *back_colour* parameter alters the colour of the background and is specified as 3 values for Red, Green, Blue. Each value can be between 0 - 255, so [255,0,255] would be Red + Blue = Purple |
+    | **scroll_speed** | The `scroll_speed` parameter affects how quickly the text moves on the screen. The default value is 0.1. The bigger the number, the **slower** the speed |
+    | **text_colour** | The `text_colour` parameter alters the colour of the text and is specified as 3 values for Red, Green, Blue. Each value can be between 0 and 255, so [255,0,255] would be Red + Blue = Purple |
+    | **back_colour** | The `back_colour` parameter alters the colour of the background and is specified as 3 values for Red, Green, Blue. Each value can be between 0 - 255, so [255,0,255] would be Red + Blue = Purple |
 
     So this program would display a single Red "J":
 
@@ -142,7 +142,7 @@ You have probably already discovered that you can easily change the message to y
  - Could you use the ideas used so far to tell a joke via the LED screen?
  - All the examples so far could be made shorter, while still achieving the same thing. Can you find ways to make these shorter and more efficient?
  - How would you choose a totally random colour, rather than just a random shade of a colour?
- - If your Sense HAT is connected to the internet you could use a Twitter library to make it display incoming tweets!
+ - If your Sense HAT is connected to the internet, you could use a Twitter library to make it display incoming tweets!
 
 ## Displaying images
 
@@ -199,7 +199,7 @@ The LED matrix can display more than just text! We can control each LED individu
 
     ...but this would take ages and be really complex.
 
-    Instead, you can use some variables to define your colour palette (in this example we're using the 7 colours of the rainbow):
+    Instead, you can use some variables to define your colour palette (in this example, we're using the seven colours of the rainbow):
 
     ```python
     r = [255, 0, 0]
@@ -483,7 +483,7 @@ We can collect these readings using three simple methods:
 ### Ideas
 
 - Currently, the scrolling program only warns about abnormal temperature. Can you add the same behaviour for pressure and humidity?
-- You could create a simple graphical thermometer which outputs different colours / patterns depending on the temperature.
+- You could create a simple graphical thermometer which outputs different colours or patterns depending on the temperature.
 - If you haven't done so already, experiment with a bottle and the [pressure sensor](https://www.raspberrypi.org/learning/astro-pi-guide/sensors/pressure.md).
 
 ## Detecting movement
@@ -592,7 +592,7 @@ while True:
 
     In this program you are using an `if, elif, else` structure to check which way round the Raspberry Pi is. The `if` and `elif` test three of the orientations, and if the orientation doesn't match any of these then the program assumes it is the "right" way round. By using the `else` statement we also catch all those other situations, like when the board is at 45 degrees or sitting level.
 
-1. If the board is only rotated, it will only experience 1g of acceleration in any direction; if we were to shake it, the sensor would experience more than 1g. We could then detect that rapid motion and respond. For this program we will introduce the `abs()` function which is not specific to the Sense HAT library and is part of standard Python. `abs()` gives us the size of a value and ignores whether the value is positive or negative. This is helpful as we don't care which direction the sensor is being shaken, just that it is shaken.
+1. If the board is only rotated, it will only experience 1 g of acceleration in any direction; if we were to shake it, the sensor would experience more than 1 g. We could then detect that rapid motion and respond. For this program we will introduce the `abs()` function which is not specific to the Sense HAT library and is part of standard Python. `abs()` gives us the size of a value and ignores whether the value is positive or negative. This is helpful as we don't care which direction the sensor is being shaken, just that it is shaken.
 
     ```python
     from sense_hat import SenseHat
@@ -622,12 +622,12 @@ while True:
 ### Ideas
 
   - You could write a program that displays an arrow (or other symbol) on screen; this symbol could be used to point to which way is down. This way the astronauts (in low gravity) always know where the Earth is.
-  - You could improve the dice program from earlier in this activity, so that shaking the Pi triggers the dice roll.
-  - You could use the accelerometer to sense small movements; this could form part of a game, alarm system or even an earthquake sensor.
+  - You could improve the die program from earlier in this activity, so that shaking the Pi triggers the roll of the die.
+  - You could use the accelerometer to sense small movements; this could form part of a game, alarm system, or even an earthquake sensor.
 
 ## Putting it all together
 
-Now that you've explored most of the features of the Sense HAT, you could combine them to create a project. Here's an example reaction testing game, which could be used by the astronauts to test their reflexes.
+Now that you've explored most of the features of the Sense HAT, you could combine them to create a project. Here's an example reaction game, which could be used by the astronauts to test their reflexes.
 
 The game will display an arrow on the LED matrix and select a random orientation for it. The player must rotate the board to match the arrow. If they match it in time the arrow turns green and their score increases; if not their arrow turns red and the game ends, telling them their score. The game keeps showing arrows in new orientations until the player loses, and each turn gets faster.
 
@@ -643,7 +643,7 @@ As this is more complicated than previous programs it's worth planning out the s
   > create a sense object
   >
   > Set up the colours needed  
-  > Create 3 different arrows (white, green, red)  
+  > Create three different arrows (white, green, red)  
   > Set a variable **pause** to 3 (the initial time between turns)  
   > Set variables **score** and **angle** to 0  
   > Create a variable called **play** set to `True` (this will be used to stop the game later)  
@@ -770,7 +770,7 @@ Here's a video showing it being demonstrated:
 There are lots of potential developments for this game:
 - Include shake actions as well as orientation.
 - Make use of the humidity sensor to detect breath; the player could be prompted to breathe on the board as an action.
-- Include more than 4 directions; players have to hold at 45 degrees.
+- Include more than four directions; players have to hold the Sense HAT at 45 degree angles.
 
 ## What next?
 
