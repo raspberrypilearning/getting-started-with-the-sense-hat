@@ -761,10 +761,6 @@ sense.show_message(msg, scroll_speed=0.05, text_colour=[100, 100, 100])
 
 Click **File** -- **Save As**, give your program a name e.g. [`reaction_game.py`](code/reaction_game.py), then press **F5** to run.
 
-Here's a video showing it being demonstrated:
-
-[![Sense HAT Dice](https://img.youtube.com/vi/k1ZB8jORb74/0.jpg)](https://www.youtube.com/watch?v=k1ZB8jORb74)
-
 ### Ideas
 
 There are lots of potential developments for this game:
