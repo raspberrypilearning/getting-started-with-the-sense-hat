@@ -504,7 +504,6 @@ The three axes uses to describe motion are:
 
 ![Sense HAT Orientation](images/orientation.png)
 
-The IMU sensor is not yet supported on trinket.io, but will be coming soon!
 You can find out the orientation of the Sense HAT using the `sense.get_orientation()` method:
 
 ```python
@@ -518,77 +517,80 @@ This would get the three orientation values (measured in degrees) and store them
 
 1. You can explore these values with a simple program:
 
-```python
-from sense_hat import SenseHat
+	```python
+	from sense_hat import SenseHat
 
-sense = SenseHat()
+	sense = SenseHat()
 
-while True:
-    orientation = sense.get_orientation()
-    pitch = orientation['pitch']
-    roll = orientation['roll']
-    yaw = orientation['yaw']
-    print("pitch={0}, roll={1}, yaw={2}".format(pitch,yaw,roll))
-```
+	while True:
+		orientation = sense.get_orientation()
+		pitch = orientation['pitch']
+		roll = orientation['roll']
+		yaw = orientation['yaw']
+		print("pitch={0}, roll={1}, yaw={2}".format(pitch,yaw,roll))
+	```
 
-1. Click **File** -- **Save As**, give your program a name e.g. [`orientation.py`](code/orientation.py), then press **F5** to run.
+	<iframe src="https://trinket.io/embed/python/883c34059d" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
     **Note: When using the movement sensors it is important to poll them often in a tight loop. If you poll them too slowly, for example with `time.sleep(0.5)` in your loop, you will see strange results. This is because the code behind needs lots of measurements in order to successfully combine the data coming from the gyroscope, accelerometer and magnetometer.**
+
+1. You can click and drag around the SenseHat in the emulator to see the values change.
 
 1. Another way to detect orientation is to use the `sense.get_accelerometer_raw()` method which tells you the amount of g-force acting on each axis. If any axis has ±1g then you know that axis is pointing downwards.
 
     In this example, the amount of gravitational acceleration for each axis (x, y, and z) is extracted and is then rounded to the nearest whole number:
 
     ```python
-    from sense_hat import SenseHat
+	from sense_hat import SenseHat
 
-    sense = SenseHat()
+	sense = SenseHat()
 
-    while True:
-	    acceleration = sense.get_accelerometer_raw()
-        x = acceleration['x']
+	while True:
+		acceleration = sense.get_accelerometer_raw()
+		x = acceleration['x']
 		y = acceleration['y']
 		z = acceleration['z']
 
-        x=round(x, 0)
-        y=round(y, 0)
-        z=round(z, 0)
+		x=round(x, 0)
+		y=round(y, 0)
+		z=round(z, 0)
 
-        print("x={0}, y={1}, z={2}".format(x, y, z))
+		print("x={0}, y={1}, z={2}".format(x, y, z))
     ```
+	
+	<iframe src="https://trinket.io/embed/python/f714d301d3" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
-1. Click **File** -- **Save As**, give your program a name e.g. [`acceleration.py`](code/acceleration.py), then press **F5** to run.
-
-    As you turn the screen you should see the values for x and y change between -1 and 1. If you place the Pi flat or turn it upside down, the z axis will be 1 and then -1.
+    As you rotate the SenseHat you should see the values for x and y change between -1 and 1. If you place the Pi flat or turn it upside down, the z axis will be 1 and then -1.
 
 1. If we know which way round the Raspberry Pi is, then we can use that information to set the orientation of the LED matrix. First you would display something on the matrix, then continually check which way round the board is, and use that to update the orientation of the display.
 
     ```python
-    from sense_hat import SenseHat
+	from sense_hat import SenseHat
 
-    sense = SenseHat()
+	sense = SenseHat()
 
-    sense.show_letter("J")
+	sense.show_letter("J")
 
-    while True:
-        x = sense.get_accelerometer_raw().['x']
-		y = sense.get_accelerometer_raw().['y']
-		z = sense.get_accelerometer_raw().['z']
+	while True:
+		x = sense.get_accelerometer_raw()['x']
+		y = sense.get_accelerometer_raw()['y']
+		z = sense.get_accelerometer_raw()['z']
 
-        x = round(x, 0)
-        y = round(y, 0)
+		x = round(x, 0)
+		y = round(y, 0)
 
-        if x == -1:
-            sense.set_rotation(180)
-        elif y == 1:
-            sense.set_rotation(90)
-        elif y == -1:
-            sense.set_rotation(270)
-        else:
-            sense.set_rotation(0)
+		if x == -1:
+			sense.set_rotation(180)
+		elif y == 1:
+			sense.set_rotation(90)
+		elif y == -1:
+			sense.set_rotation(270)
+		else:
+			sense.set_rotation(0)
     ```
 
-1. Click **File** -- **Save As**, give your program a name e.g. [`rotating_letter.py`](code/rotating_letter.py), then press **F5** to run.
+
+	<iframe src="https://trinket.io/embed/python/ecd677033b" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
     In this program you are using an `if, elif, else` structure to check which way round the Raspberry Pi is. The `if` and `elif` test three of the orientations, and if the orientation doesn't match any of these then the program assumes it is the "right" way round. By using the `else` statement we also catch all those other situations, like when the board is at 45 degrees or sitting level.
 
@@ -615,7 +617,7 @@ while True:
             sense.clear()
     ```
 
-1. Click **File** -- **Save As**, give your program a name e.g. [`shake.py`](code/shake.py), then press **F5** to run.
+1. This is a little tricky to emulate, so you should try this one using IDLE and a real Sense Hat. Click **File** -- **Save As**, give your program a name e.g. [`shake.py`](code/shake.py), then press **F5** to run.
 
     You might find this is quite sensitive, but you could change the value from 1 to a higher number.
 
