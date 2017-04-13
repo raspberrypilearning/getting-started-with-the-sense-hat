@@ -31,17 +31,24 @@ You have probably already discovered that you can easily change the message to y
     | Parameter | Effect |
     | --- | --- |
     | **scroll_speed** | The `scroll_speed` parameter affects how quickly the text moves on the screen. The default value is 0.1. The bigger the number, the **slower** the speed |
-    | **text_colour** | The `text_colour` parameter alters the colour of the text and is specified using 3 values for Red, Green, Blue. Each value can be between 0 and 255, so [255,0,255] would be Red + Blue = Purple |
+    | **text_colour** | The `text_colour` parameter alters the colour of the text and is specified using 3 values for Red, Green, Blue. Each value can be between 0 and 255, so (255,0,255) would be Red + Blue = Purple |
     | **back_colour** | The `back_colour` parameter alters the colour of the background and works in the same way as the `text_colour` |
 
-    So this program would display the text `Astro Pi is awesome!!` more slowly, with the text in yellow **[255,255,0]** and the background in blue **[0,0,255]**:
+    So this program would display the text `Astro Pi is awesome!!` more slowly, with the text in yellow **(255, 255, 0)** and the background in blue **(0, 0, 255)**:
 
     ```python
-    from sense_hat import SenseHat
+	from sense_hat import SenseHat
 
-    sense = SenseHat()
+	sense = SenseHat()
 
-    sense.show_message("Astro Pi is awesome!!", scroll_speed=0.05, text_colour=[255,255,0], back_colour=[0,0,255])
+	yellow = (255, 255, 0)
+	blue = (0, 0, 255)
+
+	message = "Astro Pi is awesome!!"
+
+	speed = 0.05
+
+	sense.show_message(message, speed, text_colour=yellow, back_colour=blue)
     ```
 
     <iframe src="https://trinket.io/embed/python/d62aa7f30a" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
@@ -49,12 +56,19 @@ You have probably already discovered that you can easily change the message to y
     You could also make the message repeat using a while loop like this:
 
     ```python
-    from sense_hat import SenseHat
+	from sense_hat import SenseHat
 
-    sense = SenseHat()
+	sense = SenseHat()
 
-    while True:
-        sense.show_message("Astro Pi is awesome!!", scroll_speed=0.05, text_colour=[255,255,0], back_colour=[0,0,255])
+	yellow = (255, 255, 0)
+	blue = (0, 0, 255)
+
+	message = "Astro Pi is awesome!!"
+
+	speed = 0.05
+
+	while True:
+		sense.show_message(message, speed, text_colour=yellow, back_colour=blue)
     ```
 
     <iframe src="https://trinket.io/embed/python/f833a60218" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
@@ -66,36 +80,44 @@ You have probably already discovered that you can easily change the message to y
     | Parameter | Effect |
     | --- | --- |
     | **scroll_speed** | The `scroll_speed` parameter affects how quickly the text moves on the screen. The default value is 0.1. The bigger the number, the **slower** the speed |
-    | **text_colour** | The `text_colour` parameter alters the colour of the text and is specified as 3 values for Red, Green, Blue. Each value can be between 0 and 255, so [255,0,255] would be Red + Blue = Purple |
-    | **back_colour** | The `back_colour` parameter alters the colour of the background and is specified as 3 values for Red, Green, Blue. Each value can be between 0 - 255, so [255,0,255] would be Red + Blue = Purple |
+    | **text_colour** | The `text_colour` parameter alters the colour of the text and is specified as 3 values for Red, Green, Blue. Each value can be between 0 and 255, so (255, 0, 255) would be Red + Blue = Purple |
+    | **back_colour** | The `back_colour` parameter alters the colour of the background and is specified as 3 values for Red, Green, Blue. Each value can be between 0 - 255, so (255, 0, 255) would be Red + Blue = Purple |
 
     So this program would display a single Red "J":
 
     ```python
-    from sense_hat import SenseHat
+	from sense_hat import SenseHat
 
-    sense = SenseHat()
+	sense = SenseHat()
 
-    sense.show_letter("J",text_colour=[255, 0, 0])
+	red = (255, 0, 0)
+
+	sense.show_letter("J", red)
     ```
 
     And this program would add the **sleep function** to display letters separated by a brief pause:
 
     ```python
-    from sense_hat import SenseHat
-    from time import sleep
+	from sense_hat import SenseHat
+	from time import sleep
 
-    sense = SenseHat()
+	sense = SenseHat()
 
-    sense.show_letter("O",text_colour=[255, 0, 0])
-    sleep(1)
-    sense.show_letter("M",text_colour=[0, 0, 255])
-    sleep(1)
-    sense.show_letter("G",text_colour=[0, 255, 0])
-    sleep(1)
-    sense.show_letter("!",text_colour=[0, 0, 0], back_colour=[255, 255, 255])
-    sleep(1)
-    sense.clear()
+	red = (255, 0, 0)
+	blue = (0, 0, 255)
+	green = (0, 255, 0)
+	black = (0, 0, 0)
+	white = (255, 255, 255)
+
+	sense.show_letter("O", red)
+	sleep(1)
+	sense.show_letter("M", blue)
+	sleep(1)
+	sense.show_letter("G", green)
+	sleep(1)
+	sense.show_letter("!", black, white)
+	sleep(1)
+	sense.clear()
     ```
 
     Click **File** -- **Save As**, give your program a name eg [`omg.py`](code/omg.py), then press **F5** to run.
@@ -107,27 +129,27 @@ You have probably already discovered that you can easily change the message to y
     For added interest you could use a random number generator to choose a number between 0 and 255 for the colours:
 
     ```python
-    from sense_hat import SenseHat
-    from time import sleep
-    from random import randint
+	from sense_hat import SenseHat
+	from time import sleep
+	from random import randint
 
-    sense = SenseHat()
+	sense = SenseHat()
 
-    r = randint(0,255)
-    sense.show_letter("O", text_colour=[r, 0, 0])
-    sleep(1)
+	r = randint(0,255)
+	sense.show_letter("O", (r, 0, 0))
+	sleep(1)
 
-    r = randint(0,255)
-    sense.show_letter("M", text_colour=[0, 0, r])
-    sleep(1)
+	r = randint(0,255)
+	sense.show_letter("M", (0, 0, r))
+	sleep(1)
 
-    r = randint(0,255)
-    sense.show_letter("G", text_colour=[0, r, 0])
-    sleep(1)
+	r = randint(0,255)
+	sense.show_letter("G", (0, r, 0))
+	sleep(1)
 
-    sense.show_letter("!", text_colour=[0, 0, 0], back_colour=[255, 255, 255])
-    sleep(1)
-    sense.clear()
+	sense.show_letter("!", (0, 0, 0), (255, 255, 255))
+	sleep(1)
+	sense.clear()
     ```
 
 1. Click **File** -- **Save As**, give your program a name eg [`random_omg.py`](code/random_omg.py), then press **F5** to run.
@@ -164,8 +186,8 @@ The LED matrix can display more than just text! We can control each LED individu
 
     sense = SenseHat()
 
-    sense.set_pixel(0, 2, [0, 0, 255])
-    sense.set_pixel(7, 4, [255, 0, 0])
+    sense.set_pixel(0, 2, (0, 0, 255))
+    sense.set_pixel(7, 4, (255, 0, 0))
     ```
 
     <iframe src="https://trinket.io/embed/python/9a4266d360" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
@@ -177,14 +199,14 @@ The LED matrix can display more than just text! We can control each LED individu
 
     sense = SenseHat()
 
-    sense.set_pixel(2, 2, [0, 0, 255])
-    sense.set_pixel(4, 2, [0, 0, 255])
-    sense.set_pixel(3, 4, [100, 0, 0])
-    sense.set_pixel(1, 5, [255, 0, 0])
-    sense.set_pixel(2, 6, [255, 0, 0])
-    sense.set_pixel(3, 6, [255, 0, 0])
-    sense.set_pixel(4, 6, [255, 0, 0])
-    sense.set_pixel(5, 5, [255, 0, 0])
+    sense.set_pixel(2, 2, (0, 0, 255))
+    sense.set_pixel(4, 2, (0, 0, 255))
+    sense.set_pixel(3, 4, (100, 0, 0))
+    sense.set_pixel(1, 5, (255, 0, 0))
+    sense.set_pixel(2, 6, (255, 0, 0))
+    sense.set_pixel(3, 6, (255, 0, 0))
+    sense.set_pixel(4, 6, (255, 0, 0))
+    sense.set_pixel(5, 5, (255, 0, 0))
     ```
 
 1. Click **File** -- **Save As**, give your program a name e.g. [`simple_image.py`](code/simple_image.py), then press **F5** to run.
@@ -194,7 +216,7 @@ The LED matrix can display more than just text! We can control each LED individu
     We could enter something like...
 
     ```python
-    sense.set_pixels([[255, 0, 0], [255, 0, 0], [255, 0, 0], [255, 0, 0],......])
+    sense.set_pixels([(255, 0, 0), (255, 0, 0), (255, 0, 0), (255, 0, 0),......])
     ```
 
     ...but this would take ages and be really complex.
@@ -202,14 +224,14 @@ The LED matrix can display more than just text! We can control each LED individu
     Instead, you can use some variables to define your colour palette (in this example, we're using the seven colours of the rainbow):
 
     ```python
-    r = [255, 0, 0]
-    o = [255, 127, 0]
-    y = [255, 255, 0]
-    g = [0, 255, 0]
-    b = [0, 0, 255]
-    i = [75, 0, 130]
-    v = [159, 0, 255]
-    e = [0, 0, 0]  # e stands for empty/black
+    r = (255, 0, 0)
+    o = (255, 127, 0)
+    y = (255, 255, 0)
+    g = (0, 255, 0)
+    b = (0, 0, 255)
+    i = (75, 0, 130)
+    v = (159, 0, 255)
+    e = (0, 0, 0)  # e stands for empty/black
     ```
 
     We can then describe our matrix by creating a 2D list of colour names:
@@ -230,31 +252,32 @@ The LED matrix can display more than just text! We can control each LED individu
     We then give the `image` list to the `sense.set_pixels` method and draw the image. The finished program would look like this:
 
     ```python
-    from sense_hat import SenseHat
+	from sense_hat import SenseHat
 
-    sense = SenseHat()
+	sense = SenseHat()
 
-    r = [255,0,0]
-    o = [255,127,0]
-    y = [255,255,0]
-    g = [0,255,0]
-    b = [0,0,255]
-    i = [75,0,130]
-    v = [159,0,255]
-    e = [0,0,0]
+	r = (255, 0, 0)
+	o = (255, 127, 0)
+	y = (255, 255, 0)
+	g = (0, 255, 0)
+	b = (0, 0, 255)
+	i = (75, 0, 130)
+	v = (159, 0, 255)
+	e = (0, 0, 0)
 
-    image = [
-    e,e,e,e,e,e,e,e,
-    e,e,e,r,r,e,e,e,
-    e,r,r,o,o,r,r,e,
-    r,o,o,y,y,o,o,r,
-    o,y,y,g,g,y,y,o,
-    y,g,g,b,b,g,g,y,
-    b,b,b,i,i,b,b,b,
-    b,i,i,v,v,i,i,b
-    ]
 
-    sense.set_pixels(image)
+	image = [
+	e,e,e,e,e,e,e,e,
+	e,e,e,r,r,e,e,e,
+	e,r,r,o,o,r,r,e,
+	r,o,o,y,y,o,o,r,
+	o,y,y,g,g,y,y,o,
+	y,g,g,b,b,g,g,y,
+	b,b,b,i,i,b,b,b,
+	b,i,i,v,v,i,i,b
+	]
+
+	sense.set_pixels(image)
     ```
     
 1. Click **File** -- **Save As**, give your program a name e.g. [`rainbow.py`](code/rainbow.py), then press **F5** to run.
@@ -287,14 +310,14 @@ sense.set_rotation(180)
 
     sense = SenseHat()
 
-    r = [255, 0, 0]
-    o = [255, 127, 0]
-    y = [255, 255, 0]
-    g = [0, 255, 0]
-    b = [0, 0, 255]
-    i = [75, 0, 130]
-    v = [159, 0, 255]
-    e = [0, 0, 0]
+	r = (255, 0, 0)
+	o = (255, 127, 0)
+	y = (255, 255, 0)
+	g = (0, 255, 0)
+	b = (0, 0, 255)
+	i = (75, 0, 130)
+	v = (159, 0, 255)
+	e = (0, 0, 0)
 
     image = [
     e,e,e,e,e,e,e,e,
@@ -355,9 +378,9 @@ sense.set_rotation(180)
 
     sense = SenseHat()
 
-    w = [150, 150, 150]
-    b = [0, 0, 255]
-    e = [0, 0, 0]
+    w = (150, 150, 150)
+    b = (0, 0, 255)
+    e = (0, 0, 0)
 
     image = [
     e,e,e,e,e,e,e,e,
@@ -446,9 +469,9 @@ We can collect these readings using three simple methods:
 
     ```python
     if t > 18.3 and t < 26.7:
-        bg = [0, 100, 0] # green
+        bg = (0, 100, 0) # green
     else:
-        bg = [100, 0, 0] # red
+        bg = (100, 0, 0) # red
     ```
 
     Your complete program would look like this:
@@ -467,9 +490,9 @@ We can collect these readings using three simple methods:
         h = round(h, 1)
 
         if t > 18.3 and t < 26.7:
-            bg = [0, 100, 0]  # green
+            bg = (0, 100, 0)  # green
         else:
-            bg = [100, 0, 0]  # red
+            bg = (100, 0, 0)  # red
 
         msg = "Temperature = {0}, Pressure = {1}, Humidity - {2}".format(t, p, h)
 
@@ -527,7 +550,7 @@ This would get the three orientation values (measured in degrees) and store them
 		pitch = orientation['pitch']
 		roll = orientation['roll']
 		yaw = orientation['yaw']
-		print("pitch={0}, roll={1}, yaw={2}".format(pitch,yaw,roll))
+		print("pitch={0}, roll={1}, yaw={2}".format(pitch, yaw, roll))
 	```
 
 	<iframe src="https://trinket.io/embed/python/883c34059d" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
@@ -601,6 +624,8 @@ This would get the three orientation values (measured in degrees) and store them
 
     sense = SenseHat()
 
+	red = (255, 0, 0)
+	
     while True:
 	    acceleration = sense.get_accelerometer_raw()
         x = acceleration['x']
@@ -612,7 +637,7 @@ This would get the three orientation values (measured in degrees) and store them
         z = abs(z)
 
         if x > 1 or y > 1 or z > 1:
-            sense.show_letter("!", text_colour=[255, 0, 0])
+            sense.show_letter("!", red)
         else:
             sense.clear()
     ```
@@ -672,10 +697,10 @@ sense = SenseHat()
 
 # set up the colours (white, green, red, empty)
 
-w = [150, 150, 150]
-g = [0, 255, 0]
-r = [255, 0, 0]
-e = [0, 0, 0]
+w = (150, 150, 150)
+g = (0, 255, 0)
+r = (255, 0, 0)
+e = (0, 0, 0)
 
 # create images for three different coloured arrows
 
@@ -767,7 +792,7 @@ Click **File** -- **Save As**, give your program a name e.g. [`reaction_game.py`
 
 There are lots of potential developments for this game:
 - Include shake actions as well as orientation.
-- Make use of the humidity sensor to detect breath; the player could be prompted to breathe on the board as an action.
+p- Make use of the humidity sensor to detect breath; the player could be prompted to breathe on the board as an action.
 - Include more than four directions; players have to hold the Sense HAT at 45 degree angles.
 
 ## What next?
