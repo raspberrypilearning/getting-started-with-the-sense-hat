@@ -792,7 +792,7 @@ Click **File** -- **Save As**, give your program a name e.g. [`reaction_game.py`
 
 There are lots of potential developments for this game:
 - Include shake actions as well as orientation.
-p- Make use of the humidity sensor to detect breath; the player could be prompted to breathe on the board as an action.
+- Make use of the humidity sensor to detect breath; the player could be prompted to breathe on the board as an action.
 - Include more than four directions; players have to hold the Sense HAT at 45 degree angles.
 
 ## What next?
