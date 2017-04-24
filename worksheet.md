@@ -642,13 +642,13 @@ This would get the three orientation values (measured in degrees) and store them
             sense.clear()
     ```
 
-1. This is a little tricky to emulate, so you should try this one using IDLE and a real Sense Hat. Click **File** -- **Save As**, give your program a name e.g. [`shake.py`](code/shake.py), then press **F5** to run.
+1. This is a little tricky to emulate, so you should try this one using IDLE and a real Sense HAT. Click **File** and **Save As**, give your program a name e.g. [`shake.py`](code/shake.py), then press `F5` to run.
 
     You might find this is quite sensitive, but you could change the value from 1 to a higher number.
 
 ### Ideas
 
-  - You could write a program that displays an arrow (or other symbol) on screen; this symbol could be used to point to which way is down. This way the astronauts (in low gravity) always know where the Earth is.
+  - You could write a program that displays an arrow (or other symbol) on screen; this symbol could be used to point to which way is down. This way, the astronauts (in low gravity) always know where the Earth is.
   - You could improve the die program from earlier in this activity, so that shaking the Pi triggers the roll of the die.
   - You could use the accelerometer to sense small movements; this could form part of a game, alarm system, or even an earthquake sensor.
 
