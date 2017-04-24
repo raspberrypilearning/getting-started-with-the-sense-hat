@@ -120,7 +120,7 @@ You have probably already discovered that you can easily change the message to y
 	sense.clear()
     ```
 
-    Click **File** -- **Save As**, give your program a name eg [`omg.py`](code/omg.py), then press **F5** to run.
+    Click **File** and **Save As**, give your program a name eg [`omg.py`](code/omg.py), then press `F5` to run.
 
 
     <iframe src="https://trinket.io/embed/python/ccb58a3d9d" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
@@ -152,7 +152,7 @@ You have probably already discovered that you can easily change the message to y
 	sense.clear()
     ```
 
-1. Click **File** -- **Save As**, give your program a name eg [`random_omg.py`](code/random_omg.py), then press **F5** to run.
+1. Click **File** and **Save As**, give your program a name eg [`random_omg.py`](code/random_omg.py), then press `F5` to run.
 
     In both these programs the `sense.clear()` method has been used at the end to clear the matrix.
     
@@ -209,7 +209,7 @@ The LED matrix can display more than just text! We can control each LED individu
     sense.set_pixel(5, 5, (255, 0, 0))
     ```
 
-1. Click **File** -- **Save As**, give your program a name e.g. [`simple_image.py`](code/simple_image.py), then press **F5** to run.
+1. Click **File** and **Save As**, give your program a name e.g. [`simple_image.py`](code/simple_image.py), then press `F5` to run.
 
 1. Setting pixels individually can work brilliantly, but it gets rather complex when you want to set more pixels. There is another method which can set all the pixels in one go called `sense.set_pixels`. Its use is quite straightforward; we just give a list of colour values for each pixel in the matrix.
 
@@ -280,7 +280,7 @@ The LED matrix can display more than just text! We can control each LED individu
 	sense.set_pixels(image)
     ```
     
-1. Click **File** -- **Save As**, give your program a name e.g. [`rainbow.py`](code/rainbow.py), then press **F5** to run.
+1. Click **File** and **Save As**, give your program a name e.g. [`rainbow.py`](code/rainbow.py), then press `F5` to run.
 
     You should have a beautiful rainbow displayed on your LED matrix.
     
@@ -290,7 +290,7 @@ The LED matrix can display more than just text! We can control each LED individu
 
 ### Ideas
 
-- Now you can create images on your LED matrix in two different ways, try creating your own images or sprites.
+- Now that you can create images on your LED matrix in two different ways, try creating your own images or sprites.
 - Can you alternate between images to create an animation? Check out this [Geek Gurl Diaries](https://www.youtube.com/watch?v=b84EywkQ3HI) video for some inspiration.
 
 ## Setting orientation
@@ -334,7 +334,7 @@ sense.set_rotation(180)
     sense.set_rotation(180)
     ```
 
-1. Click **File** -- **Save As**, give your program a name e.g. [`rainbow_flip.py`](code/rainbow_flip.py), then press **F5** to run.
+1. Click **File** and **Save As**, give your program a name e.g. [`rainbow_flip.py`](code/rainbow_flip.py), then press `F5` to run.
 
 2. You could also create spinning text using a **for** loop:
 
@@ -354,7 +354,7 @@ sense.set_rotation(180)
 
     This program displays the letter "J" and then sets the rotation to each value in the angles list with a 0.5 second pause.
 
-1. Click **File** -- **Save As**, give your program a name e.g. [`spinning_j.py`](code/spinning_j.py), then press **F5** to run.
+1. Click **File** and **Save As**, give your program a name e.g. [`spinning_j.py`](code/spinning_j.py), then press `F5` to run.
 
     <iframe src="https://trinket.io/embed/python/2f48e31b56" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
@@ -400,7 +400,7 @@ sense.set_rotation(180)
         sense.flip_h()
     ```
 
-1. Click **File** -- **Save As**, give your program a name e.g. [`eyes.py`](code/eyes.py), then press **F5** to run.
+1. Click **File** and **Save As**, give your program a name e.g. [`eyes.py`](code/eyes.py), then press `F5` to run.
 
 <iframe src="https://trinket.io/embed/python/27b25ac047" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
@@ -429,9 +429,9 @@ The Sense HAT has a set of environmental sensors for detecting the conditions ar
 
 We can collect these readings using three simple methods:
 
-- `sense.get_temperature()` - This will return the temperature in Celsius.
-- `sense.get_pressure()` - This will return the pressure in millibars.
-- `sense.get_humidity()` - This will return the humidity as a percentage.
+- `sense.get_temperature()` - this will return the temperature in Celsius.
+- `sense.get_pressure()` - this will return the pressure in millibars.
+- `sense.get_humidity()` - this will return the humidity as a percentage.
 
 1. Using these, we could create a simple scrolling text display which could keep people informed about current conditions.
 
@@ -453,7 +453,7 @@ We can collect these readings using three simple methods:
         sense.show_message(msg, scroll_speed=0.05)
     ```
 
-1. Click **File** -- **Save As**, give your program a name e.g. [`env.py`](code/env.py), then press **F5** to run.
+1. Click **File** and **Save As**, give your program a name e.g. [`env.py`](code/env.py), then press `F5` to run.
 
     <iframe src="https://trinket.io/embed/python/a246815131" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
@@ -499,7 +499,7 @@ We can collect these readings using three simple methods:
         sense.show_message(msg, scroll_speed=0.05, back_colour=bg)
     ```
 
-1. Click **File** -- **Save As**, give your program a name e.g. [`scrolling_env.py`](code/scrolling_env.py), then press **F5** to run.
+1. Click **File** and **Save As**, give your program a name e.g. [`scrolling_env.py`](code/scrolling_env.py), then press `F5` to run.
 
     <iframe src="https://trinket.io/embed/python/2f03745830" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
@@ -557,7 +557,7 @@ This would get the three orientation values (measured in degrees) and store them
 
     **Note: When using the movement sensors it is important to poll them often in a tight loop. If you poll them too slowly, for example with `time.sleep(0.5)` in your loop, you will see strange results. This is because the code behind needs lots of measurements in order to successfully combine the data coming from the gyroscope, accelerometer and magnetometer.**
 
-1. You can click and drag around the SenseHat in the emulator to see the values change.
+1. You can click and drag around the Sense HAT in the emulator to see the values change.
 
 1. Another way to detect orientation is to use the `sense.get_accelerometer_raw()` method which tells you the amount of g-force acting on each axis. If any axis has ±1g then you know that axis is pointing downwards.
 
