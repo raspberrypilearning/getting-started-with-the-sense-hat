@@ -155,7 +155,7 @@ You have probably already discovered that you can easily change the message to y
 1. Click **File** and **Save As**, give your program a name eg [`random_omg.py`](code/random_omg.py), then press `F5` to run.
 
     In both these programs the `sense.clear()` method has been used at the end to clear the matrix.
-    
+
     <iframe src="https://trinket.io/embed/python/45b0f19b65" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 
@@ -279,12 +279,12 @@ The LED matrix can display more than just text! We can control each LED individu
 
 	sense.set_pixels(image)
     ```
-    
+
 1. Click **File** and **Save As**, give your program a name e.g. [`rainbow.py`](code/rainbow.py), then press `F5` to run.
 
     You should have a beautiful rainbow displayed on your LED matrix.
-    
-    
+
+
     <iframe src="https://trinket.io/embed/python/8f36929035" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 
@@ -550,7 +550,7 @@ This would get the three orientation values (measured in degrees) and store them
 		pitch = orientation['pitch']
 		roll = orientation['roll']
 		yaw = orientation['yaw']
-		print("pitch={0}, roll={1}, yaw={2}".format(pitch, yaw, roll))
+		print("pitch={0}, roll={1}, yaw={2}".format(pitch, roll, yaw))
 	```
 
 	<iframe src="https://trinket.io/embed/python/883c34059d" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
@@ -580,7 +580,7 @@ This would get the three orientation values (measured in degrees) and store them
 
 		print("x={0}, y={1}, z={2}".format(x, y, z))
     ```
-	
+
 	<iframe src="https://trinket.io/embed/python/f714d301d3" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
     As you rotate the Sense HAT, you should see the values for x and y change between -1 and 1. If you place the Pi flat or turn it upside down, the z axis will be 1 and then -1.
@@ -625,13 +625,13 @@ This would get the three orientation values (measured in degrees) and store them
     sense = SenseHat()
 
 	red = (255, 0, 0)
-	
+
     while True:
 	    acceleration = sense.get_accelerometer_raw()
         x = acceleration['x']
 		y = acceleration['y']
 		z = acceleration['z']
-        
+
         x = abs(x)
         y = abs(y)
         z = abs(z)
@@ -755,7 +755,7 @@ while play:
     x = acceleration['x']
 	y = acceleration['y']
 	z = acceleration['z']
-        
+
     x = round(x, 0)
     y = round(y, 0)
 
