@@ -2,7 +2,7 @@
 
 Start by opening Python 3 from the main menu.
 
-When following the [guide](https://projects.raspberrypi.org/en/projects/astro-pi-guide/), you will have written a sample program which scrolls text across the LED matrix. The program contains two crucial lines, which import the Sense HAT software and create a `sense` object which represents the Sense HAT.
+You can then import the module and create a `sense` object.
 
 ```python
 from sense_hat import SenseHat
@@ -10,7 +10,7 @@ from sense_hat import SenseHat
 sense = SenseHat()
 ```
 
-The third line is the one that makes the Sense HAT do something:
+The next line is the one that makes the Sense HAT do something:
 
 ```python
 sense.show_message("Hello my name is Tim Peake")
