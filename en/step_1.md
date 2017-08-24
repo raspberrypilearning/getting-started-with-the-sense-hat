@@ -3,7 +3,7 @@
 ### What you will make
 The Sense HAT, which is a fundamental part of the Astro Pi Mission, allows your Raspberry Pi to sense the world around it.
 
-PICTURE OF THE SENSE HAT
+![Sense HAT](images/sense-hat.png)
 
 You will learn how to control the LED matrix, collect sensor data from the world around you, and combine these ideas in a number of small projects.
 
