@@ -1,14 +1,12 @@
 ## Displaying text
 
-## Displaying a message
+### Displaying a message
 
 + Display the text "Astro Pi is awesome" on your Sense HAT's LED display
 
 [[[rpi-sensehat-show-message]]]
 
 We can change how the message is displayed by adding some extra **parameters** to the `show_message` command.
-
-### Extra parameters
 
 **scroll_speed** - affects how quickly the text moves on the screen. The default value is 0.1. The bigger the number, the **slower** the speed
 
@@ -26,19 +24,17 @@ We can change how the message is displayed by adding some extra **parameters** t
 
 ![Coloured text](images/coloured-text.png)
 
-+ Add a parameter called `speed` to the `show_message` command and set the speed equal to 0.05
++ Add another parameter called `scroll_speed` to the `show_message` command and set the speed equal to 0.05 to speed up how quickly your message scrolls.
 
-+ Add a `while` loop to make your scrolling message repeat.
++ Put your scrolling message in a `while` loop to make it repeat.
 
 [[[generic-python-while-true]]]
 
-+ Save and run your code and check your message repeats.
+<iframe src="https://trinket.io/embed/python/44e4fe6df5?toggleCode=true" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 ### Displaying a single character
 
 The LED matrix can also display a single character, rather than an entire message, using the `show_letter` function which also has some optional **parameters**.
-
-### Extra parameters
 
 **scroll_speed** - affects how quickly the text moves on the screen. The default value is 0.1. The bigger the number, the **slower** the speed
 
