@@ -17,3 +17,20 @@
 
  - Now that you can create images on your LED matrix in two different ways, try creating your own images or sprites.
  - Can you alternate between images to create an animation? Check out this [Geek Gurl Diaries](https://www.youtube.com/watch?v=b84EywkQ3HI) video for some inspiration.
+
+
+
+ ### Ideas
+
+ - Create a spinning image, using one of the drawing techniques shown already, and then use the `sense.set_rotation` method to make it spin.
+ - Using what you've done so far, you should be able to make an electronic die like the one shown here:
+
+ [![Sense HAT Die](https://img.youtube.com/vi/v=UfP-R6ArMSk.jpg)](https://www.youtube.com/watch?v=UfP-R6ArMSk)
+
+ This die makes use of:
+
+ - Displaying text
+ - Timing
+ - Setting rotation
+ - Random numbers
+ - Variables
