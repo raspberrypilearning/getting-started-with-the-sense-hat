@@ -1,4 +1,3 @@
----
 title: Getting Started with the Sense HAT
 hero_image: images/banner.png
 description: Explore the Sense HAT sensor board with its Python library
@@ -11,11 +10,10 @@ copyedit: true
 curriculum: creator, design-0, programming-0, phys-comp-0, manufacture-0, community-0
 interests: ''
 technologies: rpi, physical computing, python
-site_areas: ''
 steps:
 - title: Introduction
 - title: What you will need
-- title: Getting Started with the Sense HAT
+- title: What is a Sense HAT?
 - title: Displaying text
 - title: Displaying images
 - title: Setting orientation

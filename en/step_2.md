@@ -2,30 +2,20 @@
 
 ### Hardware
 
-* Sense HAT
++ Sense HAT
 
 ### Software
 
-#### Software installation
++ Python 3
 
-Connect your Sense HAT and boot up the Pi.
+You’ll need to make sure you have the following packages installed:
 
-First update and upgrade your system by entering the following commands into a Terminal window (while connected to the Internet):
++ Sense HAT for Python 3
 
-```bash
-sudo apt-get update
-sudo apt-get upgrade
-```
+[[[rpi-install-software]]]
 
-Then install the Sense HAT software package:
+Type this command into the terminal to install the package:
 
 ```bash
 sudo apt-get install sense-hat
-sudo pip3 install pillow
-```
-
-Finally, reboot the Pi to complete the installation:
-
-```bash
-sudo reboot
 ```
