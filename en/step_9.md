@@ -1,143 +1,143 @@
-## Putting it all together
+## Detecting movement
 
-Now that you've explored most of the features of the Sense HAT, you could combine them to create a project. Here's an example reaction game, which could be used by the astronauts to test their reflexes.
+The Sense HAT has a set of sensors that can detect movement. It has an IMU (inertial measurement unit) chip which includes:
 
-The game will display an arrow on the LED matrix and select a random orientation for it. The player must rotate the board to match the arrow. If they match it in time the arrow turns green and their score increases; if not their arrow turns red and the game ends, telling them their score. The game keeps showing arrows in new orientations until the player loses, and each turn gets faster.
+- A gyroscope (for detecting which way up the board is)
+- An accelerometer (for detecting movement)
+- A magnetometer (for detecting magnetic fields)
 
-This idea combines:
+Before you start experimenting with motion sensing, it's important to understand three key terms covered in the [guide](https://github.com/raspberrypilearning/astro-pi-guide/blob/master/sensors/movement.md) and in this [video](https://www.youtube.com/watch?v=pQ24NtnaLl8).
 
-  - Showing messages and images on the LED matrix
-  - Setting and detecting the orientation
-  - Use of variables, randomisation, iteration, and selection
+The three axes uses to describe motion are:
 
-As this is more complicated than previous programs it's worth planning out the steps involved in **pseudocode**.
+- Pitch (like a plane taking off)
+- Roll (the plane doing a victory roll)
+- Yaw (imagine steering the plane like a car)
 
-  > import the required libraries (sense_hat, time, random)  
-  > create a sense object
-  >
-  > Set up the colours needed  
-  > Create three different arrows (white, green, red)  
-  > Set a variable **pause** to 3 (the initial time between turns)  
-  > Set variables **score** and **angle** to 0  
-  > Create a variable called **play** set to `True` (this will be used to stop the game later)  
-  >  
-  > Begin a loop which continues while `play == True`  
-  > Set a new random angle (use **random.choice()** method)  
-  > Show the white arrow and sleep for current pause length  
-  > Check whether orientation matches the arrow  
-  > ---if it does then add a point and turn the arrow green  
-  > ---otherwise set play to `False` and turn the arrow red  
-  > Shorten the pause duration slightly  
-  > Pause before the next arrow  
-  >  
-  > When loop is exited, display a message with the score  
+![Sense HAT Orientation](images/orientation.png)
 
-If you turned this into Python it could look like this:
+You can find out the orientation of the Sense HAT using the `sense.get_orientation()` method:
 
 ```python
-from sense_hat import SenseHat
-from time import sleep
-from random import choice
-
-sense = SenseHat()
-
-# set up the colours (white, green, red, empty)
-
-w = (150, 150, 150)
-g = (0, 255, 0)
-r = (255, 0, 0)
-e = (0, 0, 0)
-
-# create images for three different coloured arrows
-
-arrow = [
-e,e,e,w,w,e,e,e,
-e,e,w,w,w,w,e,e,
-e,w,e,w,w,e,w,e,
-w,e,e,w,w,e,e,w,
-e,e,e,w,w,e,e,e,
-e,e,e,w,w,e,e,e,
-e,e,e,w,w,e,e,e,
-e,e,e,w,w,e,e,e
-]
-
-arrow_red = [
-e,e,e,r,r,e,e,e,
-e,e,r,r,r,r,e,e,
-e,r,e,r,r,e,r,e,
-r,e,e,r,r,e,e,r,
-e,e,e,r,r,e,e,e,
-e,e,e,r,r,e,e,e,
-e,e,e,r,r,e,e,e,
-e,e,e,r,r,e,e,e
-]
-
-arrow_green = [
-e,e,e,g,g,e,e,e,
-e,e,g,g,g,g,e,e,
-e,g,e,g,g,e,g,e,
-g,e,e,g,g,e,e,g,
-e,e,e,g,g,e,e,e,
-e,e,e,g,g,e,e,e,
-e,e,e,g,g,e,e,e,
-e,e,e,g,g,e,e,e
-]
-
-pause = 3
-score = 0
-angle = 0
-play = True
-
-sense.show_message("Keep the arrow pointing up", scroll_speed=0.05, text_colour=[100,100,100])
-
-while play:
-    last_angle = angle
-    while angle == last_angle:
-        angle = choice([0, 90, 180, 270])
-    sense.set_rotation(angle)
-    sense.set_pixels(arrow)
-    sleep(pause)
-	acceleration = sense.get_accelerometer_raw()
-    x = acceleration['x']
-	y = acceleration['y']
-	z = acceleration['z']
-
-    x = round(x, 0)
-    y = round(y, 0)
-
-    print(angle)
-    print(x)
-    print(y)
-
-    if x == -1 and angle == 180:
-        sense.set_pixels(arrow_green)
-        score += 1
-    elif x == 1 and angle == 0:
-      sense.set_pixels(arrow_green)
-      score += 1
-    elif y == -1 and angle == 90:
-      sense.set_pixels(arrow_green)
-      score += 1
-    elif y == 1 and angle == 270:
-      sense.set_pixels(arrow_green)
-      score += 1
-    else:
-      sense.set_pixels(arrow_red)
-      play = False
-
-    pause = pause * 0.95
-    sleep(0.5)
-
-msg = "Your score was %s" % score
-sense.show_message(msg, scroll_speed=0.05, text_colour=[100, 100, 100])
+orientation = sense.get_orientation()
+pitch = orientation['pitch']
+roll = orientation['roll']
+yaw = orientation['yaw']
 ```
 
-Click **File** -- **Save As**, give your program a name e.g. [`reaction_game.py`](resources/reaction_game.py), then press **F5** to run.
+This would get the three orientation values (measured in degrees) and store them as the three variables `pitch`, `roll` and `yaw`.
+
+- You can explore these values with a simple program:
+
+	```python
+	from sense_hat import SenseHat
+
+	sense = SenseHat()
+
+	while True:
+		orientation = sense.get_orientation()
+		pitch = orientation['pitch']
+		roll = orientation['roll']
+		yaw = orientation['yaw']
+		print("pitch={0}, roll={1}, yaw={2}".format(pitch, roll, yaw))
+	```
+
+	<iframe src="https://trinket.io/embed/python/883c34059d" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+    **Note: When using the movement sensors it is important to poll them often in a tight loop. If you poll them too slowly, for example with `time.sleep(0.5)` in your loop, you will see strange results. This is because the code behind needs lots of measurements in order to successfully combine the data coming from the gyroscope, accelerometer and magnetometer.**
+
+- You can click and drag around the Sense HAT in the emulator to see the values change.
+
+- Another way to detect orientation is to use the `sense.get_accelerometer_raw()` method which tells you the amount of g-force acting on each axis. If any axis has ±1g then you know that axis is pointing downwards.
+
+    In this example, the amount of gravitational acceleration for each axis (x, y, and z) is extracted and is then rounded to the nearest whole number:
+
+    ```python
+	from sense_hat import SenseHat
+
+	sense = SenseHat()
+
+	while True:
+		acceleration = sense.get_accelerometer_raw()
+		x = acceleration['x']
+		y = acceleration['y']
+		z = acceleration['z']
+
+		x=round(x, 0)
+		y=round(y, 0)
+		z=round(z, 0)
+
+		print("x={0}, y={1}, z={2}".format(x, y, z))
+    ```
+
+	<iframe src="https://trinket.io/embed/python/f714d301d3" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+    As you rotate the Sense HAT, you should see the values for x and y change between -1 and 1. If you place the Pi flat or turn it upside down, the z axis will be 1 and then -1.
+
+- If we know which way round the Raspberry Pi is, then we can use that information to set the orientation of the LED matrix. First you would display something on the matrix, then continually check which way round the board is, and use that to update the orientation of the display.
+
+    ```python
+	from sense_hat import SenseHat
+
+	sense = SenseHat()
+
+	sense.show_letter("J")
+
+	while True:
+		x = sense.get_accelerometer_raw()['x']
+		y = sense.get_accelerometer_raw()['y']
+		z = sense.get_accelerometer_raw()['z']
+
+		x = round(x, 0)
+		y = round(y, 0)
+
+		if x == -1:
+			sense.set_rotation(180)
+		elif y == 1:
+			sense.set_rotation(90)
+		elif y == -1:
+			sense.set_rotation(270)
+		else:
+			sense.set_rotation(0)
+    ```
+
+
+	<iframe src="https://trinket.io/embed/python/ecd677033b" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+    In this program you are using an `if, elif, else` structure to check which way round the Raspberry Pi is. The `if` and `elif` test three of the orientations, and if the orientation doesn't match any of these then the program assumes it is the "right" way round. By using the `else` statement we also catch all those other situations, like when the board is at 45 degrees or sitting level.
+
+- If the board is only rotated, it will only experience 1 g of acceleration in any direction; if we were to shake it, the sensor would experience more than 1 g. We could then detect that rapid motion and respond. For this program we will introduce the `abs()` function which is not specific to the Sense HAT library and is part of standard Python. `abs()` gives us the size of a value and ignores whether the value is positive or negative. This is helpful as we don't care which direction the sensor is being shaken, just that it is shaken.
+
+    ```python
+    from sense_hat import SenseHat
+
+    sense = SenseHat()
+
+	red = (255, 0, 0)
+
+    while True:
+	    acceleration = sense.get_accelerometer_raw()
+        x = acceleration['x']
+		y = acceleration['y']
+		z = acceleration['z']
+
+        x = abs(x)
+        y = abs(y)
+        z = abs(z)
+
+        if x > 1 or y > 1 or z > 1:
+            sense.show_letter("!", red)
+        else:
+            sense.clear()
+    ```
+
+- This is a little tricky to emulate, so you should try this one using IDLE and a real Sense HAT. Click **File** and **Save As**, give your program a name e.g. [`shake.py`](resources/shake.py), then press `F5` to run.
+
+    You might find this is quite sensitive, but you could change the value from 1 to a higher number.
 
 ### Ideas
 
-There are lots of potential developments for this game:
-- Include shake actions as well as orientation.
-- Make use of the humidity sensor to detect breath; the player could be prompted to breathe on the board as an action.
-- Include more than four directions; players have to hold the Sense HAT at 45 degree angles.
+  - You could write a program that displays an arrow (or other symbol) on screen; this symbol could be used to point to which way is down. This way, the astronauts (in low gravity) always know where the Earth is.
+  - You could improve the die program from earlier in this activity, so that shaking the Pi triggers the roll of the die.
+  - You could use the accelerometer to sense small movements; this could form part of a game, alarm system, or even an earthquake sensor.
 

@@ -15,6 +15,7 @@ steps:
 - title: What you will need
 - title: What is a Sense HAT?
 - title: Displaying text
+- title: Displaying a single character
 - title: Displaying images
 - title: Setting orientation
 - title: Sensing the environment

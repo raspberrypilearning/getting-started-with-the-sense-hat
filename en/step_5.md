@@ -1,127 +1,96 @@
-## Displaying images
+## Displaying a single character
 
-The LED matrix can display more than just text! We can control each LED individually to create an image. We can accomplish this in a couple of ways.
++ Display the letter "A" on your Sense HAT's LED display
 
-- The first approach is to set pixels (LEDs) individually; we can do this using the `sense.set_pixel()` method. First, we need to be clear about how we describe each pixel.
+[[[rpi-sensehat-show-letter]]]
 
-    The Sense HAT uses a coordinate system like the one shown below; crucially the numbering begins at **0**, not 1. Also, the origin is in the **top left** rather than the bottom left as you may be used to.
+We can change how the message is displayed by adding some extra **parameters** to the `show_letter` command.
 
-    ![Coordinates](images/coordinates.png)
+**scroll_speed** - affects how quickly the text moves on the screen. The default value is 0.1. The bigger the number, the **slower** the speed
 
-    - the blue pixel is at coordinates (0, 2)
-    - the red pixel is at coordinates (7, 4)
+**text_colour** - alters the colour of the text and is specified as three values for red, green, blue. Each value can be between 0 and 255, so (255, 0, 255) would be red + blue = purple
 
-    To replicate the above diagram you would enter a program like this:
+**back_colour** - alters the colour of the background and is specified as three values for red, green, blue. Each value can be between 0 and 255, so (255, 0, 255) would be red + blue = purple
 
-    ```python
-    from sense_hat import SenseHat
+So this program would display a single red "J":
 
-    sense = SenseHat()
+```python
+from sense_hat import SenseHat
 
-    sense.set_pixel(0, 2, (0, 0, 255))
-    sense.set_pixel(7, 4, (255, 0, 0))
-    ```
+sense = SenseHat()
 
-    <iframe src="https://trinket.io/embed/python/9a4266d360" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+red = (255, 0, 0)
 
-    Can you guess what the following code creates? Have a go at editing the code.
+sense.show_letter("J", red)
+```
 
-    ```python
-    from sense_hat import SenseHat
+And this program would add the **sleep function** to display letters separated by a brief pause:
 
-    sense = SenseHat()
+```python
+from sense_hat import SenseHat
+from time import sleep
 
-    sense.set_pixel(2, 2, (0, 0, 255))
-    sense.set_pixel(4, 2, (0, 0, 255))
-    sense.set_pixel(3, 4, (100, 0, 0))
-    sense.set_pixel(1, 5, (255, 0, 0))
-    sense.set_pixel(2, 6, (255, 0, 0))
-    sense.set_pixel(3, 6, (255, 0, 0))
-    sense.set_pixel(4, 6, (255, 0, 0))
-    sense.set_pixel(5, 5, (255, 0, 0))
-    ```
+sense = SenseHat()
 
-- Click **File** and **Save As**, give your program a name e.g. [`simple_image.py`](resources/simple_image.py), then press `F5` to run.
+red = (255, 0, 0)
+blue = (0, 0, 255)
+green = (0, 255, 0)
+black = (0, 0, 0)
+white = (255, 255, 255)
 
-- Setting pixels individually can work brilliantly, but it gets rather complex when you want to set more pixels. There is another method which can set all the pixels in one go called `sense.set_pixels`. Its use is quite straightforward; we just give a list of colour values for each pixel in the matrix.
+sense.show_letter("O", red)
+sleep(1)
+sense.show_letter("M", blue)
+sleep(1)
+sense.show_letter("G", green)
+sleep(1)
+sense.show_letter("!", black, white)
+sleep(1)
+sense.clear()
+```
 
-    We could enter something like...
-
-    ```python
-    sense.set_pixels([(255, 0, 0), (255, 0, 0), (255, 0, 0), (255, 0, 0),......])
-    ```
-
-    ...but this would take ages and be really complex.
-
-    Instead, you can use some variables to define your colour palette (in this example, we're using the seven colours of the rainbow):
-
-    ```python
-    r = (255, 0, 0)
-    o = (255, 127, 0)
-    y = (255, 255, 0)
-    g = (0, 255, 0)
-    b = (0, 0, 255)
-    i = (75, 0, 130)
-    v = (159, 0, 255)
-    e = (0, 0, 0)  # e stands for empty/black
-    ```
-
-    We can then describe our matrix by creating a 2D list of colour names:
-
-    ```python
-    image = [
-    e,e,e,e,e,e,e,e,
-    e,e,e,r,r,e,e,e,
-    e,r,r,o,o,r,r,e,
-    r,o,o,y,y,o,o,r,
-    o,y,y,g,g,y,y,o,
-    y,g,g,b,b,g,g,y,
-    b,b,b,i,i,b,b,b,
-    b,i,i,v,v,i,i,b
-    ]
-    ```
-
-    We then give the `image` list to the `sense.set_pixels` method and draw the image. The finished program would look like this:
-
-    ```python
-	from sense_hat import SenseHat
-
-	sense = SenseHat()
-
-	r = (255, 0, 0)
-	o = (255, 127, 0)
-	y = (255, 255, 0)
-	g = (0, 255, 0)
-	b = (0, 0, 255)
-	i = (75, 0, 130)
-	v = (159, 0, 255)
-	e = (0, 0, 0)
+Click **File** and **Save As**, give your program a name eg [`omg.py`](resources/omg.py), then press `F5` to run.
 
 
-	image = [
-	e,e,e,e,e,e,e,e,
-	e,e,e,r,r,e,e,e,
-	e,r,r,o,o,r,r,e,
-	r,o,o,y,y,o,o,r,
-	o,y,y,g,g,y,y,o,
-	y,g,g,b,b,g,g,y,
-	b,b,b,i,i,b,b,b,
-	b,i,i,v,v,i,i,b
-	]
-
-	sense.set_pixels(image)
-    ```
-
-- Click **File** and **Save As**, give your program a name e.g. [`rainbow.py`](resources/rainbow.py), then press `F5` to run.
-
-    You should have a beautiful rainbow displayed on your LED matrix.
+<iframe src="https://trinket.io/embed/python/ccb58a3d9d" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 
-    <iframe src="https://trinket.io/embed/python/8f36929035" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+For added interest you could use a random number generator to choose a number between 0 and 255 for the colours:
+
+```python
+from sense_hat import SenseHat
+from time import sleep
+from random import randint
+
+sense = SenseHat()
+
+r = randint(0,255)
+sense.show_letter("O", (r, 0, 0))
+sleep(1)
+
+r = randint(0,255)
+sense.show_letter("M", (0, 0, r))
+sleep(1)
+
+r = randint(0,255)
+sense.show_letter("G", (0, r, 0))
+sleep(1)
+
+sense.show_letter("!", (0, 0, 0), (255, 255, 255))
+sleep(1)
+sense.clear()
+```
+
+- Click **File** and **Save As**, give your program a name eg [`random_omg.py`](resources/random_omg.py), then press `F5` to run.
+
+    In both these programs the `sense.clear()` method has been used at the end to clear the matrix.
+
+    <iframe src="https://trinket.io/embed/python/45b0f19b65" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 
 ### Ideas
 
-- Now that you can create images on your LED matrix in two different ways, try creating your own images or sprites.
-- Can you alternate between images to create an animation? Check out this [Geek Gurl Diaries](https://www.youtube.com/watch?v=b84EywkQ3HI) video for some inspiration.
-
+ - Could you use the ideas used so far to tell a joke via the LED screen?
+ - All the examples so far could be made shorter, while still achieving the same thing. Can you find ways to make these shorter and more efficient?
+ - How would you choose a totally random colour, rather than just a random shade of a colour?
+ - If your Sense HAT is connected to the internet, you could use a Twitter library to make it display incoming tweets!

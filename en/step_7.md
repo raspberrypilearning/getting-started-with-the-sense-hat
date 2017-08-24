@@ -1,93 +1,126 @@
-## Sensing the environment
+## Setting orientation
 
-The Sense HAT has a set of environmental sensors for detecting the conditions around it. It can detect:
+So far, all our text and images have appeared the same way up, assuming that the HDMI port is at the bottom. However, this may not always be the case (especially in space) so you may want to change the orientation of the matrix. To do this, you can use the `sense.set_rotation()` method and inside the brackets enter one of four angles (0, 90, 180, 270).
 
-- Pressure
-- Temperature
-- Humidity
+To rotate your screen by 180 degrees you'd use this line:
 
-We can collect these readings using three simple methods:
+```python
+sense.set_rotation(180)
+```
 
-- `sense.get_temperature()` - this will return the temperature in Celsius.
-- `sense.get_pressure()` - this will return the pressure in millibars.
-- `sense.get_humidity()` - this will return the humidity as a percentage.
-
-- Using these, we could create a simple scrolling text display which could keep people informed about current conditions.
+- When used in the rainbow program it would look like this:
 
     ```python
     from sense_hat import SenseHat
+
     sense = SenseHat()
 
-    while True:
-        t = sense.get_temperature()
-        p = sense.get_pressure()
-        h = sense.get_humidity()
+	r = (255, 0, 0)
+	o = (255, 127, 0)
+	y = (255, 255, 0)
+	g = (0, 255, 0)
+	b = (0, 0, 255)
+	i = (75, 0, 130)
+	v = (159, 0, 255)
+	e = (0, 0, 0)
 
-        t = round(t, 1)
-        p = round(p, 1)
-        h = round(h, 1)
+    image = [
+    e,e,e,e,e,e,e,e,
+    e,e,e,r,r,e,e,e,
+    e,r,r,o,o,r,r,e,
+    r,o,o,y,y,o,o,r,
+    o,y,y,g,g,y,y,o,
+    y,g,g,b,b,g,g,y,
+    b,b,b,i,i,b,b,b,
+    b,i,i,v,v,i,i,b
+    ]
 
-        msg = "Temperature = {0}, Pressure = {1}, Humidity = {2}".format(t,p,h)
-
-        sense.show_message(msg, scroll_speed=0.05)
+    sense.set_pixels(image)
+    sense.set_rotation(180)
     ```
 
-- Click **File** and **Save As**, give your program a name e.g. [`env.py`](resources/env.py), then press `F5` to run.
+- Click **File** and **Save As**, give your program a name e.g. [`rainbow_flip.py`](resources/rainbow_flip.py), then press `F5` to run.
 
-    <iframe src="https://trinket.io/embed/python/a246815131" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
-
-- You could now use some colour to let the astronauts know whether conditions are within sensible ranges.
-
-    According to some [online documentation](http://wsn.spaceflight.esa.int/docs/Factsheets/30%20ECLSS%20LR.pdf), the International Space Station maintains these conditions at the following levels:
-
-    - Temperature (18.3 - 26.7 Celsius)
-    - Pressure (979 - 1027 millibars)
-    - Humidity (around 60%)
-
-    You could use an `if` statement in your code to check these conditions, and set a background colour for the scroll:
-
-    ```python
-    if t > 18.3 and t < 26.7:
-        bg = (0, 100, 0) # green
-    else:
-        bg = (100, 0, 0) # red
-    ```
-
-    Your complete program would look like this:
+2. You could also create spinning text using a **for** loop:
 
     ```python
     from sense_hat import SenseHat
+    from time import sleep
+
     sense = SenseHat()
 
-    while True:
-        t = sense.get_temperature()
-        p = sense.get_pressure()
-        h = sense.get_humidity()
+    sense.show_letter("J")
 
-        t = round(t, 1)
-        p = round(p, 1)
-        h = round(h, 1)
-
-        if t > 18.3 and t < 26.7:
-            bg = (0, 100, 0)  # green
-        else:
-            bg = (100, 0, 0)  # red
-
-        msg = "Temperature = {0}, Pressure = {1}, Humidity - {2}".format(t, p, h)
-
-        sense.show_message(msg, scroll_speed=0.05, back_colour=bg)
+    angles = [0, 90, 180, 270, 0, 90, 180, 270]
+    for r in angles:
+        sense.set_rotation(r)
+        sleep(0.5)
     ```
 
-- Click **File** and **Save As**, give your program a name e.g. [`scrolling_env.py`](resources/scrolling_env.py), then press `F5` to run.
+    This program displays the letter "J" and then sets the rotation to each value in the angles list with a 0.5 second pause.
 
-    <iframe src="https://trinket.io/embed/python/2f03745830" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+- Click **File** and **Save As**, give your program a name e.g. [`spinning_j.py`](resources/spinning_j.py), then press `F5` to run.
+
+    <iframe src="https://trinket.io/embed/python/2f48e31b56" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+- You can also flip the image on the screen, either horizontally or vertically, using these lines:
+
+    ```python
+    sense.flip_h()
+    ```
+
+    or
+
+    ```python
+    sense.flip_v()
+    ```
+
+    With this example you could create a simple animation by flipping the image repeatedly:
+
+    ```python
+    from sense_hat import SenseHat
+    from time import sleep
+
+    sense = SenseHat()
+
+    w = (150, 150, 150)
+    b = (0, 0, 255)
+    e = (0, 0, 0)
+
+    image = [
+    e,e,e,e,e,e,e,e,
+    e,e,e,e,e,e,e,e,
+    w,w,w,e,e,w,w,w,
+    w,w,b,e,e,w,w,b,
+    w,w,w,e,e,w,w,w,
+    e,e,e,e,e,e,e,e,
+    e,e,e,e,e,e,e,e,
+    e,e,e,e,e,e,e,e
+    ]
+
+    sense.set_pixels(image)
+
+    while True:
+        sleep(1)
+        sense.flip_h()
+    ```
+
+- Click **File** and **Save As**, give your program a name e.g. [`eyes.py`](resources/eyes.py), then press `F5` to run.
+
+<iframe src="https://trinket.io/embed/python/27b25ac047" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 ### Ideas
 
-- Currently, the scrolling program only warns about abnormal temperature. Can you add the same behaviour for pressure and humidity?
-- You could create a simple graphical thermometer which outputs different colours or patterns depending on the temperature.
+- Create a spinning image, using one of the drawing techniques shown already, and then use the `sense.set_rotation` method to make it spin.
+- Using what you've done so far, you should be able to make an electronic die like the one shown here:
 
+[![Sense HAT Die](https://img.youtube.com/vi/v=UfP-R6ArMSk.jpg)](https://www.youtube.com/watch?v=UfP-R6ArMSk)
 
+This die makes use of:
 
-
+- Displaying text
+- Timing
+- Setting rotation
+- Random numbers
+- Variables
 
