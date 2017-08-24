@@ -14,7 +14,7 @@ We can change how the message is displayed by adding some extra **parameters** t
 
 + Add a single line of code before your message to define a variable called `blue` with the value (0, 0, 255)
 
-[[[rpi-sensehat-display-colour]]]
+[[[generic-python-creating-a-variable]]]
 
 + Add another line of code to define a variable called `yellow` with the value (255, 255, 0)
 
@@ -28,4 +28,4 @@ We can change how the message is displayed by adding some extra **parameters** t
 
 [[[generic-python-while-true]]]
 
-<iframe src="https://trinket.io/embed/python/44e4fe6df5?toggleCode=true" width="100%" height="300" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+<iframe src="https://trinket.io/embed/python/44e4fe6df5?toggleCode=true" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>

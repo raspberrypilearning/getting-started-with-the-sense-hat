@@ -8,75 +8,22 @@ We can change how the letter is displayed by using two of the same extra **param
 
 + Display the letter "J" in red on a white background.
 
-+ Use the sleep function to display the letters of your name one at a time, with a one second pause between each.
++ Use the sleep function to display the letters of your name one at a time, each in a different colour, with a one second pause between each.
 
 [[[generic-python-sleep]]]
 
-```python
-from sense_hat import SenseHat
-from time import sleep
+<iframe src="https://trinket.io/embed/python/cae33bc332?toggleCode=true" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
-sense = SenseHat()
++ Randomly generate a colour by using `randint` to choose a number between 0 and 255 for each of the RGB values making up a colour.
 
-red = (255, 0, 0)
-blue = (0, 0, 255)
-green = (0, 255, 0)
-black = (0, 0, 0)
-white = (255, 255, 255)
-
-sense.show_letter("O", red)
-sleep(1)
-sense.show_letter("M", blue)
-sleep(1)
-sense.show_letter("G", green)
-sleep(1)
-sense.show_letter("!", black, white)
-sleep(1)
-sense.clear()
-```
-
-Click **File** and **Save As**, give your program a name eg [`omg.py`](resources/omg.py), then press `F5` to run.
-
-
-<iframe src="https://trinket.io/embed/python/ccb58a3d9d" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
-
-
-For added interest you could use a random number generator to choose a number between 0 and 255 for the colours:
+[[[generic-python-random]]]
 
 ```python
-from sense_hat import SenseHat
-from time import sleep
-from random import randint
+random_red = randint(0, 255)
+random_green = randint(0, 255)
+random_blue = randint(0, 255)
 
-sense = SenseHat()
-
-r = randint(0,255)
-sense.show_letter("O", (r, 0, 0))
-sleep(1)
-
-r = randint(0,255)
-sense.show_letter("M", (0, 0, r))
-sleep(1)
-
-r = randint(0,255)
-sense.show_letter("G", (0, r, 0))
-sleep(1)
-
-sense.show_letter("!", (0, 0, 0), (255, 255, 255))
-sleep(1)
-sense.clear()
+random_colour = (random_red, random_green, random_blue)
 ```
 
-- Click **File** and **Save As**, give your program a name eg [`random_omg.py`](resources/random_omg.py), then press `F5` to run.
-
-    In both these programs the `sense.clear()` method has been used at the end to clear the matrix.
-
-    <iframe src="https://trinket.io/embed/python/45b0f19b65" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
-
-
-### Ideas
-
- - Could you use the ideas used so far to tell a joke via the LED screen?
- - All the examples so far could be made shorter, while still achieving the same thing. Can you find ways to make these shorter and more efficient?
- - How would you choose a totally random colour, rather than just a random shade of a colour?
- - If your Sense HAT is connected to the internet, you could use a Twitter library to make it display incoming tweets!
++ Use the `sense.clear()` at the end of your code to clear the LED matrix.
