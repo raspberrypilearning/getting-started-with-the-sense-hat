@@ -14,40 +14,6 @@ Can you guess what this code creates?
 
 Setting pixels individually can work brilliantly, but it gets rather complex when you want to set more pixels. You can set all the pixels in one go with the `set_pixels` command.
 
-+ Create three variables to define three different colours:
-
-```python
-b = (0, 0, 255)
-g = (0, 255, 0)
-y = (255, 255, 0)
-```
-
-+ Add code to represent the LED matrix by creating a list of colour names:
-
-```python
-image = [
-b,b,b,b,b,b,b,b,
-b,g,g,g,g,b,b,b,
-g,g,g,g,g,g,b,b,
-b,g,g,g,g,b,b,b,
-b,b,w,w,b,b,b,b,
-b,b,w,w,b,b,b,b,
-b,b,w,w,b,b,b,b,
-g,g,g,g,g,g,g,g
-]
-
-```
-
 + Call the `set_pixels` method to display the image on the LED matrix
 
 [[[rpi-sensehat-multiple-pixels]]]
-
-
---- collapse ---
----
-title: Solution
----
-
-<iframe src="https://trinket.io/embed/python/1325b597bb" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
-
---- /collapse ---
