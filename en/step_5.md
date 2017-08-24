@@ -12,12 +12,21 @@ We can change how the letter is displayed by using two of the same extra **param
 
 [[[generic-python-sleep]]]
 
+--- collapse ---
+---
+title: Solution
+---
 <iframe src="https://trinket.io/embed/python/cae33bc332?toggleCode=true" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+--- /collapse ---
 
 + Randomly generate a colour by using `randint` to choose a number between 0 and 255 for each of the RGB values making up a colour.
 
 [[[generic-python-random]]]
 
+--- collapse ---
+---
+title: Solution
+---
 ```python
 random_red = randint(0, 255)
 random_green = randint(0, 255)
@@ -25,5 +34,7 @@ random_blue = randint(0, 255)
 
 random_colour = (random_red, random_green, random_blue)
 ```
+
+--- /collapse ---
 
 + Use the `sense.clear()` at the end of your code to clear the LED matrix.

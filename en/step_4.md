@@ -18,9 +18,17 @@ We can change how the message is displayed by adding some extra **parameters** t
 
 + Add another line of code to define a variable called `yellow` with the value (255, 255, 0)
 
-+ Add parameters to the `show_message` command to display the text in yellow with a blue background. The part to add is highlighted in blue.
++ Add parameters to the `show_message` command to display the text in yellow with a blue background.
+
+--- collapse ---
+---
+title: Solution
+---
+The part to add is highlighted in blue.
 
 ![Coloured text](images/coloured-text.png)
+
+--- /collapse ---
 
 + Add another parameter called `scroll_speed` to the `show_message` command and set the speed equal to 0.05 to speed up how quickly your message scrolls.
 
@@ -28,4 +36,10 @@ We can change how the message is displayed by adding some extra **parameters** t
 
 [[[generic-python-while-true]]]
 
+--- collapse ---
+---
+title: Solution
+---
 <iframe src="https://trinket.io/embed/python/44e4fe6df5?toggleCode=true" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+--- /collapse ---
