@@ -4,27 +4,13 @@
 
 [[[rpi-sensehat-show-letter]]]
 
-We can change how the message is displayed by adding some extra **parameters** to the `show_letter` command.
+We can change how the letter is displayed by using two of the same extra **parameters** as we used for the `show_message` command - **text_colour** and **back_colour**. Letters do not scroll, so there is no scroll_speed parameter.
 
-**scroll_speed** - affects how quickly the text moves on the screen. The default value is 0.1. The bigger the number, the **slower** the speed
++ Display the letter "J" in red on a white background.
 
-**text_colour** - alters the colour of the text and is specified as three values for red, green, blue. Each value can be between 0 and 255, so (255, 0, 255) would be red + blue = purple
++ Use the sleep function to display the letters of your name one at a time, with a one second pause between each.
 
-**back_colour** - alters the colour of the background and is specified as three values for red, green, blue. Each value can be between 0 and 255, so (255, 0, 255) would be red + blue = purple
-
-So this program would display a single red "J":
-
-```python
-from sense_hat import SenseHat
-
-sense = SenseHat()
-
-red = (255, 0, 0)
-
-sense.show_letter("J", red)
-```
-
-And this program would add the **sleep function** to display letters separated by a brief pause:
+[[[generic-python-sleep]]]
 
 ```python
 from sense_hat import SenseHat
