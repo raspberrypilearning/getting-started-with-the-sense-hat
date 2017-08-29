@@ -40,3 +40,11 @@
 
  - Currently, the scrolling program only warns about abnormal temperature. Can you add the same behaviour for pressure and humidity?
  - You could create a simple graphical thermometer which outputs different colours or patterns depending on the temperature.
+
+
+
+ ### Ideas
+
+   - You could write a program that displays an arrow (or other symbol) on screen; this symbol could be used to point to which way is down. This way, the astronauts (in low gravity) always know where the Earth is.
+   - You could improve the die program from earlier in this activity, so that shaking the Pi triggers the roll of the die.
+   - You could use the accelerometer to sense small movements; this could form part of a game, alarm system, or even an earthquake sensor.
