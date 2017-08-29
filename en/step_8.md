@@ -8,7 +8,7 @@ The Sense HAT has a set of environmental sensors for detecting the conditions ar
 
 [[[rpi-sensehat-humidity]]]
 
-+ Create a scrolling text display which keeps people informed about the current conditions. You can use the scrolling text display code you created in the "Displaying text" step to help you.
++ Create a scrolling text display which keeps people informed about the current pressure, temperature and humidity readings. You can use the scrolling text display code you created in the "Displaying text" step to help you.
 
 --- collapse ---
 ---
@@ -17,7 +17,7 @@ title: Solution
 
 <iframe src="https://trinket.io/embed/python/e3f7d0412c" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
---- /solution ---
+--- /collapse ---
 
 According to [online documentation](http://wsn.spaceflight.esa.int/docs/Factsheets/30%20ECLSS%20LR.pdf){:target="_blank"}, the International Space Station maintains these conditions at the following levels:
 
