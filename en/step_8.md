@@ -8,23 +8,36 @@ The Sense HAT has a set of environmental sensors for detecting the conditions ar
 
 [[[rpi-sensehat-humidity]]]
 
-+ Using these, we could create a simple scrolling text display which could keep people informed about current conditions.
++ Create a scrolling text display which keeps people informed about the current conditions. You can use the scrolling text display code you created in the "Displaying text" step to help you.
 
-<iframe src="https://trinket.io/embed/python/a246815131" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+--- collapse ---
+---
+title: Solution
+---
 
-+ According to [online documentation](http://wsn.spaceflight.esa.int/docs/Factsheets/30%20ECLSS%20LR.pdf){:target="_blank"}, the International Space Station maintains these conditions at the following levels:
+<iframe src="https://trinket.io/embed/python/e3f7d0412c" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+--- /solution ---
+
+According to [online documentation](http://wsn.spaceflight.esa.int/docs/Factsheets/30%20ECLSS%20LR.pdf){:target="_blank"}, the International Space Station maintains these conditions at the following levels:
 
 - Temperature: 18.3 - 26.7 Celsius
 - Pressure: 979 - 1027 millibars
 - Humidity: around 60%
 
-You could use an `if` statement in your code to check these conditions, and set a background colour for the scroll:
++ Define variables for the colours green (0, 255, 0) and red (255, 0, 0)
 
-```python
-if t > 18.3 and t < 26.7:
-    bg = (0, 100, 0) # green
-else:
-    bg = (100, 0, 0) # red
-```
++ Use an `if` statement in your code to check whether the temperature is between 18.3 and 26.7 degrees Celsius.
 
-<iframe src="https://trinket.io/embed/python/2f03745830" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+[[[generic-python-conditional-selection-with-boolean]]]
+
++ If the temperature is within the normal range, display the scrolling message with a green background. If not, display a red background.
+
+--- collapse ---
+---
+title: Solution
+---
+<iframe src="https://trinket.io/embed/python/875ceb5402" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+--- /collapse ---
+
++ Add more `if` statements to test for normal pressure and humidity conditions as well.
