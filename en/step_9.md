@@ -10,13 +10,16 @@ The Sense HAT has a set of sensors that can detect movement. It has an IMU (iner
 
 [[[generic-theory-pitch-roll-yaw]]]
 
-+ You can explore these values with a simple program. Run the program and use the mouse to move the Sense HAT around. Watch how the values change as the Sense HAT moves.
++ Write a program to detect the current pitch, roll and yaw. Run the program and use the mouse to move the Sense HAT around. Watch how the values change as the Sense HAT moves.
 
-<iframe src="https://trinket.io/embed/python/883c34059d" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+[[[rpi-sensehat-pitch-roll-yaw]]]
+
 
 **Note:** When using the movement sensors it is important to take frequent readings. If you take readings too slowly, for example by putting `time.sleep(0.5)` in your loop, you will see strange results. This is because the code behind needs lots of measurements in order to successfully combine the data coming from the gyroscope, accelerometer and magnetometer.
 
-Another way to detect orientation is to use the `sense.get_accelerometer_raw()` method which tells you the amount of g-force acting on each axis. If any axis has ±1g then you know that axis is pointing downwards.
+### Which way up?
+
+The `sense.get_accelerometer_raw()` method tells you the amount of g-force acting on each axis (x, y z). If any axis has ±1g then you know that axis is pointing downwards.
 
 In this example, the amount of gravitational acceleration for each axis (x, y, and z) is extracted and is then rounded to the nearest whole number:
 
@@ -24,15 +27,29 @@ In this example, the amount of gravitational acceleration for each axis (x, y, a
 
 <iframe src="https://trinket.io/embed/python/f714d301d3" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
+Use this information to set the orientation of the LED matrix.
 
++ Starting with the code above, add some code before the `while` loop to display the letter "J" on the LED matrix. Use the `show_letter` method you already learned about.
 
-If we know which way round the Raspberry Pi is, then we can use that information to set the orientation of the LED matrix. First you would display something on the matrix, then continually check which way round the board is, and use that to update the orientation of the display.
++ After the code which displays the g values for x, y and z, add an `if` statement to check which way up the Sense HAT is pointing. Update the orientation of the display using the `set_rotation` method you learned about earlier:
 
-<iframe src="https://trinket.io/embed/python/ecd677033b" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+If the x axis has -1 g, rotate 180 degrees
+Else if the y axis has 1 g, rotate 90 degrees
+Else if the y axis has -1 g, rotate 270 degrees
+Else rotate 0 degrees
 
-In this program you are using an `if, elif, else` structure to check which way round the Raspberry Pi is. The `if` and `elif` test three of the orientations, and if the orientation doesn't match any of these then the program assumes it is the "right" way round. By using the `else` statement we also catch all those other situations, like when the board is at 45 degrees or sitting level.
+--- collapse ---
+---
+title: Solution
+---
+<iframe src="https://trinket.io/embed/python/c2b483d8ea" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+--- /collapse ---
 
-- If the board is only rotated, it will only experience 1 g of acceleration in any direction; if we were to shake it, the sensor would experience more than 1 g. We could then detect that rapid motion and respond. For this program we will introduce the `abs()` function which is not specific to the Sense HAT library and is part of standard Python. `abs()` gives us the size of a value and ignores whether the value is positive or negative. This is helpful as we don't care which direction the sensor is being shaken, just that it is shaken.
+### Shake the board
+
+If the board is only rotated, it will only experience 1 g of acceleration in any direction; if we were to shake it, the sensor would experience more than 1 g. We could then detect that rapid motion and respond.
+
+For this program we will introduce the `abs()` function which is not specific to the Sense HAT library and is part of standard Python. `abs()` gives us the size of a value and ignores whether the value is positive or negative. This is helpful as we don't care which direction the sensor is being shaken, just that it is shaken.
 
 ```python
 from sense_hat import SenseHat
@@ -57,6 +74,4 @@ while True:
         sense.clear()
 ```
 
-- This is a little tricky to emulate, so you should try this one using IDLE and a real Sense HAT. Click **File** and **Save As**, give your program a name e.g. [`shake.py`](resources/shake.py), then press `F5` to run.
-
-You might find this is quite sensitive, but you could change the value from 1 to a higher number.
+This is a little tricky to emulate, so you should try this one using a real Sense HAT. If you find the program is too sensitive, try changing the number 1 to a higher number to raise the threshold of what is defined as a "shake".

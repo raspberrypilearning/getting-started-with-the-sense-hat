@@ -21,9 +21,11 @@ title: Solution
 
 According to [online documentation](http://wsn.spaceflight.esa.int/docs/Factsheets/30%20ECLSS%20LR.pdf){:target="_blank"}, the International Space Station maintains these conditions at the following levels:
 
-- Temperature: 18.3 - 26.7 Celsius
-- Pressure: 979 - 1027 millibars
-- Humidity: around 60%
+**Temperature:** 18.3 - 26.7 Celsius
+
+**Pressure:** 979 - 1027 millibars
+
+**Humidity:** around 60%
 
 + Define variables for the colours green (0, 255, 0) and red (255, 0, 0)
 
