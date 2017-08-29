@@ -1,10 +1,12 @@
 ## Sensing the environment
 
-The Sense HAT has a set of environmental sensors for detecting the conditions around it. It can detect:
+The Sense HAT has a set of environmental sensors for detecting the conditions around it. It can detect pressure, temperature and humidity.
 
-- Pressure
-- Temperature
-- Humidity
+[[[rpi-sensehat-pressure]]]
+
+[[[rpi-sensehat-temperature]]]
+
+[[rpi-sensehat-humidity]]
 
 We can collect these readings using three simple methods:
 
