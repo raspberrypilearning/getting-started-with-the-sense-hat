@@ -37,4 +37,4 @@ random_colour = (random_red, random_green, random_blue)
 
 --- /collapse ---
 
-+ Use the `sense.clear()` at the end of your code to clear the LED matrix.
++ Use `sense.clear()` at the end of your code to clear the LED matrix.

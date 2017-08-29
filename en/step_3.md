@@ -4,4 +4,8 @@ The Sense HAT is an add-on board for the Raspberry Pi, made especially for the [
 
 ![Sense HAT](images/sense-hat.png)
 
-If you don't have access to a Sense HAT, you can use the emulator available on [trinket.io](https://trinket.io/){:target="_blank"}.
+[[[rpi-sensehat-attach]]]
+
+If you don't have access to a real Sense HAT, you can use an emulator.
+
+[[[rpi-sensehat-emulator]]]

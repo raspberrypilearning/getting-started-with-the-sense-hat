@@ -81,13 +81,3 @@ We can collect these readings using three simple methods:
 - Click **File** and **Save As**, give your program a name e.g. [`scrolling_env.py`](resources/scrolling_env.py), then press `F5` to run.
 
     <iframe src="https://trinket.io/embed/python/2f03745830" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
-
-### Ideas
-
-- Currently, the scrolling program only warns about abnormal temperature. Can you add the same behaviour for pressure and humidity?
-- You could create a simple graphical thermometer which outputs different colours or patterns depending on the temperature.
-
-
-
-
-

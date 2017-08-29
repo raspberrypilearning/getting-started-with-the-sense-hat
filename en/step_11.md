@@ -34,3 +34,9 @@
  - Setting rotation
  - Random numbers
  - Variables
+
+
+ ### Ideas
+
+ - Currently, the scrolling program only warns about abnormal temperature. Can you add the same behaviour for pressure and humidity?
+ - You could create a simple graphical thermometer which outputs different colours or patterns depending on the temperature.
