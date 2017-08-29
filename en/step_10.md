@@ -2,7 +2,7 @@
 
 Now that you've explored most of the features of the Sense HAT, you could combine them to create a project. Here's an example reaction game, which could be used by the astronauts to test their reflexes.
 
-<iframe src="https://trinket.io/embed/python/5634ef8bd6?outputOnly=true" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+<iframe src="https://trinket.io/embed/python/5634ef8bd6?outputOnly=true&start=result" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 Rotate the board to make the arrow point up. If you match it in time the arrow turns green and your score increases; if not your arrow turns red and the game ends. The game keeps showing arrows in new orientations until you lose, and each turn gets faster.
 
