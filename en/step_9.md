@@ -10,80 +10,23 @@ The Sense HAT has a set of sensors that can detect movement. It has an IMU (iner
 
 [[[generic-theory-pitch-roll-yaw]]]
 
-+ You can explore these values with a simple program:
-
-```python
-from sense_hat import SenseHat
-
-sense = SenseHat()
-
-while True:
-	orientation = sense.get_orientation()
-	pitch = orientation['pitch']
-	roll = orientation['roll']
-	yaw = orientation['yaw']
-	print("pitch={0}, roll={1}, yaw={2}".format(pitch, roll, yaw))
-```
++ You can explore these values with a simple program. Run the program and use the mouse to move the Sense HAT around. Watch how the values change as the Sense HAT moves.
 
 <iframe src="https://trinket.io/embed/python/883c34059d" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
-**Note: When using the movement sensors it is important to poll them often in a tight loop. If you poll them too slowly, for example with `time.sleep(0.5)` in your loop, you will see strange results. This is because the code behind needs lots of measurements in order to successfully combine the data coming from the gyroscope, accelerometer and magnetometer.**
+**Note:** When using the movement sensors it is important to take frequent readings. If you take readings too slowly, for example by putting `time.sleep(0.5)` in your loop, you will see strange results. This is because the code behind needs lots of measurements in order to successfully combine the data coming from the gyroscope, accelerometer and magnetometer.
 
-+ You can click and drag around the Sense HAT in the emulator to see the values change.
-
-+ Another way to detect orientation is to use the `sense.get_accelerometer_raw()` method which tells you the amount of g-force acting on each axis. If any axis has ±1g then you know that axis is pointing downwards.
+Another way to detect orientation is to use the `sense.get_accelerometer_raw()` method which tells you the amount of g-force acting on each axis. If any axis has ±1g then you know that axis is pointing downwards.
 
 In this example, the amount of gravitational acceleration for each axis (x, y, and z) is extracted and is then rounded to the nearest whole number:
 
-```python
-from sense_hat import SenseHat
-
-sense = SenseHat()
-
-while True:
-	acceleration = sense.get_accelerometer_raw()
-	x = acceleration['x']
-	y = acceleration['y']
-	z = acceleration['z']
-
-	x=round(x, 0)
-	y=round(y, 0)
-	z=round(z, 0)
-
-	print("x={0}, y={1}, z={2}".format(x, y, z))
-```
++ Rotate the Sense HAT. You should see the values for x and y change between -1 and 1. If you place the Pi flat or turn it upside down, the z axis will be 1 and then -1.
 
 <iframe src="https://trinket.io/embed/python/f714d301d3" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
-As you rotate the Sense HAT, you should see the values for x and y change between -1 and 1. If you place the Pi flat or turn it upside down, the z axis will be 1 and then -1.
 
-- If we know which way round the Raspberry Pi is, then we can use that information to set the orientation of the LED matrix. First you would display something on the matrix, then continually check which way round the board is, and use that to update the orientation of the display.
 
-```python
-from sense_hat import SenseHat
-
-sense = SenseHat()
-
-sense.show_letter("J")
-
-while True:
-	x = sense.get_accelerometer_raw()['x']
-	y = sense.get_accelerometer_raw()['y']
-	z = sense.get_accelerometer_raw()['z']
-
-	x = round(x, 0)
-	y = round(y, 0)
-
-	if x == -1:
-		sense.set_rotation(180)
-	elif y == 1:
-		sense.set_rotation(90)
-	elif y == -1:
-		sense.set_rotation(270)
-	else:
-		sense.set_rotation(0)
-```
-
+If we know which way round the Raspberry Pi is, then we can use that information to set the orientation of the LED matrix. First you would display something on the matrix, then continually check which way round the board is, and use that to update the orientation of the display.
 
 <iframe src="https://trinket.io/embed/python/ecd677033b" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
