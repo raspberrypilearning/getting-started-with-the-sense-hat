@@ -27,13 +27,7 @@ title: Solution
 ---
 title: Solution
 ---
-```python
-random_red = randint(0, 255)
-random_green = randint(0, 255)
-random_blue = randint(0, 255)
-
-random_colour = (random_red, random_green, random_blue)
-```
+<iframe src="https://trinket.io/embed/python/c9837ed008" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 --- /collapse ---
 

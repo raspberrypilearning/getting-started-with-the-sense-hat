@@ -1,5 +1,9 @@
 ## Displaying images
 
+You can fill the whole LED matrix with a single colour using the `clear` method along with your chosen colour. 
+
+[[[rpi-sensehat-display-colour]]]
+
 ### Setting single pixels
 
 The LED matrix can display more than just text! We can control each LED individually to create an image.
