@@ -13,6 +13,7 @@ We can change how the message is displayed by adding some extra **parameters** t
 Check out the sections below to learn more about RGB values.
 
 [[[rpi-sensehat-display-colour]]]
+
 [[[generic-theory-colours]]]
 
 **back_colour**: alters the colour of the background and works in the same way as `text_colour`.
