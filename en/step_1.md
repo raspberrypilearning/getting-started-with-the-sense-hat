@@ -14,7 +14,7 @@ By following this resource with your Raspberry Pi and Sense HAT you will learn h
 - Access the outputs of the Sense HAT
 - Program the inputs of the Sense HAT
 - Use the Sense HAT library to display messages and images
-- HUse variables to store sensor data
+- Use variables to store sensor data
 - Use loops to repeat behaviours
 
 This resource covers elements from the following strands of the [Raspberry Pi Digital Making Curriculum](https://www.raspberrypi.org/curriculum/):
