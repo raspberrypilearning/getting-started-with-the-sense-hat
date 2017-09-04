@@ -2,6 +2,7 @@
 
 ### Hardware
 
++ Raspberry Pi
 + Sense HAT
 
 ### Software
