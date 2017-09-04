@@ -6,9 +6,9 @@
 
 We can change how the message is displayed by adding some extra **parameters** to the `show_message` command.
 
-**scroll_speed**: affects how quickly the text moves across the screen. The default value is `0.1`. The bigger the number, the lower the speed.
+`scroll_speed`: affects how quickly the text moves across the screen. The default value is `0.1`. The bigger the number, the lower the speed.
 
-**text_colour**: alters the colour of the text and is defined via three values to specify red, green, and blue. These are also called RGB values.
+`text_colour`: alters the colour of the text and is defined via three values to specify red, green, and blue. These are also called RGB values.
 
 Check out the sections below to learn more about RGB values.
 
@@ -16,7 +16,7 @@ Check out the sections below to learn more about RGB values.
 
 [[[generic-theory-colours]]]
 
-**back_colour**: alters the colour of the background and works in the same way as `text_colour`.
+`back_colour`: alters the colour of the background and works in the same way as `text_colour`.
 
 + Add a line of code before your message to define a variable called `blue` with the value `(0, 0, 255)`.
 
