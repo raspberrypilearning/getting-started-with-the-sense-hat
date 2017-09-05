@@ -1,7 +1,6 @@
----
-title: Getting Started with the Sense HAT
+title: Getting started with the Sense HAT
 hero_image: images/banner.png
-description: Explore the Sense HAT sensor board with its Python library
+description: Explore the Sense HAT sensor board and its Python library
 original_url: https://raspberrypi.org/learning/getting-started-with-the-sense-hat
 theme: violet
 duration: 2
@@ -11,15 +10,16 @@ copyedit: true
 curriculum: creator, design-0, programming-0, phys-comp-0, manufacture-0, community-0
 interests: ''
 technologies: rpi, physical computing, python
-site_areas: ''
 steps:
 - title: Introduction
 - title: What you will need
-- title: Getting Started with the Sense HAT
+- title: What is a Sense HAT?
 - title: Displaying text
+- title: Displaying a single character
 - title: Displaying images
 - title: Setting orientation
 - title: Sensing the environment
 - title: Detecting movement
-- title: Putting it all together
-- title: What next?
+- title: Using the joystick
+- title: "Challenge: putting it all together"
+- title: "Challenge: more ideas"

@@ -1,143 +1,45 @@
-## Detecting movement
+## Sensing the environment
 
-The Sense HAT has a set of sensors that can detect movement. It has an IMU (inertial measurement unit) chip which includes:
+The Sense HAT has a set of environmental sensors for detecting the surrounding conditions; it can measure pressure, temperature, and humidity.
 
-- A gyroscope (for detecting which way up the board is)
-- An accelerometer (for detecting movement)
-- A magnetometer (for detecting magnetic fields)
+[[[rpi-sensehat-pressure]]]
 
-Before you start experimenting with motion sensing, it's important to understand three key terms covered in the [guide](https://github.com/raspberrypilearning/astro-pi-guide/blob/master/sensors/movement.md) and in this [video](https://www.youtube.com/watch?v=pQ24NtnaLl8).
+[[[rpi-sensehat-temperature]]]
 
-The three axes uses to describe motion are:
+[[[rpi-sensehat-humidity]]]
 
-- Pitch (like a plane taking off)
-- Roll (the plane doing a victory roll)
-- Yaw (imagine steering the plane like a car)
++ Create a scrolling text display which keeps people informed about the current pressure, temperature, and humidity readings. You can use the scrolling text display code you wrote in the 'Displaying text' step to help you.
 
-![Sense HAT Orientation](images/orientation.png)
+--- collapse ---
+---
+title: Solution
+---
 
-You can find out the orientation of the Sense HAT using the `sense.get_orientation()` method:
+<iframe src="https://trinket.io/embed/python/e3f7d0412c" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
-```python
-orientation = sense.get_orientation()
-pitch = orientation['pitch']
-roll = orientation['roll']
-yaw = orientation['yaw']
-```
+--- /collapse ---
 
-This would get the three orientation values (measured in degrees) and store them as the three variables `pitch`, `roll` and `yaw`.
+According to [online documentation](http://wsn.spaceflight.esa.int/docs/Factsheets/30%20ECLSS%20LR.pdf){:target="_blank"}, the International Space Station maintains these conditions at the following levels:
 
-- You can explore these values with a simple program:
+Temperature: 18.3-26.7 Celsius
 
-	```python
-	from sense_hat import SenseHat
+Pressure: 979-1027 millibars
 
-	sense = SenseHat()
+Humidity: around 60%
 
-	while True:
-		orientation = sense.get_orientation()
-		pitch = orientation['pitch']
-		roll = orientation['roll']
-		yaw = orientation['yaw']
-		print("pitch={0}, roll={1}, yaw={2}".format(pitch, roll, yaw))
-	```
++ Define variables for the colours green (0, 255, 0) and red (255, 0, 0).
 
-	<iframe src="https://trinket.io/embed/python/883c34059d" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
++ Use an if statement in your code to check whether the temperature is between 18.3 and 26.7 degrees Celsius.
 
-    **Note: When using the movement sensors it is important to poll them often in a tight loop. If you poll them too slowly, for example with `time.sleep(0.5)` in your loop, you will see strange results. This is because the code behind needs lots of measurements in order to successfully combine the data coming from the gyroscope, accelerometer and magnetometer.**
+[[[generic-python-conditional-selection-with-boolean]]]
 
-- You can click and drag around the Sense HAT in the emulator to see the values change.
++ If the temperature is within this normal range, display the scrolling message with a green background. If not, display a red background.
 
-- Another way to detect orientation is to use the `sense.get_accelerometer_raw()` method which tells you the amount of g-force acting on each axis. If any axis has ±1g then you know that axis is pointing downwards.
+--- collapse ---
+---
+title: Solution
+---
+<iframe src="https://trinket.io/embed/python/875ceb5402" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+--- /collapse ---
 
-    In this example, the amount of gravitational acceleration for each axis (x, y, and z) is extracted and is then rounded to the nearest whole number:
-
-    ```python
-	from sense_hat import SenseHat
-
-	sense = SenseHat()
-
-	while True:
-		acceleration = sense.get_accelerometer_raw()
-		x = acceleration['x']
-		y = acceleration['y']
-		z = acceleration['z']
-
-		x=round(x, 0)
-		y=round(y, 0)
-		z=round(z, 0)
-
-		print("x={0}, y={1}, z={2}".format(x, y, z))
-    ```
-
-	<iframe src="https://trinket.io/embed/python/f714d301d3" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
-
-    As you rotate the Sense HAT, you should see the values for x and y change between -1 and 1. If you place the Pi flat or turn it upside down, the z axis will be 1 and then -1.
-
-- If we know which way round the Raspberry Pi is, then we can use that information to set the orientation of the LED matrix. First you would display something on the matrix, then continually check which way round the board is, and use that to update the orientation of the display.
-
-    ```python
-	from sense_hat import SenseHat
-
-	sense = SenseHat()
-
-	sense.show_letter("J")
-
-	while True:
-		x = sense.get_accelerometer_raw()['x']
-		y = sense.get_accelerometer_raw()['y']
-		z = sense.get_accelerometer_raw()['z']
-
-		x = round(x, 0)
-		y = round(y, 0)
-
-		if x == -1:
-			sense.set_rotation(180)
-		elif y == 1:
-			sense.set_rotation(90)
-		elif y == -1:
-			sense.set_rotation(270)
-		else:
-			sense.set_rotation(0)
-    ```
-
-
-	<iframe src="https://trinket.io/embed/python/ecd677033b" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
-
-    In this program you are using an `if, elif, else` structure to check which way round the Raspberry Pi is. The `if` and `elif` test three of the orientations, and if the orientation doesn't match any of these then the program assumes it is the "right" way round. By using the `else` statement we also catch all those other situations, like when the board is at 45 degrees or sitting level.
-
-- If the board is only rotated, it will only experience 1 g of acceleration in any direction; if we were to shake it, the sensor would experience more than 1 g. We could then detect that rapid motion and respond. For this program we will introduce the `abs()` function which is not specific to the Sense HAT library and is part of standard Python. `abs()` gives us the size of a value and ignores whether the value is positive or negative. This is helpful as we don't care which direction the sensor is being shaken, just that it is shaken.
-
-    ```python
-    from sense_hat import SenseHat
-
-    sense = SenseHat()
-
-	red = (255, 0, 0)
-
-    while True:
-	    acceleration = sense.get_accelerometer_raw()
-        x = acceleration['x']
-		y = acceleration['y']
-		z = acceleration['z']
-
-        x = abs(x)
-        y = abs(y)
-        z = abs(z)
-
-        if x > 1 or y > 1 or z > 1:
-            sense.show_letter("!", red)
-        else:
-            sense.clear()
-    ```
-
-- This is a little tricky to emulate, so you should try this one using IDLE and a real Sense HAT. Click **File** and **Save As**, give your program a name e.g. [`shake.py`](resources/shake.py), then press `F5` to run.
-
-    You might find this is quite sensitive, but you could change the value from 1 to a higher number.
-
-### Ideas
-
-  - You could write a program that displays an arrow (or other symbol) on screen; this symbol could be used to point to which way is down. This way, the astronauts (in low gravity) always know where the Earth is.
-  - You could improve the die program from earlier in this activity, so that shaking the Pi triggers the roll of the die.
-  - You could use the accelerometer to sense small movements; this could form part of a game, alarm system, or even an earthquake sensor.
-
++ Add more if statements to test for normal pressure and humidity conditions as well.
