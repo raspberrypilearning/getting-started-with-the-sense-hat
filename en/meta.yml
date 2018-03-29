@@ -2,15 +2,15 @@ title: Getting started with the Sense HAT
 hero_image: images/banner.png
 description: Explore the Sense HAT sensor board and its Python library
 original_url: https://raspberrypi.org/learning/getting-started-with-the-sense-hat
-theme: red
+theme: violet
 duration: 2
 listed: true
 ingredient: false
 copyedit: true
 curriculum: 2, design-0, programming-2, phys-comp-1, manufacture-0, community-0
 interests: ''
-technologies: raspberry-pi, electronic-components, python, sense-hat
-hardware: raspberry-pi, electronic-components, sense-hat
+technologies: python, sense-hat
+hardware: sense-hat
 software: python
 site_areas: projects
 version: 4
