@@ -1,3 +1,4 @@
+---
 title: Getting started with the Sense HAT
 hero_image: images/banner.png
 description: Explore the Sense HAT sensor board and its Python library
@@ -15,16 +16,20 @@ software: python
 site_areas: projects
 version: 4
 last_tested: 2017-01-01
-steps: 
+steps:
 - title: Introduction
 - title: What you will need
 - title: What is a Sense HAT?
 - title: Displaying text
+  completion:
+  - engaged
 - title: Displaying a single character
 - title: Displaying images
 - title: Setting orientation
 - title: Sensing the environment
 - title: Detecting movement
 - title: Using the joystick
-- title: "Challenge: putting it all together"
-- title: "Challenge: more ideas"
+  completion:
+  - internal
+- title: 'Challenge: putting it all together'
+- title: 'Challenge: more ideas'
