@@ -19,15 +19,17 @@ last_tested: 2017-01-01
 steps:
 - title: Introduction
 - title: What you will need
-  completion: engaged
 - title: What is a Sense HAT?
 - title: Displaying text
+  completion:
+  - engaged
 - title: Displaying a single character
 - title: Displaying images
 - title: Setting orientation
 - title: Sensing the environment
 - title: Detecting movement
 - title: Using the joystick
+  completion:
+  - internal
 - title: 'Challenge: putting it all together'
-  completion: internal
 - title: 'Challenge: more ideas'
