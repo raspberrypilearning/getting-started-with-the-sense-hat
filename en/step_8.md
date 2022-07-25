@@ -8,6 +8,8 @@ The Sense HAT has a set of environmental sensors for detecting the surrounding c
 
 [[[rpi-sensehat-humidity]]]
 
+[[[rpi-sensehat-colour]]]
+
 + Create a scrolling text display which keeps people informed about the current pressure, temperature, and humidity readings. You can use the scrolling text display code you wrote in the 'Displaying text' step to help you.
 
 --- collapse ---
