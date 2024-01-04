@@ -16,8 +16,3 @@ By following this resource with your Raspberry Pi and Sense HAT you will learn h
 - Use the Sense HAT library to display messages and images
 - Use variables to store sensor data
 - Use loops to repeat behaviours
-
-This resource covers elements from the following strands of the [Raspberry Pi Digital Making Curriculum](https://www.raspberrypi.org/curriculum/):
-
-- [Use basic programming constructs to create simple programs](https://www.raspberrypi.org/curriculum/programming/creator)
-- [Process input data to monitor or react to the environment](https://www.raspberrypi.org/curriculum/physical-computing/developer)
