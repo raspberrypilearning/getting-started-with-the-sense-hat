@@ -33,3 +33,5 @@ steps:
   - internal
 - title: 'Challenge: putting it all together'
 - title: 'Challenge: more ideas'
+  completion:
+  - external
