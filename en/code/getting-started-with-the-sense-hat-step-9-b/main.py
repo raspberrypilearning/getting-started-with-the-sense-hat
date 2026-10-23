@@ -19,10 +19,13 @@ while True:
 
   # Update the rotation of the display depending on which way up the Sense HAT is
 	if x  == -1:
-	  sense.set_rotation(180)
+	  sense.set_rotation(180, False)
 	elif y == 1:
-	  sense.set_rotation(90)
+	  sense.set_rotation(90, False)
 	elif y == -1:
-	  sense.set_rotation(270)
+	  sense.set_rotation(270, False)
 	else:
-	  sense.set_rotation(0)
+	  sense.set_rotation(0, False)
+
+	# Redraw the letter the new way up
+	sense.show_letter("J")

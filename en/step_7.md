@@ -8,6 +8,8 @@ So far, all our text and images have appeared the same way up, with the HDMI por
 
 <iframe src="https://editor.raspberrypi.org/en/embed/viewer/getting-started-with-the-sense-hat-step-6" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
+If the LEDs don't light up, click **Run** again.
+
 [Open this code in the Code Editor](https://editor.raspberrypi.org/en/projects/getting-started-with-the-sense-hat-step-6){:target="_blank"}
 
 You can create a simple animation by flipping an image repeatedly:

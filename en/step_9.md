@@ -66,8 +66,8 @@ red = (255, 0, 0)
 while True:
     acceleration = sense.get_accelerometer_raw()
     x = acceleration['x']
-	y = acceleration['y']
-	z = acceleration['z']
+    y = acceleration['y']
+    z = acceleration['z']
 
     x = abs(x)
     y = abs(y)
