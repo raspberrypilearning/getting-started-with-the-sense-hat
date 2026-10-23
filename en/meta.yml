@@ -28,7 +28,6 @@ steps:
 - title: Setting orientation
 - title: Sensing the environment
 - title: Detecting movement
-- title: Using the joystick
   completion:
   - internal
 - title: 'Challenge: putting it all together'

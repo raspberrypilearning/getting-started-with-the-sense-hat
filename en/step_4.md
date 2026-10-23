@@ -46,6 +46,8 @@ The part to add is highlighted in blue.
 ---
 title: Solution
 ---
-<iframe src="https://trinket.io/embed/python/44e4fe6df5?toggleCode=true" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+<iframe src="https://editor.raspberrypi.org/en/embed/viewer/getting-started-with-the-sense-hat-step-4" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+[Open this code in the Code Editor](https://editor.raspberrypi.org/en/projects/getting-started-with-the-sense-hat-step-4){:target="_blank"}
 
 --- /collapse ---

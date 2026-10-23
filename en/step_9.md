@@ -23,7 +23,9 @@ The `sense.get_accelerometer_raw()` method tells you the amount of G-force actin
 
 In this example, the amount of gravitational acceleration for each axis is extracted and is then rounded to the nearest whole number:
 
-<iframe src="https://trinket.io/embed/python/f714d301d3" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+<iframe src="https://editor.raspberrypi.org/en/embed/viewer/getting-started-with-the-sense-hat-step-9-a" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+[Open this code in the Code Editor](https://editor.raspberrypi.org/en/projects/getting-started-with-the-sense-hat-step-9-a){:target="_blank"}
 
 + Rotate the Sense HAT. You should see the values for `x` and `y` change between `-1` and `1`. If you place the Pi flat or turn it upside down, the value for the `z` axis will be `1` and then `-1`.
 
@@ -42,7 +44,10 @@ Use this information to set the orientation of the LED matrix.
 ---
 title: Solution
 ---
-<iframe src="https://trinket.io/embed/python/c2b483d8ea" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+<iframe src="https://editor.raspberrypi.org/en/embed/viewer/getting-started-with-the-sense-hat-step-9-b" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+[Open this code in the Code Editor](https://editor.raspberrypi.org/en/projects/getting-started-with-the-sense-hat-step-9-b){:target="_blank"}
+
 --- /collapse ---
 
 ### Shake the board

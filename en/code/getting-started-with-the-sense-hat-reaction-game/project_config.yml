@@ -1,0 +1,4 @@
+name: "Getting started with the Sense HAT reaction game"
+identifier: "getting-started-with-the-sense-hat-reaction-game"
+type: 'python'
+build: true

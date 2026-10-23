@@ -16,7 +16,10 @@ We can change how the letter is displayed by using two of the same parameters we
 ---
 title: Solution
 ---
-<iframe src="https://trinket.io/embed/python/cae33bc332?toggleCode=true" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+<iframe src="https://editor.raspberrypi.org/en/embed/viewer/getting-started-with-the-sense-hat-step-5-a" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+[Open this code in the Code Editor](https://editor.raspberrypi.org/en/projects/getting-started-with-the-sense-hat-step-5-a){:target="_blank"}
+
 --- /collapse ---
 
 + Randomly generate a colour by using `randint` to choose a number between `0` and `255` for each of the three RGB values that make up a colour.
@@ -27,7 +30,9 @@ title: Solution
 ---
 title: Solution
 ---
-<iframe src="https://trinket.io/embed/python/c9837ed008" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+<iframe src="https://editor.raspberrypi.org/en/embed/viewer/getting-started-with-the-sense-hat-step-5-b" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+[Open this code in the Code Editor](https://editor.raspberrypi.org/en/projects/getting-started-with-the-sense-hat-step-5-b){:target="_blank"}
 
 --- /collapse ---
 

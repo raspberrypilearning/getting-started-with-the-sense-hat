@@ -6,8 +6,12 @@ So far, all our text and images have appeared the same way up, with the HDMI por
 
 + Change the orientation of the pixel picture from the previous step by adding code to rotate the display below the code you wrote to connect to the Sense HAT:
 
-<iframe src="https://trinket.io/embed/python/dc4f166247?toggleCode=true" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+<iframe src="https://editor.raspberrypi.org/en/embed/viewer/getting-started-with-the-sense-hat-step-6" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+[Open this code in the Code Editor](https://editor.raspberrypi.org/en/projects/getting-started-with-the-sense-hat-step-6){:target="_blank"}
 
 You can create a simple animation by flipping an image repeatedly:
 
-<iframe src="https://trinket.io/embed/python/6a7a6a88f7" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+<iframe src="https://editor.raspberrypi.org/en/embed/viewer/getting-started-with-the-sense-hat-step-7" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+[Open this code in the Code Editor](https://editor.raspberrypi.org/en/projects/getting-started-with-the-sense-hat-step-7){:target="_blank"}
