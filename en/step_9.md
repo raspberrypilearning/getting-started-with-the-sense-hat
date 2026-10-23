@@ -23,6 +23,24 @@ The `sense.get_accelerometer_raw()` method tells you the amount of G-force actin
 
 In this example, the amount of gravitational acceleration for each axis is extracted and is then rounded to the nearest whole number:
 
+```python
+from sense_hat import SenseHat
+
+sense = SenseHat()
+
+while True:
+	acceleration = sense.get_accelerometer_raw()
+	x = acceleration['x']
+	y = acceleration['y']
+	z = acceleration['z']
+
+	x=round(x, 0)
+	y=round(y, 0)
+	z=round(z, 0)
+
+	print("x={0}, y={1}, z={2}".format(x, y, z))
+```
+
 <iframe src="https://editor.raspberrypi.org/en/embed/viewer/getting-started-with-the-sense-hat-step-9-a" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 [Open this code in the Code Editor](https://editor.raspberrypi.org/en/projects/getting-started-with-the-sense-hat-step-9-a){:target="_blank"}
@@ -44,7 +62,43 @@ Use this information to set the orientation of the LED matrix.
 ---
 title: Solution
 ---
+```python
+from sense_hat import SenseHat
+
+sense = SenseHat()
+
+# Display the letter J
+sense.show_letter("J")
+
+while True:
+	acceleration = sense.get_accelerometer_raw()
+	x = acceleration['x']
+	y = acceleration['y']
+	z = acceleration['z']
+
+	x=round(x, 0)
+	y=round(y, 0)
+	z=round(z, 0)
+	
+	print("x={0}, y={1}, z={2}".format(x, y, z))
+
+  # Update the rotation of the display depending on which way up the Sense HAT is
+	if x  == -1:
+	  sense.set_rotation(180, False)
+	elif y == 1:
+	  sense.set_rotation(90, False)
+	elif y == -1:
+	  sense.set_rotation(270, False)
+	else:
+	  sense.set_rotation(0, False)
+
+	# Redraw the letter the new way up
+	sense.show_letter("J")
+```
+
 <iframe src="https://editor.raspberrypi.org/en/embed/viewer/getting-started-with-the-sense-hat-step-9-b" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+The Code Editor shows the Sense HAT on its side, so the picture is turned a quarter-turn clockwise.
 
 [Open this code in the Code Editor](https://editor.raspberrypi.org/en/projects/getting-started-with-the-sense-hat-step-9-b){:target="_blank"}
 
