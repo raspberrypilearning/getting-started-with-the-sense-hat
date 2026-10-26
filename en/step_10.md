@@ -8,6 +8,8 @@ The Code Editor shows the Sense HAT on its side, so the picture is turned a quar
 
 Rotate the board to make the arrow point up. If you match it in time, the arrow turns green and your score increases; if not, your arrow turns red and the game ends. The game keeps showing arrows in new orientations until you lose, and each turn gets faster.
 
+If you're using the Code Editor, drag the Sense HAT model to tilt it: up or down first, then left or right. Tilting it in time is tricky, so the game is easier to play on a real Sense HAT.
+
 This idea combines:
 
   - Showing messages and images on the LED matrix

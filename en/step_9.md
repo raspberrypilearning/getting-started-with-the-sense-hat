@@ -47,6 +47,8 @@ while True:
 
 + Rotate the Sense HAT. You should see the values for `x` and `y` change between `-1` and `1`. If you place the Pi flat or turn it upside down, the value for the `z` axis will be `1` and then `-1`.
 
+If you're using the Code Editor, drag the Sense HAT model up or down to tilt it, then left or right to tip it to the side. The reset button next to the roll, pitch and yaw readings puts it back.
+
 Use this information to set the orientation of the LED matrix.
 
 + Starting with the code above, add some code before the while loop to display the letter "J" on the LED matrix. Use the `show_letter` method you already learned about.

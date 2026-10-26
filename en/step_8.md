@@ -41,7 +41,7 @@ while True:
   sense.show_message(message, scroll_speed=0.05)
 ```
 
-<iframe src="https://editor.raspberrypi.org/en/embed/viewer/getting-started-with-the-sense-hat-step-8-a" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+<iframe src="https://editor.raspberrypi.org/en/embed/viewer/getting-started-with-the-sense-hat-step-8-a" width="100%" height="1000" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 The Code Editor shows the Sense HAT on its side, so the picture is turned a quarter-turn clockwise.
 
@@ -64,6 +64,8 @@ Humidity: around 60%
 [[[generic-python-conditional-selection-with-boolean]]]
 
 + If the temperature is within this normal range, display the scrolling message with a green background. If not, display a red background.
+
+If you're using the Code Editor, change the temperature with the temperature slider in the Space Station Control Panel, under the Sense HAT model. Drag it to between 19°C and 26°C to see the green background.
 
 --- collapse ---
 ---
@@ -102,7 +104,7 @@ while True:
   sense.show_message(message, scroll_speed=0.05, back_colour=bg)
 ```
 
-<iframe src="https://editor.raspberrypi.org/en/embed/viewer/getting-started-with-the-sense-hat-step-8-b" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+<iframe src="https://editor.raspberrypi.org/en/embed/viewer/getting-started-with-the-sense-hat-step-8-b" width="100%" height="1000" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 The Code Editor shows the Sense HAT on its side, so the picture is turned a quarter-turn clockwise.
 
