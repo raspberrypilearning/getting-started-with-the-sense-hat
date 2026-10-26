@@ -17,7 +17,35 @@ The Sense HAT has a set of environmental sensors for detecting the surrounding c
 title: Solution
 ---
 
-<iframe src="https://trinket.io/embed/python/e3f7d0412c" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+```python
+from sense_hat import SenseHat
+sense = SenseHat()
+
+while True:
+
+  # Take readings from all three sensors
+  t = sense.get_temperature()
+  p = sense.get_pressure()
+  h = sense.get_humidity()
+
+  # Round the values to one decimal place
+  t = round(t, 1)
+  p = round(p, 1)
+  h = round(h, 1)
+  
+  # Create the message
+  # str() converts the value to a string so it can be concatenated
+  message = "Temperature: " + str(t) + " Pressure: " + str(p) + " Humidity: " + str(h)
+  
+  # Display the scrolling message
+  sense.show_message(message, scroll_speed=0.05)
+```
+
+<iframe src="https://editor.raspberrypi.org/en/embed/viewer/getting-started-with-the-sense-hat-step-8-a" width="100%" height="1000" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+The Code Editor shows the Sense HAT on its side, so the picture is turned a quarter-turn clockwise.
+
+[Open this code in the Code Editor](https://editor.raspberrypi.org/en/projects/getting-started-with-the-sense-hat-step-8-a){:target="_blank"}
 
 --- /collapse ---
 
@@ -37,11 +65,51 @@ Humidity: around 60%
 
 + If the temperature is within this normal range, display the scrolling message with a green background. If not, display a red background.
 
+If you're using the Code Editor, change the temperature with the temperature slider in the Space Station Control Panel, under the Sense HAT model. Drag it to between 19°C and 26°C to see the green background.
+
 --- collapse ---
 ---
 title: Solution
 ---
-<iframe src="https://trinket.io/embed/python/875ceb5402" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+```python
+from sense_hat import SenseHat
+sense = SenseHat()
+
+# Define the colours red and green
+red = (255, 0, 0)
+green = (0, 255, 0)
+
+while True:
+
+  # Take readings from all three sensors
+  t = sense.get_temperature()
+  p = sense.get_pressure()
+  h = sense.get_humidity()
+
+  # Round the values to one decimal place
+  t = round(t, 1)
+  p = round(p, 1)
+  h = round(h, 1)
+  
+  # Create the message
+  # str() converts the value to a string so it can be concatenated
+  message = "Temperature: " + str(t) + " Pressure: " + str(p) + " Humidity: " + str(h)
+  
+  if t > 18.3 and t < 26.7:
+    bg = green
+  else:
+    bg = red
+  
+  # Display the scrolling message
+  sense.show_message(message, scroll_speed=0.05, back_colour=bg)
+```
+
+<iframe src="https://editor.raspberrypi.org/en/embed/viewer/getting-started-with-the-sense-hat-step-8-b" width="100%" height="1000" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+The Code Editor shows the Sense HAT on its side, so the picture is turned a quarter-turn clockwise.
+
+[Open this code in the Code Editor](https://editor.raspberrypi.org/en/projects/getting-started-with-the-sense-hat-step-8-b){:target="_blank"}
+
 --- /collapse ---
 
 + Add more if statements to test for normal pressure and humidity conditions as well.

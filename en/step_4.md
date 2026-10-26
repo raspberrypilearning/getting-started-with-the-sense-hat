@@ -46,6 +46,21 @@ The part to add is highlighted in blue.
 ---
 title: Solution
 ---
-<iframe src="https://trinket.io/embed/python/44e4fe6df5?toggleCode=true" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+```python
+from sense_hat import SenseHat
+sense = SenseHat()
+
+blue = (0, 0, 255)
+yellow = (255, 255, 0)
+
+while True:
+  sense.show_message("Astro Pi is awesome!", text_colour=yellow, back_colour=blue, scroll_speed=0.05)
+```
+
+<iframe src="https://editor.raspberrypi.org/en/embed/viewer/getting-started-with-the-sense-hat-step-4" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+The Code Editor shows the Sense HAT on its side, so the picture is turned a quarter-turn clockwise.
+
+[Open this code in the Code Editor](https://editor.raspberrypi.org/en/projects/getting-started-with-the-sense-hat-step-4){:target="_blank"}
 
 --- /collapse ---

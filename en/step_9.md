@@ -23,9 +23,31 @@ The `sense.get_accelerometer_raw()` method tells you the amount of G-force actin
 
 In this example, the amount of gravitational acceleration for each axis is extracted and is then rounded to the nearest whole number:
 
-<iframe src="https://trinket.io/embed/python/f714d301d3" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+```python
+from sense_hat import SenseHat
+
+sense = SenseHat()
+
+while True:
+	acceleration = sense.get_accelerometer_raw()
+	x = acceleration['x']
+	y = acceleration['y']
+	z = acceleration['z']
+
+	x=round(x, 0)
+	y=round(y, 0)
+	z=round(z, 0)
+
+	print("x={0}, y={1}, z={2}".format(x, y, z))
+```
+
+<iframe src="https://editor.raspberrypi.org/en/embed/viewer/getting-started-with-the-sense-hat-step-9-a" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+[Open this code in the Code Editor](https://editor.raspberrypi.org/en/projects/getting-started-with-the-sense-hat-step-9-a){:target="_blank"}
 
 + Rotate the Sense HAT. You should see the values for `x` and `y` change between `-1` and `1`. If you place the Pi flat or turn it upside down, the value for the `z` axis will be `1` and then `-1`.
+
+If you're using the Code Editor, drag the Sense HAT model up or down to tilt it, then left or right to tip it to the side. The reset button next to the roll, pitch and yaw readings puts it back.
 
 Use this information to set the orientation of the LED matrix.
 
@@ -42,7 +64,46 @@ Use this information to set the orientation of the LED matrix.
 ---
 title: Solution
 ---
-<iframe src="https://trinket.io/embed/python/c2b483d8ea" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+```python
+from sense_hat import SenseHat
+
+sense = SenseHat()
+
+# Display the letter J
+sense.show_letter("J")
+
+while True:
+	acceleration = sense.get_accelerometer_raw()
+	x = acceleration['x']
+	y = acceleration['y']
+	z = acceleration['z']
+
+	x=round(x, 0)
+	y=round(y, 0)
+	z=round(z, 0)
+	
+	print("x={0}, y={1}, z={2}".format(x, y, z))
+
+  # Update the rotation of the display depending on which way up the Sense HAT is
+	if x  == -1:
+	  sense.set_rotation(180, False)
+	elif y == 1:
+	  sense.set_rotation(90, False)
+	elif y == -1:
+	  sense.set_rotation(270, False)
+	else:
+	  sense.set_rotation(0, False)
+
+	# Redraw the letter the new way up
+	sense.show_letter("J")
+```
+
+<iframe src="https://editor.raspberrypi.org/en/embed/viewer/getting-started-with-the-sense-hat-step-9-b" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+The Code Editor shows the Sense HAT on its side, so the picture is turned a quarter-turn clockwise.
+
+[Open this code in the Code Editor](https://editor.raspberrypi.org/en/projects/getting-started-with-the-sense-hat-step-9-b){:target="_blank"}
+
 --- /collapse ---
 
 ### Shake the board
@@ -61,8 +122,8 @@ red = (255, 0, 0)
 while True:
     acceleration = sense.get_accelerometer_raw()
     x = acceleration['x']
-	y = acceleration['y']
-	z = acceleration['z']
+    y = acceleration['y']
+    z = acceleration['z']
 
     x = abs(x)
     y = abs(y)
